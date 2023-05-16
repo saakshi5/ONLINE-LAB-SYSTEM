@@ -1,0 +1,58 @@
+*{
+    margin:0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+header{
+    width:95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+
+header .logo{
+    width:150px;
+    height: 90px;
+    margin-top: 5px;
+    cursor:pointer;
+}
+
+header nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+ul{
+    margin-top:5px;
+}
+
+ul li{
+    padding: 20px;
+    display: inline-block;
+}
+a{
+    color: rgb(28, 235, 200);
+    font-size: 1.1rem;
+}
+a:hover{
+    color: black;
+}
+a:active{
+    color: #333;
+}
+.btn{
+    padding: 20px;
+}
+
+button{
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background: rgb(24, 110, 95);
+    color: rgb(28,235,200);
+    font-size: 1.1rem;
+    text-transform: capitalize;
+    cursor:pointer;
+}
