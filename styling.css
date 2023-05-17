@@ -15,7 +15,6 @@
     font-family:Lucida Calligraphy;
    color: rgb(12, 50, 84);
    border:none;
-  
 }
 section{
     padding: 2rem 9%;
@@ -45,6 +44,7 @@ header .logo{
     height: 70px;
     margin-top: 2px;
     cursor:pointer;
+    color: rgb(6, 26, 43);
 }
 
 header nav{
@@ -78,7 +78,7 @@ a:active{
    .btn{
        transform: rotate(360deg);
        transform: skewY(-40deg);
-       padding: .5rem;
+       padding: 1rem;
        border:6px solid rgb(111,211,244);
        font-size:1.7rem;
        box-shadow: var(--box-shadow);
@@ -108,35 +108,45 @@ a:active{
     flex:1 1 45rem; 
 }
 
+@keyframes move {
+        0% {
+          transform: scale(.5);
+          border-radius: 100%;
+        }
+        50% {
+          background:rgba(111,211,244,1);
+        }
+        100% {
+          transform: scale(1.2);
+        }
+      }
+
 .home .image img
 {
     width: 100%;
-    height: 150%;
-    padding-bottom: 4rem;
-    transition: 0.5s all ease-in-out;
+    height: 100%;
+    transform:scale(4);
+    animation-name: move;
+  animation-duration:10s; 
+  animation-timing-function:linear; 
+  animation-delay: 0s;
+  /* animation-direction: alternate; */
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running; 
+
 }
 
-.home .image:hover img {
-    transform: scale(1.5);
+
+#animate{
+    -webkit-animation: red-to-black 5s linear 6s infinite alternate;
 }
-/* #animate{
-    width: 100px;
-    height: 100px; 
-    animation-name: move;
-    animation-duration: 5s;
-    animation-timing-function:linear;
-    animation-delay: 2s;
-    animation-iteration-count: infinite;
-    animation-direction:alternate-reverse;
-  }
-  
- @keyframes move {
-    0%   {background-color:red; left:0px; top:0px;}
-    25%  {background-color:yellow; left:200px; top:0px;}
-    50%  {background-color:blue; left:200px; top:200px;}
-    75%  {background-color:green; left:0px; top:200px;}
-    100% {background-color:red; left:0px; top:0px;}
-  }  */
+@keyframes red-to-black{
+    0%{transform: translate(0px,0px); }
+    50%{transform: translate(10px,10px);}
+    100%{transform: translate(20px,20px);}
+   }
+
 .home .content{
     flex:1 1 45rem;
 }
@@ -227,6 +237,130 @@ a:active{
 .contact .boxcontainer .box a:hover i{
     padding-right: 2rem;
 }
+
+.about h1{
+    padding-top: 2rem;
+    text-align: center;
+    font-size:50px;
+    font-style:oblique;
+    font-family:Lucida Calligraphy;
+   color: rgb(12, 50, 84);
+   border:none;
+
+}
+
+.about .row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:2rem;
+}
+
+.about .row .image{
+    flex:1 1 45rem;
+}
+
+.about .row .image{
+    flex:1 1 45rem; 
+}
+.about .row .content .image img{
+    width: 100%;
+    height: 100%;
+    /* padding-bottom: 3rem;
+    padding-top: 14%; */
+    transition: 0s all ease-in-out;
+}
+
+.about .row .image:hover img {
+    transform: scale(1.2);
+}
+
+
+.about .row .content{
+ flex:1 1 45rem;
+}
+
+.about .row .content h3{
+    /* color: rgb(12, 50, 84); */
+    padding-top: 6rem;
+    color:var(--black);
+    line-height: 1.8;
+    font-family: Lucida Calligraphy;
+    text-shadow: 0 -3px;
+    text-align:center;
+    text-shadow: rgb(111,211,244) 0 -3px;
+    padding: 0 4%;
+    /* text-shadow: var(--text-shadow); */
+    font-size: 3rem;
+   
+}
+
+
+.about .content pre{
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 0 4%;
+    padding:1rem;
+    color:black;
+    font-family:Baskerville Old Face;
+    text-align:justify;
+}
+
+.about .details h3{
+    font-size: 2rem;
+    color:var(--black);
+    font-family: Lucida Calligraphy;
+    text-shadow: rgb(111,211,244) 0 -3px;
+    text-align:justify;
+    padding: 5px;
+}
+
+.about .details a:hover ul{
+    padding-right: 3rem;
+}
+
+.about .row .content a:hover pre{
+    padding-right: 3rem;
+}
+.about .details pre{
+    display:flex;
+    flex-wrap: wrap;
+    height: 80%;
+    width: 100%;
+}
+
+.about .details pre{
+    font-size: 15px;
+    color:black;
+    padding-right: .5rem;
+    font-family:Baskerville Old Face;
+    background:rgba(176, 171, 171, 0.1);
+}
+
+/* .about p{
+    border-radius: 50px;      
+    font-size: 15px; 
+    color:black;
+    font-family:Baskerville Old Face;
+    border: 8px solid rgba(176, 171, 171, 0.1); 
+} */
+/*.about .row .image{
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:2.5rem;
+    padding-top: 15rem;
+}
+.about .row img{
+    /* position: absolute; 
+    left: 50%;
+    margin:0;
+    height: 300px;
+    width:600px;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.9);
+} */
+
+
 
 
 /*media query */
