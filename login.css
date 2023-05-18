@@ -257,3 +257,108 @@ form:after {
 	background-position: 0 -135px;
 	color: #00aeef;
 }
+
+
+
+
+/* page css */
+
+*{
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+    transition: all .2s ease-out;
+    margin:0;
+    padding: 0;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+#heading{
+    font-size:30px;
+    font-style:oblique;
+    font-family:Lucida Calligraphy;
+   color: rgb(12, 50, 84);
+   border:none;
+}
+section{
+    padding: 2rem 9%;
+    margin:5px;
+    top:70%;
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+}
+.title{
+    padding:2px;
+    position: fixed;
+    top: 0;left: 0;right: 0;
+    /* width:100%; */
+    box-shadow: 0 .5rem 1.5rem rgb(0,0,0,.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+}
+
+header .logo{
+    width: 150px;
+    height: 70px;
+    margin-top: 2px;
+    cursor:pointer;
+    color: rgb(6, 26, 43);
+}
+
+header nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar a{
+    font-size: 1.7rem;
+    margin-left:2rem;
+    align-items:center;
+    padding: 10px;
+    border:none;
+    color: rgb(111,211,244);
+}
+a:hover{
+    color: black;
+}
+a:active{
+    color: #333;
+}
+
+
+.footer .boxcontainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(22rem,1fr));
+    gap:2rem;
+    background: white;
+}
+
+.footer .boxcontainer .box h3{
+    font-size: 2.5rem;
+    color: rgb(12, 50, 84);
+    padding: 1rem 0;
+}
+
+.footer .boxcontainer .box a{
+    font-size:1.5rem;
+    display: block;
+    color: rgb(65, 188, 230);
+    padding: 1rem 0;
+}
+
+.footer .boxcontainer .box a i{
+    padding-right: .5rem;
+    color:rgb(111,211,244);
+}
+
+.footer .boxcontainer .box a:hover i{
+    padding-right:2rem;
+}
+
