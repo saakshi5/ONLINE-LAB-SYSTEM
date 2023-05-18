@@ -30,7 +30,7 @@ a:hover{ text-decoration: underline; }
 .alignright { 
     float: right; margin-left: 15px; 
 }
-.clearfix:after;
+.clearfix:after,
 form:after {
 	content: ".";
 	display: block;
