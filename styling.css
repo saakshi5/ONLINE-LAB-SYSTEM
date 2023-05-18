@@ -169,9 +169,10 @@ a:active{
     font-family:Baskerville Old Face;
     text-align: center;
 }
-#menu-btn{
+/* #menu-btn{ */
+    .title .fa-bars{
     font-size: 2.5rem;
-    border-radius: 0.5rem;
+    border-radius: .5rem;
     background: #eee;
     color:rgb(28, 235, 200);
     padding: 1rem 1.5rem;
@@ -364,7 +365,7 @@ a:active{
 
 
 /*media query */
-@media screen and (max-width:991px){
+@media  (max-width:991px){
 
     html{
         font-size: 55%;
@@ -377,7 +378,7 @@ a:active{
     }
 }
 
-@media screen and (max-width:450px){
+@media (max-width:450px){
 
     html{
         font-size: 50%;
@@ -385,10 +386,16 @@ a:active{
 
 }
 
-@media screen and (max-width:768px){
-
-    #menu-btn{
+ @media  (max-width:668px){
+    /* #menu-btn{
         display: initial;
+    } */
+
+    html{
+        font-size: 55%;
+    }
+    .title .fa-bars{
+        display: block;
     }
  .title .navbar{
     position: relative;
@@ -397,6 +404,7 @@ a:active{
     border-radius: .5rem;;
     box-shadow:0 .5rem 1.5rem rgb(0,0,0,.1);
     width: 30rem;
+    border:2px solid black;
     background: #fff;
     transform:scale(0);
     opacity: 0;
@@ -406,7 +414,7 @@ a:active{
  .title .navbar .active{
     transform: scale(1);
     opacity: 1;
-    transition: 2s ease-out;
+    transition: .2s ease-out;
  }
  .title .navbar a{
     font-size: 2rem;
