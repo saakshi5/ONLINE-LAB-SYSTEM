@@ -53,6 +53,7 @@ header nav{
     align-items: center;
 }
 .navbar a{
+    font-family:Baskerville Old Face;
     font-size: 1.7rem;
     margin-left:2rem;
     align-items:center;
