@@ -283,11 +283,15 @@ html{
     /* width:100%; */
     box-shadow: 0 .5rem 1.5rem rgb(0,0,0,.1);
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    /* justify-content: space-between; */
     align-items: center;
     background: #fff;
 }
-
+header .navbar{
+    /* border: 2px solid black; */
+    margin-left:30%;
+}
 header .logo{
     width: 150px;
     height: 70px;
