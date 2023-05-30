@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="styling.css">
+        <script src="system.js"></script>
         <title>Online Diagnostic Lab Appointment</title>
       
-        <script type="text/javascript" src="system.js">
-
-        </script>
+        <!-- <script type="text/Javascript">
+           function click(){
+          console.log("clicked");
+         }
+        </script> -->
     </head>
     <body>
+
+    
         <header class="title">
             <div>
             <img src="images/logo.png" alt="logo png" class="logo"></div>
@@ -18,13 +24,18 @@
                 <a href="#home">HOME</a>
                 <a href="#about">ABOUT US</a>
                  <a href="#contact">CONTACT </a>
-            
+
+                
         </nav>
-            <button id="menu-btn" onclick="click();"><i class="fa fa-bars"></i></button>
-        
-       
+
+        <button id="menu-btn" onclick="clickk();">
+            <span class="material-symbols-outlined">
+                menu
+                </span>
+        </button>
         </header>
-    
+      
+     
 <br>
 <br>
 <br>
@@ -51,7 +62,7 @@
     </section>
 
     <section class="about" id="about">
-        <h1><span>About </span> Us</h1>
+        <h1><span id="hi">About </span> Us</h1>
         <div class="row">
             <div class="image">
                 <img src="images/tests.jpg" alt="" style="height: 90%; width: 100%;padding-top: 14%;">
@@ -79,6 +90,7 @@
                     <li>Customer First</li>
                     <li>Accountability</li>
                     <li>Ethics and Integrity</li>
+                    <!-- <button onclick="clickk();">Hii</button> -->
                     </ul>
                     </pre></a>
                  </div>
@@ -109,11 +121,21 @@
         <div class="boxcontainer">
             <div class="box">
             <h3>CONTACT</h3>
-            <a href="#"><i class="fa fa-phone" aria-hidden="true"></i> +456783672</a>
-            <a href="#"><i class="fa fa-phone" aria-hidden="true"></i>+876584427</a>
-            <a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> healthcarepathlabs@gmail.com</a>
-            <a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> healthcarepathlabs@yahoo.com</a>
-            <a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i> Mumbai, -INDIA,400104</a>
+            <a href="#"><span class="material-symbols-outlined">
+                call
+                </span> +456783672</a>
+            <a href="#"><span class="material-symbols-outlined">
+                call
+                </span>+876584427</a>
+            <a href="#"><span class="material-symbols-outlined">
+                mail
+                </span> healthcarepathlabs@gmail.com</a>
+            <a href="#"><span class="material-symbols-outlined">
+                mail
+                </span> healthcarepathlabs@yahoo.com</a>
+            <a href="#"><span class="material-symbols-outlined">
+                location_on
+                </span> Mumbai, -INDIA,400104</a>
             </div>
         </div>
     </section>
@@ -123,9 +145,15 @@
         <div class="boxcontainer">
             <div class="box">
             <h3>Quick Links</h3>
-            <a href="#"><i class="fa fa-chevron-circle-right" aria-hidden="true"> </i>HOME</a>
-            <a href="#"><i class="fa fa-chevron-circle-right" aria-hidden="true"> </i>ABOUT US</a>
-            <a href="#"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i>CONTACT US</a>
+            <a href="#"><span class="material-symbols-outlined">
+                chevron_right
+                </span> </i>HOME</a>
+            <a href="#"><span class="material-symbols-outlined">
+                chevron_right
+                </span>ABOUT US</a>
+            <a href="#"><span class="material-symbols-outlined">
+                chevron_right
+                </span>CONTACT US</a>
             
             </div>
         
