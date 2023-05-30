@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Tests</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="test.css">
     </head>
@@ -32,37 +33,49 @@
                 <ul>
                     <li>
                         <a href="customer.html">
-                        <span class="icon"> <i class="fa fa-users" aria-hidden="true"></i></span>
+                        <span class="icon"> <span class="material-symbols-outlined">
+                            dashboard
+                            </span></span>
                         <span class="tittle"> Dashboard</span>
                     </a>
                     </li>
                     <li>
-                        <a href="#">
-                        <span class="icon">  <i class="fa fa-heartbeat" aria-hidden="true"></i></span>
+                        <a href="test.html">
+                        <span class="icon"> <span class="material-symbols-outlined">
+                            science
+                            </span></span>
                         <span class="tittle"> Available Tests</span>
                     </a>
                     </li>
                     <li>
                         <a href="book.html">
-                        <span class="icon"> <i class="fa fa-list-alt" aria-hidden="true"></i></span>
+                        <span class="icon"> <span class="material-symbols-outlined">
+                            list_alt
+                            </span></span>
                         <span class="tittle"> Book Appointment</span>
                     </a>
                     </li>
                     <li>
                         <a href="pay.html">
-                        <span class="icon"> <i class="fa fa-money" aria-hidden="true"></i></span>
+                        <span class="icon"><span class="material-symbols-outlined">
+                            payments
+                            </span></span>
                         <span class="tittle"> Payment</span>
                     </a>
                     </li>
                     <li>
-                        <a href="#">
-                        <span class="icon"> <i class="fa fa-user" aria-hidden="true"></i></span>
+                        <a href="profile.html">
+                        <span class="icon"> <span class="material-symbols-outlined">
+                            person
+                            </span></span>
                         <span class="tittle"> Edit Profile</span>
                     </a>
                     </li>
                     <li>
                         <a href="#">
-                        <span class="icon"> <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        <span class="icon"> <span class="material-symbols-outlined">
+                            logout
+                            </span>
                         </span>
                         <span class="tittle"> Sign Out</span>
                     </a>
@@ -70,10 +83,19 @@
                 </ul>
             </div>
         </div>
-      
-      
+
         <div class="main">
             <h2 style="left:500px;">Tests Available</h2>
+            <div class="search"><lable>
+                <input type="text" placeholder="Search here">
+                <div class="butt"><button class="btn-1">Go</button></div>
+                <div class="iconn">
+               <span class="material-symbols-outlined">
+search
+</span>   </div>
+            
+            </lable>
+            </div>
             <div class="table-box">
                 <div class="table-row table-head">
                     <div class="table-cell last-cell">
@@ -87,7 +109,8 @@
 
                 <div class="table-row">
                     <div class="table-cell first-cell">
-                        <p>Blood Sugar</p>
+                        <p><input type="checkbox" name="choose" value="t1">
+                       Blood Sugar</p>
                     </div>
                
                     <div class="table-cell last-cell">
@@ -97,7 +120,8 @@
                
                 <div class="table-row">
                     <div class="table-cell first-cell">
-                        <p>Calcium</p>
+                        <p><input type="checkbox" name="choose" value="t2">
+                            Calcium</p>
                     </div>
                
                     <div class="table-cell last-cell">
@@ -107,15 +131,170 @@
                
                 <div class="table-row">
                     <div class="table-cell first-cell">
-                        <p>ECG</p>
+                        <p><input type="checkbox" name="choose" value="t3">
+                            ECG</p>
                     </div>
                
                     <div class="table-cell last-cell">
                         <p>306</p>
                     </div>
                 </div>
+
+                <div class="table-row">
+                    <div class="table-cell first-cell">
+                        <p><input type="checkbox" name="choose" value="t4">
+                            Hemoglobin(HB)</p>
+                    </div>
+               
+                    <div class="table-cell last-cell">
+                        <p>125</p>
+                    </div>
+                </div>
+
+                <div class="table-row">
+                    <div class="table-cell first-cell">
+                        <p><input type="checkbox" name="choose" value="t5">
+                            Insulin</p>
+                    </div>
+               
+                    <div class="table-cell last-cell">
+                        <p>747</p>
+                    </div>
+                </div>
+
+                <div class="table-row">
+                    <div class="table-cell first-cell">
+                        <p><input type="checkbox" name="choose" value="t6">
+                            Malaria</p>
+                    </div>
+               
+                    <div class="table-cell last-cell">
+                        <p>212</p>
+                    </div>
+                </div>
+
+                <div class="table-row">
+                    <div class="table-cell first-cell">
+                        <p><input type="checkbox" name="choose" value="t7">
+                            Thyroid</p>
+                    </div>
+               
+                    <div class="table-cell last-cell">
+                        <p>527</p>
+                    </div>
+                </div>
+                
+                <div class="table-row">
+                    <div class="table-cell first-cell">
+                        <p><input type="checkbox" name="choose" value="t8">Urine</p>
+                    </div>
+               
+                    <div class="table-cell last-cell">
+                        <p>110</p>
+                    </div>
+                </div>
+
+                <div class="table-row">
+                    <div class="table-cell first-cell">
+                        <p><input type="checkbox" name="choose" value="t9">Vitamin D</p>
+                    </div>
+               
+                    <div class="table-cell last-cell">
+                        <p>600</p>
+                    </div>
+                </div>
+               
+                <div class="table-row">
+                    <div class="table-cell first-cell">
+                        <p><input type="checkbox" name="choose" value="t10">Vitamin A</p>
+                    </div>
+               
+                    <div class="table-cell last-cell">
+                        <p>1400</p>
+                    </div>
+                </div>
+                  
+                <div class="table-row">
+                    <div class="table-cell first-cell">
+                        <p><input type="checkbox" name="choose" value="t11">Vitamin B12</p>
+                    </div>
+               
+                    <div class="table-cell last-cell">
+                        <p>400</p>
+                    </div>
+                </div>
+                
+                <div class="table-row">
+                    <div class="table-cell first-cell">
+                        <p><input type="checkbox" name="choose" value="t12">Vitamin C</p>
+                    </div>
+               
+                    <div class="table-cell last-cell">
+                        <p>1000</p>
+                    </div>
+                </div>
+                
+                <div class="table-row">
+                    <div class="table-cell first-cell">
+                        <p><input type="checkbox" name="choose" value="t13">Vitamin E</p>
+                    </div>
+               
+                    <div class="table-cell last-cell">
+                        <p>1400</p>
+                    </div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell first-cell">
+                        <p><input type="checkbox" name="choose" value="t15">Uric Acid</p>
+                    </div>
+               
+                    <div class="table-cell last-cell">
+                        <p>145</p>
+                    </div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell first-cell">
+                        <p><input type="checkbox" name="choose" value="t16">Hepitatis</p>
+                    </div>
+               
+                    <div class="table-cell last-cell">
+                        <p>600</p>
+                    </div>
+                </div>
+
+                <div class="table-row">
+                    <div class="table-cell first-cell">
+                        <p><input type="checkbox" name="choose" value="t17">Glucose</p>
+                    </div>
+               
+                    <div class="table-cell last-cell">
+                        <p>329</p>
+                    </div>
+                </div>
+
+                <div class="table-row">
+                    <div class="table-cell first-cell">
+                        <p><input type="checkbox" name="choose" value="t18">Cholesterol</p>
+                    </div>
+               
+                    <div class="table-cell last-cell">
+                        <p>165</p>
+                    </div>
+                </div>
+
+                <div class="table-row">
+                    <div class="table-cell first-cell">
+                        <p><input type="checkbox" name="choose" value="t19">Allergy</p>
+                    </div>
+               
+                    <div class="table-cell last-cell">
+                        <p>600</p>
+                    </div>
+                </div>
+
             </div>
-     
+            <a href="pay.html">
+            <button class="btnn">Book</button></a>
     </div>  
 
     </body>
