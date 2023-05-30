@@ -14,7 +14,13 @@
     font-style:oblique;
     font-family:Lucida Calligraphy;
    color: rgb(12, 50, 84);
-   border:none;
+   border: none;
+
+}
+
+.heading-container{
+    margin-left:-1.5%;
+    padding: 2px 2px 2px 2px;
 }
 section{
     padding: 2rem 9%;
@@ -34,7 +40,8 @@ html{
     /* width:100%; */
     box-shadow: 0 .5rem 1.5rem rgb(0,0,0,.1);
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    /* justify-content: space-between; */
     align-items: center;
     background: #fff;
 }
@@ -51,6 +58,13 @@ header nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+header .navbar{
+    /* border: 2px solid black; */
+    position: absolute;
+    left: 58%;
+    /* margin-left:20%; */
 }
 .navbar a{
     font-family:Baskerville Old Face;
@@ -171,7 +185,10 @@ a:active{
     text-align: center;
 }
 /* #menu-btn{ */
-    .title .fa-bars{
+ #menu-btn{
+    position: absolute;
+    left: 90%;
+
     font-size: 2.5rem;
     border-radius: .5rem;
     background: #eee;
@@ -179,6 +196,23 @@ a:active{
     padding: 1rem 1.5rem;
     cursor: pointer;
     display: none;
+}
+
+@media (max-width:500px){
+    /* #menu-btn{
+
+        display: block;
+        width:40px;
+        height: 40px;
+    }
+     
+    /* .title .navbar {
+        border: 2px solid black;
+        display: none;
+    } 
+    header nav{
+        display: flex;
+    } */
 }
  
 .footer .boxcontainer{
@@ -364,9 +398,8 @@ a:active{
 
 
 
-
 /*media query */
-@media  (max-width:991px){
+@media(max-width:991px){
 
     html{
         font-size: 55%;
@@ -379,7 +412,7 @@ a:active{
     }
 }
 
-@media (max-width:450px){
+@media(max-width:450px){
 
     html{
         font-size: 50%;
@@ -387,17 +420,30 @@ a:active{
 
 }
 
- @media  (max-width:668px){
-    /* #menu-btn{
-        display: initial;
-    } */
+ @media(max-width:668px){
+    #hi{
+        color: red;
+    }
+    
+    #menu-btn{
+        background: black;
+        display: block;
+        width:300px;
+        height: 300px;
+    }
 
     html{
         font-size: 55%;
     }
-    .title .fa-bars{
-        display: block;
-    }
+    
+    #heading{
+        font-size: 300px;
+     }
+
+     nav{
+        display: none;
+     }
+
  .title .navbar{
     position: relative;
     top:115%;
