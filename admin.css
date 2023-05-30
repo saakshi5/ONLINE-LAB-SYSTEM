@@ -117,13 +117,15 @@ padding-left: 100px;
    color:rgb(111,211,244);
 }
 
-.cardbox .card .iconbox{
+.cardbox .card .iconbox a span{
   font-size: 5rem;
   color: rgb(12, 50, 84);
 }
 
 
-
+.card:hover{
+    background:rgb(110, 180, 203);
+}
 
 
 
