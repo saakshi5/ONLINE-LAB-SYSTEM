@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Accounts</title>
+        <script src="system.js"></script>
+        
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="admin_payment.css">
-    </head>
+        <title>Accounts</title>
+        </head>
     <body>
 
         <header class="title">
@@ -132,14 +134,15 @@
         </div>
            <div class="details">
 
-           <div class="patient-details">
+           <div class="patient-details" onclick="createpatientdata();">
            <p>For Patient Payment Detalis:-</p>
            <div class="btn">
             <a href="#"><span class="material-symbols-outlined">
                 add
                 </span> Patient File</a> </div>
          </div>
-            <div class="staff-details">
+
+            <div class="staff-details" onclick="createstaffdata();">
             <p>For Staff Payment Detalis:-</p>
             <div class="btn">
             <a href="#"><span class="material-symbols-outlined">
@@ -149,214 +152,193 @@
 
          </div>
 
-            <!-- <div class="table-box">
-                <div class="table-row table-head">
-                    <div class="table-cell">
-                        <p>Id</p>
-                    </div>
-                    <div class="table-cell last-cell">
-                        <p>First Name</p>
-                    </div>
-               
-                    <div class="table-cell">
-                        <p>Last Name</p>
-                    </div>
-                    
-                    <div class="table-cell">
-                        <p>Email</p>
-                    </div>
-                    
 
-                    <div class="table-cell">
-                        <p>Address</p>
-                    </div>
-                    
-                    <div class="table-cell">
-                        <p>Action</p>
-                    </div>
-                    
+         
+    <!-- staff      -->
+<div id="stafftbox">
+    <div class="table-box">
+        <div class="table-row table-head">
 
-                </div> -->
+        <div class="table-cell first-cell">
+            <p>Id</p>
+        </div>
 
-                 <!-- /* <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p>Blood Sugar</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>114</p>
-                    </div>
-                </div>
-               
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p>Calcium</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>169</p>
-                    </div>
-                </div>
-               
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p>ECG</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>306</p>
-                    </div>
-                </div>
-
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p>Hemoglobin(HB)</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>125</p>
-                    </div>
-                </div>
-
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p>Insulin</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>747</p>
-                    </div>
-                </div>
-
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p>Malaria</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>212</p>
-                    </div>
-                </div>
-
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p>Thyroid</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>527</p>
-                    </div>
-                </div>
-                
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p>Urine</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>110</p>
-                    </div>
-                </div>
-
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p>Vitamin D</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>600</p>
-                    </div>
-                </div>
-               
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p>Vitamin A</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>1400</p>
-                    </div>
-                </div>
-                  
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p>Vitamin B12</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>400</p>
-                    </div>
-                </div>
-                
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p>Vitamin C</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>1000</p>
-                    </div>
-                </div>
-                
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p>Vitamin E</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>1400</p>
-                    </div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p>Uric Acid</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>145</p>
-                    </div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p>Hepitatis</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>600</p>
-                    </div>
-                </div>
-
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p>Glucose</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>329</p>
-                    </div>
-                </div>
-
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p>Cholesterol</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>165</p>
-                    </div>
-                </div>
-
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p>Allergy</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>600</p>
-                    </div>
-                </div>  */ -->
-
+            <div class="table-cell">
+                <p>Name</p>
             </div>
+            
+            <div class="table-cell">
+                <p>Email</p>
+            </div>
+            
+
+            <div class="table-cell">
+                <p>Salary</p>
+            </div>
+            
+            <div class="table-cell last-cell">
+                <p>Action</p>
+            </div>
+            
+
+        </div> 
+
+
+<div id="stafftable-boxx">
+      
+          <div class="table-row">
+            <div class="table-cell first-cell">
+                <p id="adsid">28855</p>
+            </div>
+       
+            <div class="table-cell">
+                <p id="adsname">rahul</p>
+            </div>
+        
+            <div class="table-cell">
+                <p id="adsemail">rahul@gmail.com</p>
+            </div>
+       
+            <div class="table-cell">
+                <p id="adsstatus">paid</p>
+            </div>
+            <div class="table-cell last-cell">
+                <p id="adsbutton"><button class="btn-2" onclick="openn();">
+                    <span class="material-symbols-outlined">
+                        edit
+                        </span>
+                 </button>
+                 <button class="btn-3" onclick="deleteb();">
+                    <span class="material-symbols-outlined">
+                        delete
+                        </span>
+                 </button></p>
+            </div>
+        </div>
+    </div>
+   
+       
+</div>
+    </div>
+
+
+
+<div id="patienttbox">
+            <div class="table-box">
+                <div class="table-row table-head">
+
+                    <div class="table-cell">
+
+                        <p id="adpid">Id</p>
+                    </div>
+                    <div class="table-cell last-cell">
+                        <p id="adpname">Name</p>
+                    </div>
+                    
+                    <div class="table-cell">
+                        <p id="adpemail">Email</p>
+                    </div>
+                    
+
+                    <div class="table-cell">
+                        <p id="adpstatus">Status</p>
+                    </div>
+                    
+                    <div class="table-cell">
+                        <p id="adpbutton">Action</p>
+                    </div>
+                    
+
+                </div> 
+        <div id="table-boxx">
+                  <div class="table-row">
+                    <div class="table-cell first-cell">
+                        <p>23655</p>
+                    </div>
+               
+                    <div class="table-cell">
+                        <p>isha</p>
+                    </div>
+                
+                    <div class="table-cell">
+                        <p>isha@gmail.com</p>
+                    </div>
+               
+                    <div class="table-cell">
+                        <p>paid</p>
+                    </div>
+
+                    <div class="table-cell last-cell">
+                        <p>
+                     <div class="butt" id="actions">
+                        <button class="btn-2" onclick="openn();">
+                        <span class="material-symbols-outlined">
+                            edit
+                            </span>
+                     </button>
+                     <button class="btn-3" onclick="deleteb();">
+                        <span class="material-symbols-outlined">
+                            delete
+                            </span></button>
+                        </p>
+                    </div>
+                </div>
+            
+            </div>
+               
+</div>
+            </div>
+
+
+
+
+    <!-- //modal -->
+    
+   <div class="modal" id="modall">
+    <div class="modal-header">
+     <div class="tittle">Edit Details</div>
+     <button class="close" id="closse" onclick="closee();" ><span class="material-symbols-outlined">
+        cancel
+        </span></button>
+    </div>  
+    <div class="modal-body">
+        <form>
+            <div class="form-field">
+                <p>Status:</p>
+                <input type="text" placeholder="" required>
+            </div>
+          
+            <div>
+                <a href="#">
+                <button class="edit">Save Changes</button></a></div>
+        </form>
+    </div>
+ </div>
+<div id="overlay"></div>
+
+
+<div class="delmodal" id="delmodall">
+    <div class="delmodal-header">
+     <div class="tittle"></div>
+     <button class="close" id="closse" onclick="closee();"><span class="material-symbols-outlined">
+        cancel
+        </span></button>
+    </div>  
+    <div class="delmodal-body">
+        <form>
+            <div class="form-field">
+                <p>Do you want to delete?</p>
+                <!-- <input type="text" placeholder="" required> -->
+            </div>
+          
+            <div>
+                <a href="#">
+                <button class="edit">Delete</button></a></div>
+        </form>
+    </div>
+ </div>
+<div id="overlay"></div>
+
     </div>  
 
     </body>

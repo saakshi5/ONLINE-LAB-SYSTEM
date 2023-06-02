@@ -130,7 +130,7 @@ form{
 }
 form p{
     font-weight: 600;
-    font-size: 19px;
+    font-size: 17px;
 }
 
 form label{
@@ -138,6 +138,7 @@ form label{
     font-size: 18px;
 }
 .form-field{
+    width: 150%;
     display: flex;
     justify-content:space-between;
 }

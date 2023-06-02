@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Appointments</title>
+        <script src="system.js"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="appoint.css">
+        <title>Appointments</title>
+
     </head>
     <body>
 
@@ -128,9 +130,11 @@
                         </span> </div>
             </lable>
             </div>
-            <a href="#" class="btn"><span class="material-symbols-outlined">
+            <a href="#" class="btn"  onclick="createappointment();"><span class="material-symbols-outlined">
                 add
                 </span> Add Appointment</a>
+
+<div id="adappointbox">
             <div class="table-box">
                 <div class="table-row table-head">
                     <div class="table-cell">
@@ -157,7 +161,44 @@
                     </div>
 
                 </div>
+<div id="adappointbox">
 
+                <div class="table-row">
+                    <div class="table-cell first-cell">
+                        <p id="adappid">12667</p>
+                    </div>
+                    <div class="table-cell">
+                        <p id="adappn">Parag</p>
+                    </div>
+               
+                    <div class="table-cell">
+                        <p id="adapptestn">CBC</p>
+                    </div>
+                    
+                    <div class="table-cell">
+                        <p  id="adappd">1/05/2023</p>
+                    </div>
+                    
+                    <div class="table-cell">
+                        <p id="adappay">1000</p>
+                    </div>
+                    
+                    <div class="table-cell last-cell">
+                        <p id="adappb"><button class="btn-2" onclick="openn();">
+                            <span class="material-symbols-outlined">
+                                edit
+                                </span>
+                         </button>
+                         <button class="btn-3" onclick="deleteb();">
+                            <span class="material-symbols-outlined">
+                                delete
+                                </span>
+                         </button></p>
+                    </div>
+
+                </div>
+
+            </div>
                 <!-- <div class="table-row">
                     <div class="table-cell first-cell">
                         <p>Blood Sugar</p>
@@ -335,8 +376,56 @@
                         <p>600</p>
                     </div>
                 </div> -->
-
             </div>
+            </div>
+            
+            
+    <!-- //modal -->
+    
+   <div class="modal" id="modall">
+    <div class="modal-header">
+     <div class="tittle">Edit Details</div>
+     <button class="close" id="closse" onclick="closee();" ><span class="material-symbols-outlined">
+        cancel
+        </span></button>
+    </div>  
+    <div class="modal-body">
+        <form>
+            <div class="form-field">
+                <p>Status:</p>
+                <input type="text" placeholder="" required>
+            </div>
+          
+            <div>
+                <a href="#">
+                <button class="edit">Save Changes</button></a></div>
+        </form>
+    </div>
+ </div>
+<div id="overlay"></div>
+
+
+<div class="delmodal" id="delmodall">
+    <div class="delmodal-header">
+     <div class="tittle"></div>
+     <button class="close" id="closse" onclick="closee();"><span class="material-symbols-outlined">
+        cancel
+        </span></button>
+    </div>  
+    <div class="delmodal-body">
+        <form>
+            <div class="form-field">
+                <p>Do you want to delete?</p>
+                <!-- <input type="text" placeholder="" required> -->
+            </div>
+          
+            <div>
+                <a href="#">
+                <button class="edit">Delete</button></a></div>
+        </form>
+    </div>
+ </div>
+<div id="overlay"></div>
     </div>  
 
     </body>

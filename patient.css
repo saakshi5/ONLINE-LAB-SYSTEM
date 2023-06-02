@@ -125,7 +125,7 @@ header.title .user{
 }
 .table-row{
     display: table;
-    width: 90%;
+    width: 80%;
     margin: 10px auto;
     font-family: sans-serif;
     background: transparent;
@@ -140,6 +140,7 @@ header.title .user{
     width: 15%;
     text-align: center;
     padding: 2px 0;
+    font-size: 13px;
     border-right: 1px solid #d6d4d4;
     vertical-align: middle;
 }
@@ -378,6 +379,7 @@ a:active{
 } 
 
 
+
 .main .search .butt{
     margin-top:-12%;
     margin-left: 93%;
@@ -413,3 +415,203 @@ a:active{
     box-shadow: 10px 12px 15px rgba(0,0,0,.3);
 }
 
+.btn-2{
+    margin-top: -.5%;
+    margin-left: -1%;
+    background-color:rgb(131, 218, 247);
+    color: white;
+    padding: 1.5px 5px;
+    border: none;
+    font-size: 15px;
+    /* border-radius: 20px;
+    -webkit-border-radius:100px;
+    -moz-border-radius:100px;
+    -ms-border-radius:100px; */
+/* -o-border-radius:100px; */
+    box-shadow: 7px 10px 12px rgba(0,0,0,.1);
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.btn-2:hover{
+    transform: scale(1.03);
+    -webkit-transform: scale(1.03);
+    -moz-transform: scale(1.03);
+    -ms-transform: scale(1.03);
+    -o-transform: scale(1.03);
+    box-shadow: 10px 12px 15px rgba(0,0,0,.3);
+}
+
+
+.btn-3{
+    margin-top: -0.5%;
+    margin-left: 5%;
+    background-color:red;
+    color: white;
+    padding: 1.5px 5px;
+    border: none;
+    font-size: 15px;
+    /* border-radius: 20px;
+    -webkit-border-radius:100px;
+    -moz-border-radius:100px;
+    -ms-border-radius:100px; */
+/* -o-border-radius:100px; */
+    box-shadow: 7px 10px 12px rgba(0,0,0,.1);
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.btn-3:hover{
+    transform: scale(1.03);
+    -webkit-transform: scale(1.03);
+    -moz-transform: scale(1.03);
+    -ms-transform: scale(1.03);
+    -o-transform: scale(1.03);
+    box-shadow: 10px 12px 15px rgba(0,0,0,.3);
+}
+
+
+
+.modal{
+    position: fixed;
+    top:50%;
+    left: 50%;
+    transform:translate(-50%,-50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 10;
+    background-color:#d9d7d7;
+    width: 500px;
+    max-width: 80%;
+}
+.modal-header{
+    padding: 10px 15px;
+    display:flex ;
+    justify-content:space-between;
+    align-items: center;
+    border-bottom:1px solid black ;
+}
+
+.modal-header .tittle{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.modal-header .close{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+.delmodal{
+    position: fixed;
+    top:50%;
+    left: 50%;
+    transform:translate(-50%,-50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 10;
+    background-color:#d9d7d7;
+    width: 260px;
+    max-width: 50%;
+}
+.delmodal-header{
+    padding: 10px 15px;
+    display:flex ;
+    justify-content:space-between;
+    align-items: center;
+    border-bottom:1px solid black ;
+}
+
+.delmodal-header .tittle{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.delmodal-header .close{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+#overlay{
+    position: fixed;
+    opacity: 0;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.5);
+    pointer-events: none;
+}
+
+
+form{
+    padding:2rem;
+    line-height: 1.8;
+    display: grid;
+    grid-row-gap:18px;
+    align-items: center;
+}
+form p{
+    font-weight: 600;
+    font-size: 19px;
+}
+
+form input,textarea{
+    border: 1px solid black;
+}
+form label{
+    border: 1px solid black;
+    font-weight: 500;
+    font-size: 18px;
+}
+.form-field{
+    display: flex;
+   
+    justify-content:space-between;
+}
+
+
+.edit{
+    margin-left: 57px;
+    margin-top: -10% ;
+    background-color: rgba(0,0,0,.95);
+    color: white;
+    padding: 8px 30px;
+    border: 2px solid black;
+    font-size: 16px;
+    border-radius: 100px;
+    -webkit-border-radius:100px;
+    -moz-border-radius:100px;
+    -ms-border-radius:100px;
+    -o-border-radius:100px;
+    box-shadow: 7px 10px 12px rgba(0,0,0,.1);
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.edit:hover{
+    transform: scale(1.03);
+    -webkit-transform: scale(1.03);
+    -moz-transform: scale(1.03);
+    -ms-transform: scale(1.03);
+    -o-transform: scale(1.03);
+    box-shadow: 10px 12px 15px rgba(0,0,0,.3);
+}

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Payment Page</title>
+       <script src="system.js"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="pay.css">
+        <title>Payment Page</title>
     </head>
     <body>
 
@@ -92,29 +93,29 @@
 
             <div class="form-field">
                 <p>Account Holder's Name:</p>
-                <input type="text" placeholder="Enter name" required>
+                <input type="text" placeholder="Enter name" id="accountname" required/>
             </div>
 
             <div class="form-field">
                 <p>Bank Name:</p>
-                <input type="text" placeholder="Enter bank name" required>
+                <input type="text" placeholder="Enter bank name" id="bankname" required/>
             </div>
 
 
             <div class="form-field">
                 <p>Enter Transaction Amt:</p>
-                <input type="email" placeholder="Enter amount" required>
+                <input type="text" placeholder="Enter amount" id="transamt" required/>
             </div>
 
             <div class="form-field">
                 <p>Enter Account No.:</p>
-                <input type="text" placeholder="Enter account no." required>
+                <input type="text" placeholder="Enter account no." id="accountno" required/>
             </div>
 
             
             <div class="form-field">
                 <p>Branch Name:</p>
-                <input type="text" placeholder="Enter branch name" required>
+                <input type="text" placeholder="Enter branch name" id="branchname" required/>
             </div>
 
             <!-- <div class="form-field">
@@ -124,10 +125,12 @@
 
             <div class="form-field">
                 <p>Enter transaction Date:</p>
-                <input type="date" required>
+                <input type="date" id="transdate" required/>
             </div>
             <div class="form-field">
-                <p>Upload Receipt:</p>
+                <p>Upload Receipt:[max file size=2MB]
+                </p>
+                <input type="file" name="filename" id="file-input"/>
             </div>
             
             <!-- <div class="form-field">
@@ -140,8 +143,12 @@
             </div> -->
             <div>
                 <!-- <button class="btn">Book</button>&nbsp; -->
-                <a href="#">
-                <button class="btn">Upload</button></a></div>
+                <!-- <a href="#">
+                    </a>
+               --> 
+               <p id="file-result"></p>
+               <input type="submit" class="btn" id="file-submit"  onclick="change();" required>
+             </div> 
         </form>
       </div>
     </div>  

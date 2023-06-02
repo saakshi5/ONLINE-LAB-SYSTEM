@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Appointments</title>
+        <script src="system.js"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="appoint.css">
+        <title>Appointments</title>
     </head>
     <body>
 
@@ -123,6 +124,42 @@ search
 
                 </div>
 
+                <div class="table-row">
+                    <div class="table-cell">
+                        <p>12365</p>
+                    </div>
+                    <div class="table-cell">
+                        <p>Faran</p>
+                    </div>
+               
+                    <div class="table-cell">
+                        <p>CBC</p>
+                    </div>
+                    
+
+                    <div class="table-cell">
+                        <p>6/5/2023</p>
+                    </div>
+                    
+                    <div class="table-cell">
+                        <p>1000</p>
+                    </div>
+
+                    <div class="table-cell">
+                        <p><button class="btn-2" onclick="openn();">
+                            <span class="material-symbols-outlined">
+                                edit
+                                </span>
+                         </button>
+                         <button class="btn-3" onclick="deleteb();">
+                            <span class="material-symbols-outlined">
+                                delete
+                                </span>
+                         </button></p>
+                    </div>
+                    
+
+                </div>
                 <!-- <div class="table-row">
                     <div class="table-cell first-cell">
                         <p>Blood Sugar</p>
@@ -302,6 +339,54 @@ search
                 </div> -->
 
             </div>
+                    
+            
+    <!-- //modal -->
+    
+   <div class="modal" id="modall">
+    <div class="modal-header">
+     <div class="tittle">Edit Details</div>
+     <button class="close" id="closse" onclick="closee();" ><span class="material-symbols-outlined">
+        cancel
+        </span></button>
+    </div>  
+    <div class="modal-body">
+        <form>
+            <div class="form-field">
+                <p>Status:</p>
+                <input type="text" placeholder="" required>
+            </div>
+          
+            <div>
+                <a href="#">
+                <button class="edit">Save Changes</button></a></div>
+        </form>
+    </div>
+ </div>
+<div id="overlay"></div>
+
+
+<div class="delmodal" id="delmodall">
+    <div class="delmodal-header">
+     <div class="tittle"></div>
+     <button class="close" id="closse" onclick="closee();"><span class="material-symbols-outlined">
+        cancel
+        </span></button>
+    </div>  
+    <div class="delmodal-body">
+        <form>
+            <div class="form-field">
+                <p>Do you want to delete?</p>
+                <!-- <input type="text" placeholder="" required> -->
+            </div>
+          
+            <div>
+                <a href="#">
+                <button class="edit">Delete</button></a></div>
+        </form>
+    </div>
+ </div>
+<div id="overlay"></div>
     </div>  
 
     </body>
