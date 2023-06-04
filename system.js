@@ -185,8 +185,6 @@ function createpatientdata(){
 
     tr.appendChild(tcell5);
     tcell5.appendChild(tcellpb);
-
-
 }
 
 
@@ -754,4 +752,68 @@ else if(fileinput.value=="")
       
     }
 
+}
+
+
+//staff patient payemnt
+
+function createpatientpaydata(){
+    console.log('staff patient payment data');
+
+
+    let tr=document.createElement('div');
+    tr.classList.add('table-row');
+
+
+    //creating each table cell
+    let tcell1=document.createElement('div');
+    tcell1.classList.add('table-cell','first-cell');
+
+    let tcell2=document.createElement('div');
+    tcell2.classList.add('table-cell');
+
+    let tcell3=document.createElement('div');
+    tcell3.classList.add('table-cell');
+
+    let tcell4=document.createElement('div');
+    tcell4.classList.add('table-cell');
+
+    let tcell5=document.createElement('div');
+    tcell5.classList.add('table-cell','last-cell');
+
+
+    //each cell paragraph
+    let tcellpid=document.createElement('p');
+    tcellpid.setAttribute('id','sppayid');
+    // tcellpid.innerText='3';
+
+    let tcellpn=document.createElement('p');
+    tcellpn.setAttribute('id','sppayn');
+
+    let tcellpe=document.createElement('p');
+    tcellpe.setAttribute('id','sppayemail');
+
+    let tcellps=document.createElement('p');
+    tcellps.setAttribute('id','sppaystatus');
+
+    let tcellpb=document.createElement('p');
+    tcellpb.setAttribute('id','sppayb');
+    
+//adding row and cells to table
+    let tbox=document.getElementById('paytable-boxx');
+    tbox.appendChild(tr);
+    tr.appendChild(tcell1);
+    tcell1.appendChild(tcellpid);
+
+    tr.appendChild(tcell2);
+    tcell2.appendChild(tcellpn);
+
+    tr.appendChild(tcell3);
+    tcell3.appendChild(tcellpe);
+
+    tr.appendChild(tcell4);
+    tcell4.appendChild(tcellps);
+
+    tr.appendChild(tcell5);
+    tcell5.appendChild(tcellpb);
 }
