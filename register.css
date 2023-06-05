@@ -41,7 +41,7 @@ form:after {
 .container {
      margin: 200px auto;
       position: relative; 
-      width: 1000px; 
+      width: 1300px; 
 	  /* border: 2px solid black; */
 }
 #content {
@@ -65,7 +65,7 @@ form:after {
 	text-align: center;
 	text-shadow: 0 1px 0 #fff;
 	width: 500px;
-    height: 500px;
+    height: 580px;
 }
 #content h1 {
 	color: rgb(65, 188, 230);
@@ -144,7 +144,7 @@ form:after {
 
 #content form input[type="text"],
 #content form input[type="email"],
-#content form input[type="password"] {
+#content form input[type="password"]{
     border-radius: 3px;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
@@ -172,7 +172,12 @@ form:after {
 	width: 80%;
 }
 #name { background-position: 10px 10px !important }
+#username { background-position: 10px 10px !important }
+#email { background-position: 10px 10px !important }
+#phone { background-position: 10px 10px !important }
+#address{ background-position: 10px 10px !important }
 #password { background-position: 10px -53px !important }
+#cpassword { background-position: 10px -53px !important }
 #content form input[type="submit"] {
 	background: rgb(195, 228, 245);
 	background: -moz-linear-gradient(top, rgba(137, 223, 249,1) 0%,rgba(136, 218, 249,1) 100%);
@@ -260,8 +265,23 @@ form:after {
 	color: #00aeef;
 }
 
+#eyebtn{
+	/* border: 2px solid black; */
+	position: absolute;
+	left: 83%;
+	top:64%;
+	background: rgba(126,126,126,0);
 
+}
 
+#eyebtn-2{
+	/* border: 2px solid black; */
+	position: absolute;
+	left: 83%;
+	top:74%;
+	background: rgba(126,126,126,0);
+
+}
 
 /* page css */
 
@@ -269,7 +289,7 @@ form:after {
     box-sizing: border-box;
     outline: none;
     border: none;
-    text-transform: capitalize;
+    text-transform:none;
     transition: all .2s ease-out;
     margin:0;
     padding: 0;
@@ -344,6 +364,7 @@ a:active{
     grid-template-columns: repeat(auto-fit,minmax(22rem,1fr));
     gap:2rem;
     background: white;
+	width: 130%;
 }
 
 .footer .boxcontainer .box h3{

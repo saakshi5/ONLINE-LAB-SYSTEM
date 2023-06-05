@@ -2,6 +2,8 @@
 <html>
     <head>
        <script src="system.js"></script>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="pay.css">
@@ -73,7 +75,7 @@
                     </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="index.html">
                         <span class="icon"> <span class="material-symbols-outlined">
                             logout
                             </span>
@@ -88,7 +90,7 @@
         <div class="main">
             <h2 style="left:500px;">Payment</h2>
       <div class="container-form">
-        <form action="#">
+        <form action="<?php $_PHP_SELF ?>" method="POST" name="form1" onsubmit="return false;">
            
 
             <div class="form-field">
@@ -147,10 +149,49 @@
                     </a>
                --> 
                <p id="file-result"></p>
-               <input type="submit" class="btn" id="file-submit"  onclick="change();" required>
+               <input type="submit" class="btn" id="file-submit"  onclick="change();ppaydetails();" required/>
              </div> 
         </form>
       </div>
     </div>  
     </body>
 </html>
+
+
+<script>
+function ppaydetails(){
+
+    let acname=document.getElementById("accountname");
+    let bankname=document.getElementById("bankname");
+    let transamt=document.getElementById("transamt");
+    let acnum=document.getElementById("accountno");
+    let branchname=document.getElementById("branchname");
+    let transdate=document.getElementById("transdate");
+    let img=document.getElementById("file-input");
+
+
+    console.log('patient payment');
+        $.ajax({
+
+type: 'POST',
+url: 'pay.php',
+data: {acn:acname.value,bn:bankname.value,br:branchname.value,amt:transamt.value,accnum:acnum.value,date:transdate.value,img:img.value},
+success:function(data){
+
+    if(data=='S'){
+        alert('Data stored Successfully');
+     }
+     else if(data=='EU'){
+        alert('Data already exists');
+     }
+     else{
+        alert('Some issue');
+     }
+    }
+
+})
+
+
+
+}
+</script>

@@ -164,7 +164,7 @@ form:after {
 	background: #eae7e7 url(https://cssdeck.com/uploads/media/items/8/8bcLQqF.png) no-repeat;
 	border: 1px solid #c8c8c8;
 	color: #777;
-	font: 13px Helvetica, Arial, sans-serif;
+	/* font: 13px Helvetica, Arial, sans-serif; */
 	margin: 0 0 10px;
 	padding: 15px 10px 15px 40px;
 	width: 80%;
@@ -193,7 +193,7 @@ form:after {
 	color: #0e3f50;
 	cursor: pointer;
 	float: left;
-	font: bold 15px Helvetica, Arial, sans-serif;
+	/* font: bold 15px Helvetica, Arial, sans-serif; */
 	height: 35px;
 	margin: 20px 0 35px 15px;
 	position: relative;
@@ -258,7 +258,14 @@ form:after {
 	color: #00aeef;
 }
 
-
+#eyebtn{
+	border: 2px solid black;
+	position: absolute;
+	left: 81%;
+	top:48%;
+	background: rgba(126,126,126,0);
+	z-index:99;
+}
 
 
 /* page css */
@@ -267,7 +274,7 @@ form:after {
     box-sizing: border-box;
     outline: none;
     border: none;
-    text-transform: capitalize;
+    text-transform:none;
     transition: all .2s ease-out;
     margin:0;
     padding: 0;
