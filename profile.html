@@ -75,7 +75,7 @@
                     </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="index.html">
                         <span class="icon"> <span class="material-symbols-outlined">
                             logout
                             </span>
@@ -166,12 +166,20 @@
 
             <div class="form-field">
                 <p>Password:</p>
-                <input type="text" placeholder="" required>
+                <input type="password" placeholder="" id="password" required/>
+                <button id="eyebtn" onclick="visible();">
+                    <span class="material-symbols-outlined">
+                    visibility
+                    </span></button>
             </div>
           
             <div class="form-field">
                 <p>Confirm Password:</p>
-                <input type="text" placeholder="" required>
+                <input type="password" placeholder="" id="cpassword" required/>
+                <button id="eyebtn-2" onclick="visible();">
+                    <span class="material-symbols-outlined">
+                    visibility
+                    </span></button>
             </div>
           
             <div>
@@ -211,3 +219,27 @@
 -->
     </body>
 </html>
+
+<script>
+      function visible(){
+        let pass=document.getElementById("password");
+        if(pass.type=="password")
+        {
+            pass.type="text";
+        }
+        else{
+            pass.type="password";
+        }
+
+
+        let cpass=document.getElementById("cpassword");
+        if(cpass.type=="password")
+        {
+            cpass.type="text";
+        }
+        else{
+            cpass.type="password";
+        }
+    }
+
+</script>

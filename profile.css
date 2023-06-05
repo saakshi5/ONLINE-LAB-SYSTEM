@@ -194,6 +194,7 @@ form label{
     background-color:#d9d7d7;
     width: 500px;
     max-width: 80%;
+    border: 2ps solid black;
 }
 .modal-header{
     padding: 10px 15px;
@@ -225,6 +226,23 @@ form label{
     bottom: 0;
     background-color: rgba(0,0,0,.5);
     pointer-events: none;
+}
+#eyebtn{
+	/* border: 2px solid black; */
+	position: absolute;
+	left: 89%;
+	top:64%;
+	background: white;
+
+}
+
+#eyebtn-2{
+	/* border: 2px solid black; */
+	position: absolute;
+	left: 89%;
+	top:77%;
+	background: white;
+
 }
 /* 
 .modal.active{
