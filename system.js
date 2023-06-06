@@ -133,6 +133,28 @@ function createpatientdata(){
     tr.classList.add('table-row');
 
    
+    let span= document.createElement('span');  //delete button
+    span.classList.add('material-symbols-outlined');
+    span.innerHTML='edit';
+    
+    let span2= document.createElement('span');  //delete button
+    span2.classList.add('material-symbols-outlined');
+    span2.innerHTML='delete';
+    
+    
+    let p=document.createElement('p');  //paragraph
+    p.setAttribute('id', 'pbutton');
+    
+    
+    //create button
+    let btn1= document.createElement('button');  //edit button
+    btn1.classList.add('btn-2');
+    
+    let btn2= document.createElement('button');  //delete button
+    btn2.classList.add('btn-3');    
+    
+
+    
 
     //creating each table cell
     let tcell1=document.createElement('div');
@@ -154,7 +176,7 @@ function createpatientdata(){
     //each cell paragraph
     let tcellpid=document.createElement('p');
     tcellpid.setAttribute('id','adpid');
-    tcellpid.innerText='655433';
+    // tcellpid.innerText='655433';
 
     let tcellpn=document.createElement('p');
     tcellpn.setAttribute('id','adpname');
@@ -275,6 +297,29 @@ let ptestdetails= document.getElementById('patienttestbox');
     let tr=document.createElement('div');
     tr.classList.add('table-row');
 
+
+    
+    let span= document.createElement('span');  //delete button
+    span.classList.add('material-symbols-outlined');
+    span.innerHTML='edit';
+    
+    let span2= document.createElement('span');  //delete button
+    span2.classList.add('material-symbols-outlined');
+    span2.innerHTML='delete';
+    
+    
+    let p=document.createElement('p');  //paragraph
+    p.setAttribute('id', 'pbutton');
+    
+    
+    //create button
+    let btn1= document.createElement('button');  //edit button
+    btn1.classList.add('btn-2');
+    
+    let btn2= document.createElement('button');  //delete button
+    btn2.classList.add('btn-3');    
+    
+
     let tcell1=document.createElement('div');
      tcell1.classList.add('table-cell','first-cell');
  
@@ -289,35 +334,42 @@ let ptestdetails= document.getElementById('patienttestbox');
 
 
 //each cell paragraph
-     let tcellptid =document.createElement('p');
-    tcellptid.setAttribute('id','adptid');
+    //  let tcellptid =document.createElement('p');
+    // tcellptid.setAttribute('id','adptid');
 
 
-    let tcellptn=document.createElement('p');
-    tcellptn.setAttribute('id','adptn');
-    tcellptn.innerText='om';
+    // let tcellptn=document.createElement('p');
+    // tcellptn.setAttribute('id','adptn');
+    // tcellptn.innerText='om';
 
-    let tcellptcost=document.createElement('p');
-    tcellptcost.setAttribute('id','adptcost');
+    // let tcellptcost=document.createElement('p');
+    // tcellptcost.setAttribute('id','adptcost');
 
-    let tcellptb=document.createElement('p');
-    tcellptb.setAttribute('id','adptb');
+    // let tcellptb=document.createElement('p');
+    // tcellptb.setAttribute('id','adptb');
 
        
 //adding row and cells to table
 let tbox1=document.getElementById('adptest');
 tbox1.appendChild(tr);
 tr.appendChild(tcell1);
-tcell1.appendChild(tcellptid);
+// tcell1.appendChild(tcellptid);
 
 tr.appendChild(tcell2);
-tcell2.appendChild(tcellptn);
+// tcell2.appendChild(tcellptn);
 
 tr.appendChild(tcell3);
-tcell3.appendChild(tcellptcost);
+// tcell3.appendChild(tcellptcost);
 
 tr.appendChild(tcell4);
-tcell4.appendChild(tcellptb);
+tcell4.appendChild(p);
+p.appendChild(btn1);
+btn1.appendChild(span);
+p.appendChild(btn2);
+btn2.appendChild(span2);
+
+btn1.addEventListener('click',openn);
+btn2.addEventListener('click',deleteb);
 
 }
     
@@ -330,6 +382,28 @@ function createpatient(){
 
 let tr=document.createElement('div');
 tr.classList.add('table-row');
+
+
+let span= document.createElement('span');  //delete button
+span.classList.add('material-symbols-outlined');
+span.innerHTML='edit';
+
+let span2= document.createElement('span');  //delete button
+span2.classList.add('material-symbols-outlined');
+span2.innerHTML='delete';
+
+
+let p=document.createElement('p');  //paragraph
+p.setAttribute('id', 'pbutton');
+
+
+//create button
+let btn1= document.createElement('button');  //edit button
+btn1.classList.add('btn-2');
+
+let btn2= document.createElement('button');  //delete button
+btn2.classList.add('btn-3');    
+
 
 let tcell1=document.createElement('div');
  tcell1.classList.add('table-cell','first-cell');
@@ -348,42 +422,49 @@ let tcell1=document.createElement('div');
 
 
 //creating cell for each paragraph i.e element
-let tcellpid =document.createElement('p');
-tcellpid.setAttribute('id','pid');
+// let tcellpid =document.createElement('p');
+// tcellpid.setAttribute('id','pid');
 
 
-let tcellpn=document.createElement('p');
-tcellpn.setAttribute('id','pn');
-tcellpn.innerText='omkar';
+// let tcellpn=document.createElement('p');
+// tcellpn.setAttribute('id','pn');
+// tcellpn.innerText='omkar';
 
-let tcellpemail=document.createElement('p');
-tcellpemail.setAttribute('id','pemail');
+// let tcellpemail=document.createElement('p');
+// tcellpemail.setAttribute('id','pemail');
 
-let tcellpadd=document.createElement('p');
-tcellpadd.setAttribute('id','paddress');
+// let tcellpadd=document.createElement('p');
+// tcellpadd.setAttribute('id','paddress');
 
 
-let tcellpb=document.createElement('p');
-tcellpb.setAttribute('id','pbutton');
+// let tcellpb=document.createElement('p');
+// tcellpb.setAttribute('id','pbutton');
 
    
 //adding row and cells to table
 let tbox1=document.getElementById('onlypatientbox');
 tbox1.appendChild(tr);
 tr.appendChild(tcell1);
-tcell1.appendChild(tcellpid);
+// tcell1.appendChild(tcellpid);
 
 tr.appendChild(tcell2);
-tcell2.appendChild(tcellpn);
+// tcell2.appendChild(tcellpn);
 
 tr.appendChild(tcell3);
-tcell3.appendChild(tcellpemail);
+// tcell3.appendChild(tcellpemail);
 
 tr.appendChild(tcell4);
-tcell4.appendChild(tcellpadd);
+// tcell4.appendChild(tcellpadd);
 
 tr.appendChild(tcell5);
-tcell5.appendChild(tcellpb);
+tcell5.appendChild(p);
+p.appendChild(btn1);
+btn1.appendChild(span);
+p.appendChild(btn2);
+btn2.appendChild(span2);
+
+btn1.addEventListener('click',openn);
+btn2.addEventListener('click',deleteb);
 
 
 }
@@ -399,6 +480,30 @@ function createappointment(){
 
 let tr=document.createElement('div');
 tr.classList.add('table-row');
+
+
+
+
+let span= document.createElement('span');  //delete button
+span.classList.add('material-symbols-outlined');
+span.innerHTML='edit';
+
+let span2= document.createElement('span');  //delete button
+span2.classList.add('material-symbols-outlined');
+span2.innerHTML='delete';
+
+
+let p=document.createElement('p');  //paragraph
+p.setAttribute('id', 'pbutton');
+
+
+//create button
+let btn1= document.createElement('button');  //edit button
+btn1.classList.add('btn-2');
+
+let btn2= document.createElement('button');  //delete button
+btn2.classList.add('btn-3');    
+
 
 let tcell1=document.createElement('div');
  tcell1.classList.add('table-cell','first-cell');
@@ -420,25 +525,25 @@ let tcell1=document.createElement('div');
 
  
 //each cell paragraph i.e element
-let tcelladappointid =document.createElement('p');
-tcelladappointid.setAttribute('id','adappid');
+// let tcelladappointid =document.createElement('p');
+// tcelladappointid.setAttribute('id','adappid');
 
 
-let tcelladappointn=document.createElement('p');
-tcelladappointn.setAttribute('id','adappn');
-tcelladappointn.innerText='omkar';
+// let tcelladappointn=document.createElement('p');
+// tcelladappointn.setAttribute('id','adappn');
+// tcelladappointn.innerText='omkar';
 
-let tcelladappointtestn=document.createElement('p');
-tcelladappointtestn.setAttribute('id','adapptestn');
+// let tcelladappointtestn=document.createElement('p');
+// tcelladappointtestn.setAttribute('id','adapptestn');
 
-let tcelladappointdate=document.createElement('p');
-tcelladappointdate.setAttribute('id','adappd');
+// let tcelladappointdate=document.createElement('p');
+// tcelladappointdate.setAttribute('id','adappd');
 
-let tcelladappointpay=document.createElement('p');
-tcelladappointpay.setAttribute('id','adappay');
+// let tcelladappointpay=document.createElement('p');
+// tcelladappointpay.setAttribute('id','adappay');
 
-let tcelladappointb=document.createElement('p');
-tcelladappointb.setAttribute('id','adappb');
+// let tcelladappointb=document.createElement('p');
+// tcelladappointb.setAttribute('id','adappb');
 
 
    
@@ -446,22 +551,28 @@ tcelladappointb.setAttribute('id','adappb');
 let tbox1=document.getElementById('adappointbox');
 tbox1.appendChild(tr);
 tr.appendChild(tcell1);
-tcell1.appendChild(tcelladappointid);
+// tcell1.appendChild(tcelladappointid);
 
 tr.appendChild(tcell2);
-tcell2.appendChild(tcelladappointn);
+// tcell2.appendChild(tcelladappointn);
 
 tr.appendChild(tcell3);
-tcell3.appendChild(tcelladappointtestn);
+// tcell3.appendChild(tcelladappointtestn);
 
 tr.appendChild(tcell4);
-tcell4.appendChild(tcelladappointdate);
+// tcell4.appendChild(tcelladappointdate);
 
 tr.appendChild(tcell5);
-tcell5.appendChild(tcelladappointpay);
+// tcell5.appendChild(tcelladappointpay);
 
 tr.appendChild(tcell6);
-tcell6.appendChild(tcelladappointb);
+tcell6.appendChild(p);
+p.appendChild(btn1);
+btn1.appendChild(span);
+p.appendChild(btn2);
+btn2.appendChild(span2);;
+btn1.addEventListener('click',openn);
+btn2.addEventListener('click',deleteb);
 
 }
 
@@ -471,6 +582,29 @@ function createsample(){
     let sampledetails= document.getElementById('samplebox');
     sampledetails.style.display='block';
    
+    
+
+
+let span= document.createElement('span');  //delete button
+span.classList.add('material-symbols-outlined');
+span.innerHTML='edit';
+
+let span2= document.createElement('span');  //delete button
+span2.classList.add('material-symbols-outlined');
+span2.innerHTML='delete';
+
+
+let p=document.createElement('p');  //paragraph
+p.setAttribute('id', 'sampleb');
+
+
+//create button
+let btn1= document.createElement('button');  //edit button
+btn1.classList.add('btn-2');
+
+let btn2= document.createElement('button');  //delete button
+btn2.classList.add('btn-3');    
+
  
 //selecting class
 
@@ -489,35 +623,33 @@ let tcell1=document.createElement('div');
  let tcell4=document.createElement('div');
  tcell4.classList.add('table-cell');
 
- let tcell5=document.createElement('div');
- tcell5.classList.add('table-cell');
 
- let tcell6=document.createElement('div');
- tcell6.classList.add('table-cell','last-cell');
+ let tcell5=document.createElement('div');
+ tcell5.classList.add('table-cell','last-cell');
 
 
 //each cell paragraph i.e element
-let tcellsid =document.createElement('p');
-tcellsid.setAttribute('id','sampleid');
+// let tcellsid =document.createElement('p');
+// tcellsid.setAttribute('id','sampleid');
 
 
-let tcellsn=document.createElement('p');
-tcellsn.setAttribute('id','samplen');
-tcellsn.innerText='omkar';
+// let tcellsn=document.createElement('p');
+// tcellsn.setAttribute('id','samplen');
+// tcellsn.innerText='omkar';
 
-let tcellstestn=document.createElement('p');
-tcellstestn.setAttribute('id','sampletestn');
-
-
-let tcellsstatus=document.createElement('p');
-tcellsstatus.setAttribute('id','samplestatus');
-
-let tcellsdate=document.createElement('p');
-tcellsdate.setAttribute('id','sampledate');
+// let tcellstestn=document.createElement('p');
+// tcellstestn.setAttribute('id','sampletestn');
 
 
-let tcellsb=document.createElement('p');
-tcellsb.setAttribute('id','sampleb');
+// let tcellsstatus=document.createElement('p');
+// tcellsstatus.setAttribute('id','samplestatus');
+
+// let tcellsdate=document.createElement('p');
+// tcellsdate.setAttribute('id','sampledate');
+
+
+// let tcellsb=document.createElement('p');
+// tcellsb.setAttribute('id','sampleb');
 
 
    
@@ -525,22 +657,27 @@ tcellsb.setAttribute('id','sampleb');
 let tbox1=document.getElementById('sampletbox');
 tbox1.appendChild(tr);
 tr.appendChild(tcell1);
-tcell1.appendChild(tcellsid);
+// tcell1.appendChild(tcellsid);
 
 tr.appendChild(tcell2);
-tcell2.appendChild(tcellsn);
+// tcell2.appendChild(tcellsn);
 
 tr.appendChild(tcell3);
-tcell3.appendChild(tcellstestn);
+// tcell3.appendChild(tcellstestn);
 
 tr.appendChild(tcell4);
-tcell4.appendChild(tcellsstatus);
+// tcell4.appendChild(tcellsstatus);
+
 
 tr.appendChild(tcell5);
-tcell5.appendChild(tcellsdate);
+tcell5.appendChild(p);
+p.appendChild(btn1);
+btn1.appendChild(span);
+p.appendChild(btn2);
+btn2.appendChild(span2);
 
-tr.appendChild(tcell6);
-tcell6.appendChild(tcellsb);
+btn1.addEventListener('click',openn);
+btn2.addEventListener('click',deleteb);
 
 
 }
