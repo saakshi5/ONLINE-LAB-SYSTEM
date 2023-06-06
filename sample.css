@@ -122,6 +122,8 @@ header.title .user{
 
 .table-box{
     margin: 30px auto;
+    margin-left: -5%;
+
 }
 .table-row{
     display: table;
@@ -139,10 +141,10 @@ header.title .user{
     display: table-cell;
     width: 15%;
     text-align: center;
-    font-size: 13px;
     padding: 2px 0;
     border-right: 1px solid #d6d4d4;
     vertical-align: middle;
+    font-size: 13px;
 }
 .table-head{
     background: rgb(111,211,244);

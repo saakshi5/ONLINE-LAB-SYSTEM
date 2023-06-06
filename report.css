@@ -122,6 +122,8 @@ header.title .user{
 
 .table-box{
     margin: 30px auto;
+    margin-left: -5%;
+
 }
 .table-row{
     display: table;
