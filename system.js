@@ -119,15 +119,15 @@ function editbutton(){
 function createpatientdata(){
     console.log('Creating patient data');
 
-    let patdetails= document.getElementById('patienttbox');
-    if(patdetails.style.display=='none'){
-    patdetails.style.display='block';
-    }
+    // let patdetails= document.getElementById('patienttbox');
+    // if(patdetails.style.display=='none'){
+    // patdetails.style.display='block';
+    // }
       
-    let staffdetails= document.getElementById('stafftbox');
-  if(staffdetails.style.display !='none'){
-    staffdetails.style.display='none';
-  }
+//     let staffdetails= document.getElementById('stafftbox');
+//   if(staffdetails.style.display !='none'){
+//     staffdetails.style.display='none';
+//   }
 
     let tr=document.createElement('div');
     tr.classList.add('table-row');
@@ -143,7 +143,7 @@ function createpatientdata(){
     
     
     let p=document.createElement('p');  //paragraph
-    p.setAttribute('id', 'pbutton');
+    p.setAttribute('id', 'adpb');
     
     
     //create button
@@ -153,7 +153,6 @@ function createpatientdata(){
     let btn2= document.createElement('button');  //delete button
     btn2.classList.add('btn-3');    
     
-
     
 
     //creating each table cell
@@ -173,40 +172,47 @@ function createpatientdata(){
     tcell5.classList.add('table-cell','last-cell');
 
 
-    //each cell paragraph
-    let tcellpid=document.createElement('p');
-    tcellpid.setAttribute('id','adpid');
-    // tcellpid.innerText='655433';
+    // //each cell paragraph
+    // let tcellpid=document.createElement('p');
+    // tcellpid.setAttribute('id','adpid');
+    // // tcellpid.innerText='655433';
 
-    let tcellpn=document.createElement('p');
-    tcellpn.setAttribute('id','adpname');
+    // let tcellpn=document.createElement('p');
+    // tcellpn.setAttribute('id','adpname');
 
-    let tcellpe=document.createElement('p');
-    tcellpe.setAttribute('id','adpemail');
+    // let tcellpe=document.createElement('p');
+    // tcellpe.setAttribute('id','adpemail');
 
-    let tcellps=document.createElement('p');
-    tcellps.setAttribute('id','adpstatus');
+    // let tcellps=document.createElement('p');
+    // tcellps.setAttribute('id','adpstatus');
 
-    let tcellpb=document.createElement('p');
-    tcellpb.setAttribute('id','adpbutton');
+    // let tcellpb=document.createElement('p');
+    // tcellpb.setAttribute('id','adpbutton');
     
 //adding row and cells to table
     let tbox=document.getElementById('table-boxx');
     tbox.appendChild(tr);
     tr.appendChild(tcell1);
-    tcell1.appendChild(tcellpid);
+    // tcell1.appendChild(tcellpid);
 
     tr.appendChild(tcell2);
-    tcell2.appendChild(tcellpn);
+    // tcell2.appendChild(tcellpn);
 
     tr.appendChild(tcell3);
-    tcell3.appendChild(tcellpe);
+    // tcell3.appendChild(tcellpe);
 
     tr.appendChild(tcell4);
-    tcell4.appendChild(tcellps);
+    // tcell4.appendChild(tcellps);
 
     tr.appendChild(tcell5);
-    tcell5.appendChild(tcellpb);
+    tcell5.appendChild(p);
+    p.appendChild(btn1);
+    btn1.appendChild(span);
+    p.appendChild(btn2);
+    btn2.appendChild(span2);
+    
+    btn1.addEventListener('click',openn);
+    btn2.addEventListener('click',deleteb);
 }
 
 
@@ -224,6 +230,33 @@ let patientdetails= document.getElementById('patienttbox');
 // {
     patientdetails.style.display='none';
 // }
+
+
+
+
+
+    
+let span= document.createElement('span');  //delete button
+span.classList.add('material-symbols-outlined');
+span.innerHTML='edit';
+
+let span2= document.createElement('span');  //delete button
+span2.classList.add('material-symbols-outlined');
+span2.innerHTML='delete';
+
+
+let p=document.createElement('p');  //paragraph
+p.setAttribute('id', 'adsbutton');
+
+
+//create button
+let btn1= document.createElement('button');  //edit button
+btn1.classList.add('btn-2');
+
+let btn2= document.createElement('button');  //delete button
+btn2.classList.add('btn-3');
+
+
 
 //selecting element
     let tr=document.createElement('div');
@@ -247,23 +280,23 @@ let patientdetails= document.getElementById('patienttbox');
      tcell5.classList.add('table-cell','last-cell');
  
 
-     //each cell paragraph
-    let tcellsid =document.createElement('p');
-    tcellsid.setAttribute('id','adsid');
+    //  //each cell paragraph
+    // let tcellsid =document.createElement('p');
+    // tcellsid.setAttribute('id','adsid');
 
 
-    let tcellsn=document.createElement('p');
-    tcellsn.setAttribute('id','adsname');
-    tcellsn.innerText='akshata';
+    // let tcellsn=document.createElement('p');
+    // tcellsn.setAttribute('id','adsname');
+    // tcellsn.innerText='akshata';
 
-    let tcellse=document.createElement('p');
-    tcellse.setAttribute('id','adsemail');
+    // let tcellse=document.createElement('p');
+    // tcellse.setAttribute('id','adsemail');
 
-    let tcellss=document.createElement('p');
-    tcellss.setAttribute('id','adsstatus');
+    // let tcellss=document.createElement('p');
+    // tcellss.setAttribute('id','adsstatus');
 
-    let tcellsb=document.createElement('p');
-    tcellsb.setAttribute('id','adsbutton');
+    // let tcellsb=document.createElement('p');
+    // tcellsb.setAttribute('id','adsbutton');
 
 
     
@@ -271,20 +304,26 @@ let patientdetails= document.getElementById('patienttbox');
 let tbox1=document.getElementById('stafftable-boxx');
 tbox1.appendChild(tr);
 tr.appendChild(tcell1);
-tcell1.appendChild(tcellsid);
+// tcell1.appendChild(tcellsid);
 
 tr.appendChild(tcell2);
-tcell2.appendChild(tcellsn);
+// tcell2.appendChild(tcellsn);
 
 tr.appendChild(tcell3);
-tcell3.appendChild(tcellse);
+// tcell3.appendChild(tcellse);
 
 tr.appendChild(tcell4);
-tcell4.appendChild(tcellss);
+// tcell4.appendChild(tcellss);
 
 tr.appendChild(tcell5);
-tcell5.appendChild(tcellsb);
+tcell5.appendChild(p);
+p.appendChild(btn1);
+btn1.appendChild(span);
+p.appendChild(btn2);
+btn2.appendChild(span2);
 
+btn1.addEventListener('click',openn);
+btn2.addEventListener('click',deleteb);
 }
 
 
@@ -690,6 +729,29 @@ function createreport(){
     reportdetails.style.display='block';
 
    
+    
+    let span= document.createElement('span');  //delete button
+    span.classList.add('material-symbols-outlined');
+    span.innerHTML='edit';
+    
+    let span2= document.createElement('span');  //delete button
+    span2.classList.add('material-symbols-outlined');
+    span2.innerHTML='delete';
+    
+    
+    let p=document.createElement('p');  //paragraph
+    p.setAttribute('id', 'rtb');
+    
+    
+    //create button
+    let btn1= document.createElement('button');  //edit button
+    btn1.classList.add('btn-2');
+    
+    let btn2= document.createElement('button');  //delete button
+    btn2.classList.add('btn-3');    
+    
+
+
 //selecting class
 
 let tr=document.createElement('div');
@@ -713,42 +775,49 @@ let tcell1=document.createElement('div');
 
 
 //creating cell for each paragraph i.e element
-let tcellrpid =document.createElement('p');
-tcellrpid.setAttribute('id','rpid');
+// let tcellrpid =document.createElement('p');
+// tcellrpid.setAttribute('id','rpid');
 
 
-let tcellrpn=document.createElement('p');
-tcellrpn.setAttribute('id','rpn');
-tcellrpn.innerText='soham';
+// let tcellrpn=document.createElement('p');
+// tcellrpn.setAttribute('id','rpn');
+// tcellrpn.innerText='soham';
 
-let tcellrtestn=document.createElement('p');
-tcellrtestn.setAttribute('id','rtestn');
+// let tcellrtestn=document.createElement('p');
+// tcellrtestn.setAttribute('id','rtestn');
 
-let tcellrtstatus=document.createElement('p');
-tcellrtstatus.setAttribute('id','rtstatus');
+// let tcellrtstatus=document.createElement('p');
+// tcellrtstatus.setAttribute('id','rtstatus');
 
 
-let tcellrtb=document.createElement('p');
-tcellrtb.setAttribute('id','rtb');
+// let tcellrtb=document.createElement('p');
+// tcellrtb.setAttribute('id','rtb');
 
   
 //adding row and cells to table
 let tbox1=document.getElementById('reporttbox');
 tbox1.appendChild(tr);
 tr.appendChild(tcell1);
-tcell1.appendChild(tcellrpid);
+// tcell1.appendChild(tcellrpid);
 
 tr.appendChild(tcell2);
-tcell2.appendChild(tcellrpn);
+// tcell2.appendChild(tcellrpn);
 
 tr.appendChild(tcell3);
-tcell3.appendChild(tcellrtestn);
+// tcell3.appendChild(tcellrtestn);
 
 tr.appendChild(tcell4);
-tcell4.appendChild(tcellrtstatus);
+// tcell4.appendChild(tcellrtstatus);
 
 tr.appendChild(tcell5);
-tcell5.appendChild(tcellrtb);
+tcell5.appendChild(p);
+p.appendChild(btn1);
+btn1.appendChild(span);
+p.appendChild(btn2);
+btn2.appendChild(span2);
+
+btn1.addEventListener('click',openn);
+btn2.addEventListener('click',deleteb);
 
 }
 
@@ -758,6 +827,27 @@ function createstaff(){
     let staffdata= document.getElementById('onlystaffbox');
     staffdata.style.display='block';
 
+    
+    
+    let span= document.createElement('span');  //delete button
+    span.classList.add('material-symbols-outlined');
+    span.innerHTML='edit';
+    
+    let span2= document.createElement('span');  //delete button
+    span2.classList.add('material-symbols-outlined');
+    span2.innerHTML='delete';
+    
+    
+    let p=document.createElement('p');  //paragraph
+    p.setAttribute('id', 'staffb');
+    
+    
+    //create button
+    let btn1= document.createElement('button');  //edit button
+    btn1.classList.add('btn-2');
+    
+    let btn2= document.createElement('button');  //delete button
+    btn2.classList.add('btn-3');
    
 //selecting class
 
@@ -781,43 +871,52 @@ let tcell1=document.createElement('div');
 
  
 
-//creating cell for each paragraph i.e element
-let tcellstaffid =document.createElement('p');
-tcellstaffid.setAttribute('id','staffid');
+// //creating cell for each paragraph i.e element
+// let tcellstaffid =document.createElement('p');
+// tcellstaffid.setAttribute('id','staffid');
 
 
-let tcellstaffn=document.createElement('p');
-tcellstaffn.setAttribute('id','staffn');
-// tcellrpn.innerText='soham';
+// let tcellstaffn=document.createElement('p');
+// tcellstaffn.setAttribute('id','staffn');
+// // tcellrpn.innerText='soham';
 
-let tcellstaffemail=document.createElement('p');
-tcellstaffemail.setAttribute('id','staffe');
+// let tcellstaffemail=document.createElement('p');
+// tcellstaffemail.setAttribute('id','staffe');
 
-let tcellstaffrole=document.createElement('p');
-tcellstaffrole.setAttribute('id','staffrole');
+// let tcellstaffrole=document.createElement('p');
+// tcellstaffrole.setAttribute('id','staffrole');
 
 
-let tcellstaffb=document.createElement('p');
-tcellstaffb.setAttribute('id','staffb');
+// let tcellstaffb=document.createElement('p');
+// tcellstaffb.setAttribute('id','staffb');
 
    
 //adding row and cells to table
 let tbox1=document.getElementById('onlystafftbox');
 tbox1.appendChild(tr);
 tr.appendChild(tcell1);
-tcell1.appendChild(tcellstaffid);
+// tcell1.appendChild(tcellstaffid);
 
 tr.appendChild(tcell2);
-tcell2.appendChild(tcellstaffn);
+// tcell2.appendChild(tcellstaffn);
 
 tr.appendChild(tcell3);
-tcell3.appendChild(tcellstaffemail);
+// tcell3.appendChild(tcellstaffemail);
 
 tr.appendChild(tcell4);
-tcell4.appendChild(tcellstaffrole);
+// tcell4.appendChild(tcellstaffrole);
 
 tr.appendChild(tcell5);
-tcell5.appendChild(tcellstaffb);
+tcell5.appendChild(p);
+p.appendChild(btn1);
+btn1.appendChild(span);
+p.appendChild(btn2);
+btn2.appendChild(span2);
+
+btn1.addEventListener('click',openn);
+btn2.addEventListener('click',deleteb);
+
+
 }
 
 //payment
@@ -898,6 +997,28 @@ function createpatientpaydata(){
     console.log('staff patient payment data');
 
 
+    
+    
+    //create button
+    let btn1= document.createElement('button');  //edit button
+    btn1.classList.add('btn-2');
+    
+    let btn2= document.createElement('button');  //delete button
+    btn2.classList.add('btn-3');
+    
+    
+    let span= document.createElement('span');  //delete button
+    span.classList.add('material-symbols-outlined');
+    span.innerHTML='edit';
+    
+    let span2= document.createElement('span');  //delete button
+    span2.classList.add('material-symbols-outlined');
+    span2.innerHTML='delete';
+    
+    
+    let p=document.createElement('p');  //paragraph
+    p.setAttribute('id', 'sppayb');
+
     let tr=document.createElement('div');
     tr.classList.add('table-row');
 
@@ -919,38 +1040,46 @@ function createpatientpaydata(){
     tcell5.classList.add('table-cell','last-cell');
 
 
-    //each cell paragraph
-    let tcellpid=document.createElement('p');
-    tcellpid.setAttribute('id','sppayid');
-    // tcellpid.innerText='3';
+    // //each cell paragraph
+    // let tcellpid=document.createElement('p');
+    // tcellpid.setAttribute('id','sppayid');
+    // // tcellpid.innerText='3';
 
-    let tcellpn=document.createElement('p');
-    tcellpn.setAttribute('id','sppayn');
+    // let tcellpn=document.createElement('p');
+    // tcellpn.setAttribute('id','sppayn');
 
-    let tcellpe=document.createElement('p');
-    tcellpe.setAttribute('id','sppayemail');
+    // let tcellpe=document.createElement('p');
+    // tcellpe.setAttribute('id','sppayemail');
 
-    let tcellps=document.createElement('p');
-    tcellps.setAttribute('id','sppaystatus');
+    // let tcellps=document.createElement('p');
+    // tcellps.setAttribute('id','sppaystatus');
 
-    let tcellpb=document.createElement('p');
-    tcellpb.setAttribute('id','sppayb');
+    // let tcellpb=document.createElement('p');
+    // tcellpb.setAttribute('id','sppayb');
     
 //adding row and cells to table
     let tbox=document.getElementById('paytable-boxx');
     tbox.appendChild(tr);
     tr.appendChild(tcell1);
-    tcell1.appendChild(tcellpid);
+    // tcell1.appendChild(tcellpid);
 
     tr.appendChild(tcell2);
-    tcell2.appendChild(tcellpn);
+    // tcell2.appendChild(tcellpn);
 
     tr.appendChild(tcell3);
-    tcell3.appendChild(tcellpe);
+    // tcell3.appendChild(tcellpe);
 
     tr.appendChild(tcell4);
-    tcell4.appendChild(tcellps);
+    // tcell4.appendChild(tcellps);
 
     tr.appendChild(tcell5);
-    tcell5.appendChild(tcellpb);
+    tcell5.appendChild(p);
+    p.appendChild(btn1);
+    btn1.appendChild(span);
+    p.appendChild(btn2);
+    btn2.appendChild(span2);
+    
+    btn1.addEventListener('click',openn);
+    btn2.addEventListener('click',deleteb);
+    
 }
