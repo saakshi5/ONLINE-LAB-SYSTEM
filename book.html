@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Appointment Page</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+       
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="book.css">
+        <title>Appointment Page</title>
     </head>
     <body>
 
@@ -86,29 +89,30 @@
         <div class="main">
             <h2 style="left:500px;">Book Appointment</h2>
       <div class="container-form">
-        <form action="#">
+        <form action="<?php $_PHP_SELF ?>" method="POST" name="form1" onsubmit="return false;" enctype="multipart/form-data">
+
            
 
             <div class="form-field">
                 <p>Patient's Name</p>
-                <input type="text" placeholder="Enter name" required>
+                <input type="text" placeholder="Enter name" id="name" required>
             </div>
 
             <div class="form-field">
                 <p>Email</p>
-                <input type="email" placeholder="Enter email" required>
+                <input type="email" placeholder="Enter email" id="email" required>
             </div>
 
             <div class="form-field">
                 <p>Patient's Age</p>
-                <input type="text" placeholder="Enter age" required>
+                <input type="text" placeholder="Enter age" id="age" required>
             </div>
 
             
             <div class="form-field">
                 <p>Test Name</p>
                 <!-- <input type="text" placeholder="Enter test name" required> -->
-                <textarea id="address" name="address" rows="4" cols="30" required></textarea>
+                <textarea id="test" name="test" rows="4" cols="30" required></textarea>
             </div>
 
             <div class="form-field">
@@ -118,22 +122,80 @@
 
             <div class="form-field">
                 <p>Appointment Date</p>
-                <input type="date" required>
+                <input type="date" id="date" required>
             </div>
             
             <div class="form-field">
                 <p>Appointment Time</p>&nbsp;&nbsp;
             </div><div>
                 <input type="radio" id="t1" value="t1" name="time" required>
-                <label>7am-9am</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <label id="label1">7am-9am</label>&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="radio" id="t2" value="t2" name="time" required>
-                <label>9am-11am</label>
+                <label id="label2">9am-11am</label>
             </div>
             <div>
                 <a href="pay.html">
-                <button class="btn">Pay</button></a></div>
+                <button class="btn" onclick="bookingdetails();">Pay</button></a></div>
         </form>
       </div>
     </div>  
     </body>
 </html>
+
+
+
+<script>
+    function bookingdetails(){
+    
+        let name=document.getElementById("name");
+        let email=document.getElementById("email");
+        let age=document.getElementById("age");
+        let test=document.getElementById("test");
+        let address=document.getElementById("address");
+        let date=document.getElementById("date");
+        let t1=document.getElementById("label1");
+        let t2=document.getElementById("label2");
+        let r1=document.getElementById("t1");
+        let r2=document.getElementById("t2");
+        let time='';
+
+        console.log('patient booking');
+        console.log(t1.innerText,t2.innerText,r1,r2);
+      
+ if(r1.checked)
+ {
+    time=t1.innerText;
+ }
+ else if(r2.checked){
+    time=t2.innerText;
+ }
+ else{
+    time='unknown';
+ }
+        console.log(time);
+
+            $.ajax({
+    
+    type: 'POST',
+    url: 'book.php',
+    data: {t:time,n:name.value,e:email.value,d:date.value,address:address.value,age:age.value,test:test.value},
+    success:function(data){
+        // dataa= JSON.parse(data);
+    console.log(data);
+        if(data=='S'){
+            alert('Data stored Successfully');
+         }
+         else if(data=='EU'){
+            alert('Data already exists');
+         }
+         else{
+            alert('Some issue');
+         }
+        }
+    
+    })
+    
+    
+    
+    }
+    </script>

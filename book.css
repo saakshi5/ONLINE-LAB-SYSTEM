@@ -250,7 +250,7 @@ form label{
     box-sizing: border-box;
     outline: none;
     border: none;
-    text-transform: capitalize;
+    text-transform: none;
     transition: all .2s ease-out;
     margin:0;
     padding: 0;

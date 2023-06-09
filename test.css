@@ -159,6 +159,11 @@ header.title .user{
     text-align: left;
     padding-left: 10px;
 }
+
+
+#checkboxContainer{
+    border: 2px solid black;
+}
  /*media query */
 @media  (max-width:991px){
 

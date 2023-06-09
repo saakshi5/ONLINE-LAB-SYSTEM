@@ -89,7 +89,7 @@
         <div class="main">
             <h2 style="left:500px;">Payment</h2>
       <div class="container-form">
-        <form action="<?php $_PHP_SELF ?>" method="POST" name="form1" onsubmit="return false;">
+        <form action="<?php $_PHP_SELF ?>" method="POST" name="form1" onsubmit="return false;" enctype="multipart/form-data">
            
 
             <div class="form-field">
@@ -131,7 +131,7 @@
             <div class="form-field">
                 <p>Upload Receipt:[max file size=2MB]
                 </p>
-                <input type="file" name="filename" id="file-input"/>
+                <input type="file" name="image" id="file-input" onchange="handleFileSelect(event)"/>
             </div>
             
             <!-- <div class="form-field">
@@ -148,16 +148,25 @@
                     </a>
                --> 
                <p id="file-result"></p>
-               <input type="submit" class="btn" id="file-submit"  onclick="change();ppaydetails();" required/>
+               <input type="submit" name="submit" value="submit" class="btn" id="file-submit"  onclick="change(); ppaydetails();" required/>
              </div> 
         </form>
       </div>
     </div>  
+
     </body>
 </html>
 
 
 <script>
+var filename='';
+function handleFileSelect(event) {
+    var files = event.target.files;
+  filename = files[0].name;
+    console.log(filename);
+    // Perform further processing with the filename
+    // ...
+  }
 function ppaydetails(){
 
     let acname=document.getElementById("accountname");
@@ -166,22 +175,30 @@ function ppaydetails(){
     let acnum=document.getElementById("accountno");
     let branchname=document.getElementById("branchname");
     let transdate=document.getElementById("transdate");
+    let sub=document.getElementById("file-submit");
+
     let img=document.getElementById("file-input");
 
-
     console.log('patient payment');
+
+
+   
+    console.log(img.innerHTML);
         $.ajax({
 
 type: 'POST',
 url: 'pay.php',
-data: {acn:acname.value,bn:bankname.value,br:branchname.value,amt:transamt.value,accnum:acnum.value,date:transdate.value,img:img.value},
+data: {name:filename,submit:sub.value,image:img.innerHTML,acn:acname.value,bn:bankname.value,br:branchname.value,amt:transamt.value,accnum:acnum.value,date:transdate.value},
 success:function(data){
-
+ console.log(data);
     if(data=='S'){
         alert('Data stored Successfully');
      }
      else if(data=='EU'){
         alert('Data already exists');
+     }
+     else if(data=='N'){
+        alert('NO');
      }
      else{
         alert('Some issue');
