@@ -1,3 +1,8 @@
+<?php
+session_start();
+// $use=$_SESSION['user_name'];
+// echo $use;
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,10 +25,13 @@
                 <!-- </div>
                  <div class="user"> -->
                     <img src="images/user.png" style=" height: 50px; width:50px; margin-right: 1rem; margin-left:1.5rem; align-items:center; padding: 5px;" class="user">
-                 </div>
+                    <p id="usern" style="color:black; margin-left:2.4rem;"></p>
+ 
+                </div>
                 <!-- <div id="menu-btn" class="fa fa-bars"> </div> -->
             </nav>
-           
+            
+
         </header>
 
 
@@ -32,7 +40,7 @@
             <div class="navigation">
                 <ul>
                     <li>
-                        <a href="customer.html">
+                        <a href="customer.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             dashboard
                             </span></span>
@@ -48,7 +56,7 @@
                     </a>
                     </li>
                     <li>
-                        <a href="book.html">
+                        <a href="bookk.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             list_alt
                             </span></span>
@@ -56,7 +64,7 @@
                     </a>
                     </li>
                     <li>
-                        <a href="pay.html">
+                        <a href="payy.php">
                         <span class="icon"><span class="material-symbols-outlined">
                             payments
                             </span></span>
@@ -64,11 +72,12 @@
                     </a>
                     </li>
                     <li>
-                        <a href="profile.html">
+                        <a href="profilee.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             person
                             </span></span>
                         <span class="tittle"> Edit Profile</span>
+                       
                     </a>
                     </li>
                     <li>
@@ -165,5 +174,13 @@
             
         </div>
       </div>
+
+
+      
+<script>
+    let n=document.getElementById('usern');
+ n.innerText="<?php echo $_SESSION['user_name'] ?>";
+// n.innerText="world";
+    </script>
     </body>
 </html>

@@ -2,7 +2,7 @@
 $servername ="localhost";
 $username ="root";
 $password ="";
-$database ="labsystemdb";
+$database ="labsystemdb1";
 
 
 $conn =mysqli_connect($servername,$username,$password,$database);
@@ -18,7 +18,9 @@ if($count >0){
     $data=array();
     while($mypost= mysqli_fetch_assoc($sql)){
         array_push($data,$mypost);
+        $image=$row["report_img"];
        }  
+       header("content-type", "image/jpeg");
        echo json_encode($data);
 }
 else{

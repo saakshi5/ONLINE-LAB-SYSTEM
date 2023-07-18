@@ -231,7 +231,7 @@ form label{
 	/* border: 2px solid black; */
 	position: absolute;
 	left: 89%;
-	top:64%;
+	top:68%;
 	background: white;
 
 }
@@ -240,7 +240,16 @@ form label{
 	/* border: 2px solid black; */
 	position: absolute;
 	left: 89%;
-	top:77%;
+	top:79.5%;
+	background: white;
+
+}
+
+#eyebtnn{
+	/* border: 2px solid black; */
+position: absolute;
+margin-left: 322px;
+	top:24%;
 	background: white;
 
 }
@@ -324,7 +333,7 @@ form label{
     box-sizing: border-box;
     outline: none;
     border: none;
-    text-transform: capitalize;
+    text-transform:none;
     transition: all .2s ease-out;
     margin:0;
     padding: 0;

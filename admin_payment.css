@@ -377,6 +377,46 @@ header.title .user{
 }
 
 
+
+
+.addmodal{
+    position: fixed;
+    top:50%;
+    left: 50%;
+    transform:translate(-50%,-50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 10;
+    background-color:#d9d7d7;
+    width: 400px;
+    max-width: 80%;
+}
+.addmodal-header{
+    padding: 10px 15px;
+    display:flex ;
+    justify-content:space-between;
+    align-items: center;
+    border-bottom:1px solid black ;
+}
+
+.addmodal-header .tittle{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.addmodal-header .close{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+
+
 #overlay{
     position: fixed;
     opacity: 0;
@@ -403,6 +443,7 @@ form p{
 
 form input,textarea{
     border: 1px solid black;
+    
 }
 form label{
     border: 1px solid black;
@@ -411,10 +452,16 @@ form label{
 }
 .form-field{
     display: flex;
-   
+   font-size:14px;
     justify-content:space-between;
+    width:100%;
 }
-
+/* .form-field1{
+    display: flex;
+   font-size:14px;
+    width:150%; 
+    justify-content:space-between;
+} */
 
 .edit{
     margin-left: 57px;
@@ -516,7 +563,7 @@ form label{
     box-sizing: border-box;
     outline: none;
     border: none;
-    text-transform: capitalize;
+    text-transform: none;
     transition: all .2s ease-out;
     margin:0;
     padding: 0;

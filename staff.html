@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-       <script src="system.js"></script>
+       <!-- <script src="system.js"></script> -->
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -129,7 +129,7 @@
                     </span> </div>
         </lable>
         </div>
-            <a href="#" class="btn" onclick="createstaff();"><span class="material-symbols-outlined">
+            <a href="#" class="btn" onclick="addappointdetails();"><span class="material-symbols-outlined">
                 add
                 </span></span> Add Staff</a>
   <div id="onlystaffbox" >             
@@ -199,7 +199,7 @@
     
    <div class="modal" id="modall">
     <div class="modal-header">
-     <div class="tittle">Edit Details</div>
+     <div class="tittle">Edit Staff Details</div>
      <button class="close" id="closse" onclick="closee();" ><span class="material-symbols-outlined">
         cancel
         </span></button>
@@ -207,8 +207,21 @@
     <div class="modal-body">
         <form>
             <div class="form-field">
-                <p>Status:</p>
-                <input type="text" placeholder="" />
+                <p>Staff Name:</p>
+                <input type="text" placeholder="" id="st"/>
+            </div>
+            <div class="form-field">
+                <p>Staff Email:</p>
+                <input type="text" placeholder="" id="e"/>
+            </div>
+            <div class="form-field">
+                <p>Role:</p>
+                <input type="text" placeholder="" id="role1"/>
+            </div>
+          
+            <div class="form-field">
+                <p>Salary:</p>
+                <input type="text" placeholder="" id="salary"/>
             </div>
           
             <div>
@@ -241,6 +254,45 @@
     </div>
  </div>
 <div id="overlay"></div>
+
+<div class="addmodal" id="addmodall">
+    <div class="addmodal-header">
+     <div class="tittle">Add Sample</div>
+     <button class="close" id="closse" onclick="closee();"><span class="material-symbols-outlined">
+        cancel
+        </span></button>
+    </div>  
+    <div class="addmodal-body">
+        <form>
+            <div class="form-field">             
+                <p>Enter Username:</p>
+                <input type="text" name="susern" id="sus" required/></div>
+                <div class="form-field">        
+                <p>Enter Password:</p>
+                <input type="password" name="spass" id="spass" required/></div>        
+            <div class="form-field">             
+                <p>Enter Staff name:</p>
+                <input type="text" name="sname" id="sname" required/></div>
+                <div class="form-field">        
+                <p>Enter Staff Email:</p>
+                <input type="text" name="semail" id="semail" required/></div>
+                <div class="form-field">        
+                 <p>Enter Role:</p>
+                <input type="text" name="role" id="role" required/></div>
+                <div class="form-field">        
+                <p>Enter Salary:</p>
+                <input type="text" name="salary" id="sal" required/>
+            </div>
+
+            
+            <div>
+                <a href="#">
+                <button class="edit" onclick="createappointments();">Submit</button></a></div>
+            </form>
+            </div>
+     </div>      
+          
+<div id="overlay"></div>
     </div>  
 
     </body>
@@ -250,28 +302,76 @@
 
 
 <script>
-    function openn(){
-        console.log('hiii');
+    
+let staff=document.getElementById('st');
+let staffe=document.getElementById('e');
+
+let staffr=document.getElementById('role1');
+
+let staffsal=document.getElementById('salary');
+let acnum=document.createElement('p');
+acnum.setAttribute('id', 'acnum');
+
+  function openn(e){
+    console.log(e.target.parentNode.parentNode.parentNode.parentNode.childNodes);
+    eb=e.target.parentNode.parentNode.parentNode.parentNode.childNodes[0].innerText;//name
+    console.log(eb);
+    em=e.target.parentNode.parentNode.parentNode.parentNode.childNodes[1].innerText;//email
+    console.log(em);
+    r=e.target.parentNode.parentNode.parentNode.parentNode.childNodes[2].innerText;
+    console.log(r);
+    s=e.target.parentNode.parentNode.parentNode.parentNode.childNodes[3].innerText;
+    console.log(s);
+
+const modal =document.getElementById('modall');
+const overlay =document.getElementById('overlay');
+modal.style.display = 'block';
+overlay.style.display = 'block';
+modal.style.transform= 'translate(-50%,-50%) scale(1)';
+staff.value=eb;
+staffe.value=em;
+staffr.value=r;
+staffsal.value=s;
+
+}
+
+
+function closee(){
     const modal =document.getElementById('modall');
-    const overlay =document.getElementById('overlay');
-    modal.style.display = 'block';
-    overlay.style.display = 'block';
-    modal.style.transform= 'translate(-50%,-50%) scale(1)';
-    // modal.style.transform= 'translate scale(1)';
-    //   modal.add();
-    //   overlay.add();
-    }
-    
-    
-    function deleteb(){
-        console.log('delete data');
-        const delmodal =document.getElementById('delmodall');
-    const overlay =document.getElementById('overlay');
-    delmodal.style.display = 'block';
-    overlay.style.display = 'block';
-    delmodal.style.transform= 'translate(-50%,-50%) scale(1)';
-    }
-    
+    const delmodal =document.getElementById('delmodall');
+    const addmodal =document.getElementById('addmodall');
+const overlay =document.getElementById('overlay');
+modal.style.display = 'none';
+delmodal.style.display = 'none';
+addmodal.style.display='none';
+overlay.style.display = 'none';
+}
+
+function deleteb(){
+    console.log('delete data');
+    const delmodal =document.getElementById('delmodall');
+const overlay =document.getElementById('overlay');
+delmodal.style.display = 'block';
+overlay.style.display = 'block';
+delmodal.style.transform= 'translate(-50%,-50%) scale(1)';
+}
+
+
+function addappointdetails(){
+    console.log('add data');
+    const addmodal =document.getElementById('addmodall');
+const overlay =document.getElementById('overlay');
+addmodal.style.display = 'block';
+overlay.style.display = 'block';
+addmodal.style.transform= 'translate(-50%,-50%) scale(1)';
+}
+
+function deletebutton(){
+    // let delb=document.getElementById('deletebutton');
+    window.alert('Deleted Successfully');
+
+}
+
     
     
         function generatestaffpay(){
@@ -377,4 +477,70 @@
     }
      });
         }
+
+        
+
+        function editbutton(){
+ 
+
+ $.ajax({
+     
+     type: 'POST',
+     url: 'adstaff.php',
+     data: {n:staff.value,e:staffe.value,r:staffr.value,sal:staffsal.value},
+     success:function(data){
+ 
+         alert(data);
+        // console.log(data);
+    //data= JSON.parse(data);
+    alert(data);
+//  if(data=='S'){
+//     alert('Saved successfully');
+//  }
+//  else if(data=='N'){
+//     alert('Not Saved successfully');
+//  }
+ 
+//  else{
+//      alert('Some issue');
+//  }
+         }
+     
+     })
+ 
+    
+  }
+  function createappointments(){
+     
+let sname=document.getElementById('sname');
+let semail=document.getElementById('semail');
+     
+let sus=document.getElementById('sus');
+let spass=document.getElementById('spass');
+let sr=document.getElementById('role');
+
+let ssal=document.getElementById('sal');
+$.ajax({
+    
+    type: 'POST',
+    url: 'staffdetails.php',
+    data: {sn:sname.value,sr:sr.value,s:ssal.value,se:semail.value,su:sus.value,sp:spass.value},
+    success:function(data){
+
+
+        console.log(data);
+   //data= JSON.parse(data);
+   alert(data);
+//  if(data=='S'){
+//    alert('Saved successfully');
+// }
+
+//  else{
+//     alert('Some issue');
+//  }
+}
+    
+ })
+    
+  }
     </script>

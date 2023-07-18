@@ -238,7 +238,7 @@ header.title .user{
     box-sizing: border-box;
     outline: none;
     border: none;
-    text-transform: capitalize;
+    text-transform: none;
     transition: all .2s ease-out;
     margin:0;
     padding: 0;
@@ -552,6 +552,43 @@ a:active{
 }
 
 
+
+.addmodal{
+    position: fixed;
+    top:50%;
+    left: 50%;
+    transform:translate(-50%,-50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 10;
+    background-color:#d9d7d7;
+    width: 400px;
+    max-width: 80%;
+}
+.addmodal-header{
+    padding: 10px 15px;
+    display:flex ;
+    justify-content:space-between;
+    align-items: center;
+    border-bottom:1px solid black ;
+}
+
+.addmodal-header .tittle{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.addmodal-header .close{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
 #overlay{
     position: fixed;
     opacity: 0;
@@ -616,4 +653,23 @@ form label{
     -ms-transform: scale(1.03);
     -o-transform: scale(1.03);
     box-shadow: 10px 12px 15px rgba(0,0,0,.3);
+}
+
+
+#eyebtn{
+	border: 2px solid black;
+	position: absolute;
+	left: 87%;
+	top:70%;
+	background: rgba(126,126,126,0);
+
+}
+
+#eyebtn-2{
+	border: 2px solid black;
+	position: absolute;
+	left: 87%;
+	top:80%;
+	background: rgba(126,126,126,0);
+
 }

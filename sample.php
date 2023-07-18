@@ -2,7 +2,7 @@
 $servername ="localhost";
 $username ="root";
 $password ="";
-$database ="labsystemdb";
+$database ="labsystemdb1";
 
 
 $conn =mysqli_connect($servername,$username,$password,$database);
