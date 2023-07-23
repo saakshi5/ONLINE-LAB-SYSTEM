@@ -512,6 +512,12 @@ let mm1=document.getElementById('st');
 let acnum=document.createElement('p');
 acnum.setAttribute('id', 'acnum');
 
+let patnn=document.createElement('p');
+patnn.setAttribute('id', 'patnn');
+
+let pate=document.createElement('p');
+pate.setAttribute('id', 'pate');
+
   function openn(e){
     console.log(e.target.parentNode.parentNode.parentNode.parentNode.childNodes);
     eb=e.target.parentNode.parentNode.parentNode.parentNode.childNodes[4].innerText;
@@ -541,14 +547,23 @@ addmodal.style.display='none';
 overlay.style.display = 'none';
 }
 
-function deleteb(){
+
+function deleteb(e){
     console.log('delete data');
+    n=e.target.parentNode.parentNode.parentNode.parentNode.childNodes[1].innerText;
+  console.log(n);
+    e=e.target.parentNode.parentNode.parentNode.parentNode.childNodes[2].innerText;
+   console.log(e);
     const delmodal =document.getElementById('delmodall');
 const overlay =document.getElementById('overlay');
 delmodal.style.display = 'block';
 overlay.style.display = 'block';
 delmodal.style.transform= 'translate(-50%,-50%) scale(1)';
+patnn=n;
+pate=e;
+//console.log(patnn);
 }
+
 
 
 function addtransdetails(){
@@ -560,11 +575,11 @@ overlay.style.display = 'block';
 addmodal.style.transform= 'translate(-50%,-50%) scale(1)';
 }
 
-function deletebutton(){
-    // let delb=document.getElementById('deletebutton');
-    window.alert('Deleted Successfully');
+// function deletebutton(){
+//     // let delb=document.getElementById('deletebutton');
+//     window.alert('Deleted Successfully');
 
-}
+// }
     
     
 // function editbutton1(){
@@ -707,7 +722,7 @@ let dele=0;
     btn2.appendChild(span2);
     
     btn1.addEventListener('click',e=>openn(e));
-    btn2.addEventListener('click',deleteb);
+    btn2.addEventListener('click',e=>deleteb(e));
     
     }
     
@@ -781,4 +796,38 @@ $.ajax({
     })
     
   }
+  
+  function deletebutton(){
+    console.log("hi");
+
+// let patpayn=document.getElementById("patnn");
+// let patpaye=document.getElementById("pate");
+
+ console.log(patnn);
+ $.ajax({
+     
+     type: 'POST',
+     url: 'addeltrans.php',
+     data: {pn:patnn,pe:pate},
+     success:function(data){
+ 
+//alert(data);
+        // console.log(data);
+    //data= JSON.parse(data);
+    if(data=='S'){
+        alert('Deleted Successfully');
+     }
+     else if(data=='N'){
+        alert('Not deleted successfully');
+     }
+     else{
+        alert('Some issue');
+     }
+         }
+     
+     });
+ 
+    
+  }
+       
 </script>

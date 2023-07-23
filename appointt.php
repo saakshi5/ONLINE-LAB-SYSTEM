@@ -322,6 +322,9 @@ let tn=document.getElementById('t');
     let acnum=document.createElement('p');
     acnum.setAttribute('id', 'acnum');
     
+    let appi=document.createElement('p');
+appi.setAttribute('id', 'appi');
+
       function openn(e){
         console.log(e.target.parentNode.parentNode.parentNode.parentNode.childNodes);
         eb=e.target.parentNode.parentNode.parentNode.parentNode.childNodes[2].innerText;//test name
@@ -362,16 +365,19 @@ let tn=document.getElementById('t');
     addmodal.style.display='none';
     overlay.style.display = 'none';
     }
+    function deleteb(e){
     
-    function deleteb(){
-        console.log('delete data');
-        const delmodal =document.getElementById('delmodall');
-    const overlay =document.getElementById('overlay');
-    delmodal.style.display = 'block';
-    overlay.style.display = 'block';
-    delmodal.style.transform= 'translate(-50%,-50%) scale(1)';
-    }
-    
+    em=e.target.parentNode.parentNode.parentNode.parentNode.childNodes[0].innerText;//app id
+    console.log(em);
+    console.log('delete data');
+    const delmodal =document.getElementById('delmodall');
+const overlay =document.getElementById('overlay');
+delmodal.style.display = 'block';
+overlay.style.display = 'block';
+delmodal.style.transform= 'translate(-50%,-50%) scale(1)';
+appi=em;
+}
+
     
     function addappointdetails(){
         console.log('add data');
@@ -382,11 +388,11 @@ let tn=document.getElementById('t');
     addmodal.style.transform= 'translate(-50%,-50%) scale(1)';
     }
     
-    function deletebutton(){
-        // let delb=document.getElementById('deletebutton');
-        window.alert('Deleted Successfully');
+    // function deletebutton(){
+    //     // let delb=document.getElementById('deletebutton');
+    //     window.alert('Deleted Successfully');
     
-    }
+    // }
         
         
     function generateappointment(){
@@ -495,7 +501,7 @@ let tn=document.getElementById('t');
     btn2.appendChild(span2);
     
     btn1.addEventListener('click',e=>openn(e));
-    btn2.addEventListener('click',deleteb);
+    btn2.addEventListener('click',e=>deleteb(e));
     
     }
     
@@ -560,4 +566,35 @@ $.ajax({
 
   }
 
+  function deletebutton(){
+   // console.log("hi");
+
+// let ttid=document.getElementById("atid");
+
+ console.log(appi);
+ $.ajax({
+     
+     type: 'POST',
+     url: 'addelapp.php',
+     data: {i:appi},
+     success:function(data){
+ 
+         alert(data);
+        // console.log(data);
+    //data= JSON.parse(data);
+    if(data=='S'){
+        alert('Deleted Successfully');
+     }
+     else if(data=='N'){
+        alert('Not deleted successfully');
+     }
+     else{
+        alert('Some issue');
+     }
+         }
+     
+     });
+ 
+    
+  }
     </script>
