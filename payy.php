@@ -1,3 +1,7 @@
+<?php
+error_reporting(0);
+session_start();
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,7 +12,9 @@
         <link rel="stylesheet" href="pay.css">
         <title>Payment Page</title>
     </head>
-    <body>
+    <body onload="cost();
+    
+    ">
 
         <header class="title">
             <div>
@@ -34,7 +40,7 @@
             <div class="navigation">
                 <ul>
                     <li>
-                        <a href="customer.html">
+                        <a href="customer.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             dashboard
                             </span></span>
@@ -50,7 +56,7 @@
                     </a>
                     </li>
                     <li>
-                        <a href="book.html">
+                        <a href="bookk.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             list_alt
                             </span></span>
@@ -58,7 +64,7 @@
                     </a>
                     </li>
                     <li>
-                        <a href="pay.html">
+                        <a href="payy.php">
                         <span class="icon"><span class="material-symbols-outlined">
                             payments
                             </span></span>
@@ -66,7 +72,7 @@
                     </a>
                     </li>
                     <li>
-                        <a href="profile.html">
+                        <a href="profilee.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             person
                             </span></span>
@@ -89,8 +95,8 @@
         <div class="main">
             <h2 style="left:500px;">Payment</h2>
       <div class="container-form">
-        <form action="<?php $_PHP_SELF ?>" method="POST" name="form1" onsubmit="return false;" enctype="multipart/form-data">
-           
+        <form action="<?php $_PHP_SELF ?>" method="POST" name="form1" enctype="multipart/form-data">
+        <!--  onsubmit="return false;" -->
 
             <div class="form-field">
                 <p>Account Holder's Name:</p>
@@ -131,7 +137,8 @@
             <div class="form-field">
                 <p>Upload Receipt:[max file size=2MB]
                 </p>
-                <input type="file" name="image" id="file-input" onchange="handleFileSelect(event)"/>
+                <input type="file" name="upload" id="file-input"/>
+   <!-- //onchange="handleFileSelect(event)" -->
             </div>
             
             <!-- <div class="form-field">
@@ -148,66 +155,265 @@
                     </a>
                --> 
                <p id="file-result"></p>
-               <input type="submit" name="submit" value="submit" class="btn" id="file-submit"  onclick="change(); ppaydetails();" required/>
+               <input type="submit" name="submit" value="submit" class="btn" id="file-submit" onclick="ppaydetails();" required/>    
+                <!-- // onclick="change(); ppaydetails();" -->
+
              </div> 
+
+<!-- <b id="res"></b> -->
+<?php
+$fname = $_FILES["upload"]["name"];
+$tempname = $_FILES["upload"]["tmp_name"];
+$folder="pics/".$fname;
+echo $folder;
+move_uploaded_file($tempname, $folder);
+?> 
         </form>
       </div>
+
+
+
     </div>  
+<p id="em"></p>
+<b id="pname"></p>
 
     </body>
+    <!-- $folder=''; -->
+
+
+
+
 </html>
 
 
-<script>
-var filename='';
-function handleFileSelect(event) {
-    var files = event.target.files;
-  filename = files[0].name;
-    console.log(filename);
-    // Perform further processing with the filename
-    // ...
-  }
-function ppaydetails(){
 
-    let acname=document.getElementById("accountname");
+
+<script>
+    function cost(){
+        let c=document.getElementById("transamt");
+        c.value="<?php echo $_SESSION['cost'] ?>";
+    }
+//var folder='';
+// const uploadFile = (file) => {
+//   const fname = file.name;
+//    folder = "pics/" + fname;
+
+//   console.log('folder',folder); // Display the folder path
+
+//   const reader = new FileReader();
+//   reader.onload = function (e) {
+//     const tempname = e.target.result;
+//     // // Send the file data to the server using AJAX or fetch API
+//     // const formData = new FormData();
+//     // formData.append("upload", file, fname);
+
+//     // fetch("upload.php", {
+//     //   method: "POST",
+//     //   body: formData,
+//     // })
+//     //   .then((response) => {
+//     //     if (response.ok) {
+//     //       console.log("File uploaded successfully.");
+//     //     } else {
+//     //       console.log("Error uploading file.");
+//     //     }
+//     //   })
+//     //   .catch((error) => {
+//     //     console.error("An error occurred:", error);
+//     //   });
+//   };
+
+// //   reader.readAsDataURL(file);
+// };
+
+// // // Example usage
+// const fileInputt = document.getElementById("file-input");
+// fileInputt.addEventListener("change", (e) => {
+//   const file = e.target.files[0];
+//   uploadFile(file);
+// //   moveFile(file,pics/);
+
+// });
+
+// var filename='';
+// function handleFileSelect(event) {
+//     var files = event.target.files;
+//   filename = files[0].name;
+//     console.log(filename);
+//     // Perform further processing with the filename
+//     // ...
+//   }
+
+     let fileSubmit=document.getElementById("file-submit");
+
+    let fileInput=document.getElementById("file-input");
+    let fileResult=document.getElementById("file-result");
+
+fileInput.addEventListener("change", function () {
+  if (fileInput.files.length > 0) {
+    const fileSize = fileInput.files.item(0).size;
+    const fileMb = fileSize / 1024 ** 2;
+    if (fileMb >= 2) {
+      fileResult.innerHTML = "Please select a file less than 2MB.";
+      fileSubmit.disabled = true;
+    } else {
+      fileResult.innerHTML = "File selected";
+      fileSubmit.disabled = false;
+
+    }
+  }
+});
+
+// var f=document.getElementById("res");
+// f.innerHTML=fn;
+   // console.log(f);
+
+
+function ppaydetails(){
+   
+
+    
+let pname=document.createElement('p');
+pname.setAttribute('id', 'pname');
+let em=document.createElement('p');
+em.setAttribute('id', 'em');
+// pname='rahul';
+// em='rahul@gmail.com';
+//function info(){
+
+console.log('info');
+$.ajax({
+    
+   type: 'POST',
+   url: 'pat.php',
+   data: 'hii',
+   success:function(data){
+
+
+       console.log(data);
+   dataa= JSON.parse(data);
+   
+ pname=dataa[0].patient_name;
+em=dataa[0].patient_email;
+
+console.log(pname);
+var f;
+var fn="<?php echo $folder ?>";
+f=fn;
+
+let acname=document.getElementById("accountname");
     let bankname=document.getElementById("bankname");
     let transamt=document.getElementById("transamt");
     let acnum=document.getElementById("accountno");
     let branchname=document.getElementById("branchname");
     let transdate=document.getElementById("transdate");
-    let sub=document.getElementById("file-submit");
+    // let sub=document.getElementById("file-submit");
 
-    let img=document.getElementById("file-input");
-
+    // let img=document.getElementById("file-input");
+  // console.log(f.innerText);
     console.log('patient payment');
-
-
-   
-    console.log(img.innerHTML);
+    console.log('f=',f);
+    // console.log(img.innerHTML);
         $.ajax({
 
 type: 'POST',
 url: 'pay.php',
-data: {name:filename,submit:sub.value,image:img.innerHTML,acn:acname.value,bn:bankname.value,br:branchname.value,amt:transamt.value,accnum:acnum.value,date:transdate.value},
+data: {pn:pname,p:em,f:f,acn:acname.value,bn:bankname.value,br:branchname.value,amt:transamt.value,accnum:acnum.value,date:transdate.value},
 success:function(data){
  console.log(data);
     if(data=='S'){
         alert('Data stored Successfully');
      }
-     else if(data=='EU'){
-        alert('Data already exists');
-     }
-     else if(data=='N'){
-        alert('NO');
-     }
-     else{
-        alert('Some issue');
-     }
+    //  else if(data=='NS'){
+    //     alert('Data not stored Successfully');
+    // }
+    //  else{
+    //     alert('Some issue');
+    //  }
+    
     }
+})
+
+   }
 
 })
 
 
+  
+//}
+
+
+
+//     const uploadFile = (file) => {
+//   const fname = file.name;
+//    folder = "pics/" + fname;
+
+//   console.log('folder',folder); // Display the folder path
+
+//   const reader = new FileReader();
+//   reader.onload = function (e) {
+//     const tempname = e.target.result;
+
+//     // // Send the file data to the server using AJAX or fetch API
+//     // const formData = new FormData();
+//     // formData.append("upload", file, fname);
+
+//     // fetch("upload.php", {
+//     //   method: "POST",
+//     //   body: formData,
+//     // })
+//     //   .then((response) => {
+//     //     if (response.ok) {
+//     //       console.log("File uploaded successfully.");
+//     //     } else {
+//     //       console.log("Error uploading file.");
+//     //     }
+//     //   })
+//     //   .catch((error) => {
+//     //     console.error("An error occurred:", error);
+//     //   });
+//   };
+
+// //   reader.readAsDataURL(file);
+// };
+
+// Example usage
+// const fileInputt = document.getElementById("file-input");
+// fileInputt.addEventListener("change", (e) => {
+//   const file = e.target.files[0];
+//   uploadFile(file);
+// });
+
+
+// var filename='';
+// function handleFileSelect(event) {
+//     var files = event.target.files;
+//   filename = files[0].name;
+//     console.log(filename);
+//     // Perform further processing with the filename
+//     // ...
+//   }
+
+  
 
 }
+// let pname=document.getElementById('pname');
+// let em=document.getElementById('em');
+
+// $.ajax({
+    
+//    type: 'POST',
+//     url: 'pay.php',
+//     data: {pn:pname.value,p:em.value},
+//     success:function(data){
+
+
+//         console.log(data);
+//   //  dataa= JSON.parse(data);
+//   }
+
+//  })
+
+
 </script>
+

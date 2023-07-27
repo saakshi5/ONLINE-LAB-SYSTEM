@@ -119,16 +119,6 @@ function editbutton(){
 function createpatientdata(){
     console.log('Creating patient data');
 
-    // let patdetails= document.getElementById('patienttbox');
-    // if(patdetails.style.display=='none'){
-    // patdetails.style.display='block';
-    // }
-      
-//     let staffdetails= document.getElementById('stafftbox');
-//   if(staffdetails.style.display !='none'){
-//     staffdetails.style.display='none';
-//   }
-
     let tr=document.createElement('div');
     tr.classList.add('table-row');
 
@@ -996,9 +986,6 @@ else if(fileinput.value=="")
 function createpatientpaydata(){
     console.log('staff patient payment data');
 
-
-    
-    
     //create button
     let btn1= document.createElement('button');  //edit button
     btn1.classList.add('btn-2');

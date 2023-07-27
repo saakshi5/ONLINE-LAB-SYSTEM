@@ -267,8 +267,8 @@
     url: 'admin_report.php',
     data: {x:'Reports'},
     success:function(data){
-        // console.log(data);
-    
+        console.log(data);
+   
     //  if(data =='E')
     //  {
     
@@ -279,10 +279,10 @@
      }
      else {
     //  alert('Exists');
-    const blob=new Blob(['(dataa[0].report_img)'],{type:'text/plain'});
-    const file=new file([blob],'report.txt',{type:'blob.type'});
+    // const blob=new Blob(['(dataa[0].report_img)'],{type:'text/plain'});
+    // const file=new file([blob],'report.txt',{type:'blob.type'});
     dataa= JSON.parse(data);
-        console.log(dataa[0].patient_name);
+     console.log(dataa[0].patient_name);
     
     
     for(let i=0; i<dataa.length;i++) {
@@ -346,7 +346,7 @@
     
     
     tr.appendChild(tcell4);
-    tcell4.innerText=file;
+    tcell4.innerText=report_img;
 
     
     tr.appendChild(tcell5);

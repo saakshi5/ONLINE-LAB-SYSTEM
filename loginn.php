@@ -1,3 +1,8 @@
+<?php
+session_start();
+// $use=$_SESSION['user_name'];
+// echo $use;
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -51,7 +56,7 @@
                 </div> 
                 <div>
                     <input type="submit" value="Log in" onclick="verification();">
-                    <a href="register.html" style="font-size: 15px;">Don't have account? Register</a>
+                    <a href="registerr.php" style="font-size: 15px; left:60%;">Don't have account? Register</a>
                 </div>
                        </form>
             </section>
@@ -87,6 +92,7 @@
         
     </body>
 </html>
+
 
 <script>
 
@@ -135,6 +141,7 @@ let username=document.querySelector('#username');
 let password=document.querySelector('#password');
 
         console.log('verification');
+
         $.ajax({
 
 type: 'POST',
@@ -143,17 +150,26 @@ data: {use:username.value,pass:password.value},
 success:function(data){
   console.log(data);
 //   if(data=='CP'){
+// username="<?php //echo $_SESSION['user_name'] ?>";
 
     // alert('Correct username and password');
   if(data =='A'){
-    window.location='admin.html';
+// $_SESSION['user_name'] = $username;
+// $_SESSION['password'] = $password;
+    window.location='admin.php';
 
   }
   else if(data =='P'){
- window.location='customer.html';
+    
+// $_SESSION['user_name'] = $usename;
+// $_SESSION['password'] = $password;
+
+//password=$_SESSION['password'];
+console.log(username)
+ window.location='customer.php';
   }
   else if(data =='Staff'){
-    window.location='lab.html';
+    window.location='lab.php';
 
   }
  
@@ -174,10 +190,6 @@ success:function(data){
 })
     }
 </script>
-
-
-
-
 
 
 

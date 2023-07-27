@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,7 +25,8 @@
                 <!-- </div>
                  <div class="user"> -->
                     <img src="images/user.png" style=" height: 50px; width:50px; margin-right: 1rem; margin-left:1.5rem; align-items:center; padding: 5px;" class="user">
-                 </div>
+                    <p id="usern" style="color:black;margin-left:37rem; font-size:14px;"></p>
+</div>
                 <!-- <div id="menu-btn" class="fa fa-bars"> </div> -->
             </nav>
            
@@ -34,7 +38,7 @@
             <div class="navigation">
                 <ul>
                     <li>
-                        <a href="lab.html">
+                        <a href="lab.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             dashboard
                             </span></span>
@@ -67,7 +71,7 @@
                     </li>
                    
                     <li>
-                        <a href="lab_pay.html">
+                        <a href="lab_pay.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             colorize
                             </span></span>
@@ -206,6 +210,12 @@
                 
             </div>
           </div>
-        
+              
+<script>
+    let n=document.getElementById('usern');
+ n.innerText="<?php echo $_SESSION['user_name'] ?>";
+// n.innerText="world";
+    </script>
     </body>
+
 </html>

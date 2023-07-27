@@ -1,14 +1,18 @@
 <?php
+session_start();
 $servername ="localhost";
 $username ="root";
 $password ="";
-$database ="labsystemdb";
+$database ="labsystemdb1";
 
 
 $conn =mysqli_connect($servername,$username,$password,$database);
 $use=$_POST['use'];
 $pass=$_POST['pass'];
 // echo "Sucessfully connected!";
+
+$_SESSION['user_name'] = $use;
+$_SESSION['password'] = $pass;
 
 $sql =mysqli_query($conn,"SELECT * FROM admin WHERE admin_username='$use'");
 $p=mysqli_query($conn,"SELECT * FROM patient WHERE patient_username='$use'");

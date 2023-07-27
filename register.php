@@ -1,8 +1,9 @@
 <?php
+session_start();
 $servername ="localhost";
 $username ="root";
 $password ="";
-$database ="labsystemdb";
+$database ="labsystemdb1";
 
 
 $conn =mysqli_connect($servername,$username,$password,$database);
@@ -12,6 +13,10 @@ $phn=$_POST['phn'];
 $email=$_POST['email'];
 $name=$_POST['name'];
 $add=$_POST['add'];
+
+
+$_SESSION['usename'] = $use;
+$_SESSION['pw'] = $pass;
 
 // echo "Sucessfully connected!";
 

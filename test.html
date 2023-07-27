@@ -35,7 +35,7 @@
             <div class="navigation">
                 <ul>
                     <li>
-                        <a href="customer.html">
+                        <a href="customer.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             dashboard
                             </span></span>
@@ -51,7 +51,7 @@
                     </a>
                     </li>
                     <li>
-                        <a href="book.html">
+                        <a href="bookk.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             list_alt
                             </span></span>
@@ -59,7 +59,7 @@
                     </a>
                     </li>
                     <li>
-                        <a href="pay.html">
+                        <a href="payy.php">
                         <span class="icon"><span class="material-symbols-outlined">
                             payments
                             </span></span>
@@ -90,8 +90,8 @@
         <div class="main">
             <h2 style="left:500px;">Tests Available</h2>
             <div class="search"><lable>
-                <input type="text" placeholder="Search here">
-                <div class="butt"><button class="btn-1">Go</button></div>
+                <input type="text" placeholder="Search here" id="search">
+                <div class="butt" id="butt" onclick="search();"><button class="btn-1">Go</button></div>
                 <div class="iconn">
                <span class="material-symbols-outlined">
 search
@@ -111,50 +111,12 @@ search
                     </div>
                 </div>
 <div id="testtable">
-    <!-- <div id="checkboxContainer"></div> -->
+    <p id="tp"></p>
 
              <!--   <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p><input type="checkbox" name="choose" value="t1">
-                       Blood Sugar</p>
-                    </div>
+                   
                
-                    <div class="table-cell last-cell">
-                        <p>114</p>
-                    </div>
-                </div>
-               
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p><input type="checkbox" name="choose" value="t2">
-                            Calcium</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>169</p>
-                    </div>
-                </div>
-               
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p><input type="checkbox" name="choose" value="t3">
-                            ECG</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>306</p>
-                    </div>
-                </div>
-
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p><input type="checkbox" name="choose" value="t4">
-                            Hemoglobin(HB)</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>125</p>
-                    </div>
+                
                 </div>
 
                 <div class="table-row">
@@ -299,9 +261,11 @@ search
                 </div> -->
 <!-- </div> -->
 </div>
+<div id="testsearch"></div>
             </div>
-            <a href="pay.html">
-            <button class="btnn">Book</button></a>
+             <!-- <a href="bookk.php">  -->
+            <button class="btnn" id="submit" onclick="book();">Book</button>
+        <!-- </a>  -->
     </div>  
 
     </body>
@@ -311,6 +275,34 @@ search
 
 
 <script>
+
+// let b=document.getElementById('butt');
+// //console.log(subbtn);
+// b.addEventListener('click',e=>search(e));
+
+// function book(){
+//     window.location='bookk.php';
+// }
+
+// var submitButton = document.getElementById('submit');
+//   submitButton.addEventListener('click', function() {
+//       // Get all the checkboxes
+//       var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+      
+//       // Array to store the selected values
+//       var selectedValues = [];
+
+//       // Iterate over the checkboxes and retrieve their values
+//       checkboxes.forEach(function(checkbox) {
+//         selectedValues.push(checkbox.value);
+//       });
+
+//       // Log the selected values
+//       console.log(selectedValues);
+
+
+//       // You can send the selected values to the server or perform any desired action here
+//     });
 
 
     // const openbutton =document.getElementById('btnn');
@@ -337,11 +329,13 @@ search
     overlay.style.display = 'block';
     delmodal.style.transform= 'translate(-50%,-50%) scale(1)';
     }
-    
-    
-    
+   
     
         function generatetest(){
+
+            let ppid=0;
+
+
             $.ajax({
     
     type: 'POST',
@@ -352,11 +346,7 @@ search
         dataa= JSON.parse(data);
         console.log(dataa[0].test_name);
     
-    //  if(data =='E')
-    //  {
-    
-    //  }
-    // let container = document.getElementById("checkboxContainer");
+
     let p=document.createElement('p');
     p.setAttribute('id', 'tp');
 
@@ -364,12 +354,10 @@ search
      alert('Not exists');
      }
      else {
-    //  alert('Exists');
-
+    
     
     for(let i=0; i<dataa.length;i++) {
   
-        let checkboxValues = ["t1", "t2", "t3", "t3", "t4", "t5", "t6", "t7", "t8", "t9", "t10", "t11", "t12", "t13", "t14", "t15", "t16", "t17", "t18", "t19",];
         var label = document.createElement("label");
 
      let tr=document.createElement('div');
@@ -378,19 +366,21 @@ search
     let tcell1=document.createElement('div');
      tcell1.classList.add('table-cell','first-cell');
 
+     ppid=ppid +1;
+     let s='trow'+ppid.toString();
+    tr.setAttribute('id',s);
+  
+
+
      let tcell2=document.createElement('div');
      tcell2.classList.add('table-cell','last-cell');
-    
+
     
      let checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.name = "checkboxOption";
-    for (var z = 0; z < checkboxValues.length; z++) {
-    checkbox.value = checkboxValues[z];
-    // label.appendChild(document.createTextNode(checkboxValues[z]));
-    console.log(checkbox.value);
+    //checkbox.value = checkboxValues[i];
 
-    }
     //rows and cols
      let tbox1=document.getElementById('testtable');
     tbox1.appendChild(tr);
@@ -399,20 +389,173 @@ search
     let n=dataa[i].test_name;
 
     tr.appendChild(tcell1);
-  tcell1.appendChild(p);
+ // tcell1.appendChild(p);
   tcell1.append(checkbox,n);
-
+// checkbox.append(label);  
 
     tr.appendChild(tcell2);
     tcell2.innerText=dataa[i].test_cost;
    
      }
-    //  console.log(checkbox.checked);
-
+  
+ 
+    
     }
 
     }
      });
+        }
+
+        function search(e){
+            let ppid=0;
+
+          let s=document.getElementById("search");
+            let n=s.parentNode.childNodes[1].value;
+            console.log(n);
+
+    const tt =document.getElementById('testtable');
+    const ts =document.getElementById('testsearch');
+    tt.style.display = 'none';
+    ts.style.display = 'block';
+    //ts.style.transform= 'translate(-50%,-50%) scale(1)';
+
+
+            $.ajax({
+    
+    type: 'POST',
+    url: 'testsearch.php',
+   data: {tn:n},
+    success:function(data){
+
+        dataa=JSON.parse(data);
+        console.log(dataa[0].test_name);
+
+        if(data =='NE'){
+     alert('Not exists');
+     }
+     else {
+    
+    
+    for(let i=0; i<dataa.length;i++) {
+  
+    var label = document.createElement("label");
+
+     let tr=document.createElement('div');
+    tr.classList.add('table-row');  
+    
+    let tcell1=document.createElement('div');
+     tcell1.classList.add('table-cell','first-cell');
+
+     ppid=ppid +1;
+    let s='trrow'+ppid.toString();
+    tr.setAttribute('id',s);
+  
+     let tcell2=document.createElement('div');
+     tcell2.classList.add('table-cell','last-cell');
+
+    
+     let checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.name = "checkboxOption";
+    //checkbox.value = checkboxValues[i];
+
+    //rows and cols
+     let tbox1=document.getElementById('testsearch');
+    tbox1.appendChild(tr);
+
+
+    let n=dataa[i].test_name;
+
+    tr.appendChild(tcell1);
+  tcell1.append(checkbox,n);
+
+    tr.appendChild(tcell2);
+    tcell2.innerText=dataa[i].test_cost;
+   
+     }
+  
+    }
+
+}
+    });
+    
+
+        }
+
+        let subbtn=document.getElementById('submit');
+//console.log(subbtn);
+subbtn.addEventListener('click',e=>selecting(e));
+
+
+        function selecting(e){
+            
+    const tt =document.getElementById('testtable');
+    const ts =document.getElementById('testsearch');
+
+          //let tablebox=e.target.parentNode.childNodes[1].childNodes[3].childNodes;
+          let tablebox=e.target.parentNode.childNode;
+
+          let tname=[];
+          let cost=[];
+         //console.log(tablebox);
+            //7 to 25 range
+        
+        console.log(e.target.parentNode.childNodes[1].childNodes[3].childNodes[7].childNodes[0].childNodes[1]);//test name
+          //  console.log(e.target.parentNode.childNodes[1].childNodes[3].childNodes[7].childNodes[1].childNodes[0]);//test cost
+ 
+//         console.log(e.target.parentNode.childNodes[1].childNodes[3].childNodes);
+//           let c=e.target.parentNode.childNodes[1].childNodes[3].childNodes[15].childNodes[0].childNodes[0];
+//   if(c.checked){
+//     console.log(c);
+//   }
+
+//console.log('hello');
+            for(let z=7; z <tablebox.length;z++) {
+ let chbox=e.target.parentNode.childNodes[1].childNodes[3].childNodes[z].childNodes[0].childNodes[0];
+           if (chbox.checked){
+            console.log('checked');
+            let testname=e.target.parentNode.childNodes[1].childNodes[3].childNodes[z].childNodes[0].childNodes[1];
+            tname.push(testname.data);
+          // console.log(testname);
+
+            let testcost=e.target.parentNode.childNodes[1].childNodes[3].childNodes[z].childNodes[1].childNodes[0];
+            cost.push(testcost.data);
+          console.log(testcost);
+
+           }
+           else{
+            console.log('unchecked');
+           }
+            }
+
+          // console.log(tname);
+         console.log(cost);
+     // let ntest=tname.join();
+      //console.log(ntest);
+          //cost.toString()
+        // console.log(tname.toString(),cost.toString());
+
+  //  let num=99;      
+ $.ajax({
+    
+    type: 'POST',
+    url: 'testdetails.php',
+   data: {tn:tname,c:cost},
+   //data:JSON.stringify({tn:tname,c:cost}),
+   //data:{tn:'hello',c:'world'},
+    success:function(data){
+
+
+        console.log(data);
+    //dataa= JSON.parse(data);
+    
+
+ //console.log(patname.value);
+        }
+    
+    });
+    
+
         }
     </script>
     
