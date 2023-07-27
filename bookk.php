@@ -169,9 +169,6 @@ session_start();
     let testcost=document.getElementById('totalcost');
     
     function display(){
-        
-
-
 let  pname="<?php echo $_SESSION['user_name'] ?>";
 let ppassword="<?php echo $_SESSION['password'] ?>";
 let nametest="<?php echo $_SESSION['test_name']?>";
@@ -226,7 +223,7 @@ testcost.value=num;
  //console.log(patname.value);
         }
     
-    })
+    });
     
 
     }
@@ -281,7 +278,7 @@ console.log(testcost.value);
          }
         }
     
-    })
+    });
     
     
     

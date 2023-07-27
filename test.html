@@ -90,8 +90,8 @@
         <div class="main">
             <h2 style="left:500px;">Tests Available</h2>
             <div class="search"><lable>
-                <input type="text" placeholder="Search here">
-                <div class="butt"><button class="btn-1">Go</button></div>
+                <input type="text" placeholder="Search here" id="search">
+                <div class="butt" id="butt" onclick="search();"><button class="btn-1">Go</button></div>
                 <div class="iconn">
                <span class="material-symbols-outlined">
 search
@@ -261,6 +261,7 @@ search
                 </div> -->
 <!-- </div> -->
 </div>
+<div id="testsearch"></div>
             </div>
              <!-- <a href="bookk.php">  -->
             <button class="btnn" id="submit" onclick="book();">Book</button>
@@ -274,13 +275,14 @@ search
 
 
 <script>
-let subbtn=document.getElementById('submit');
-//console.log(subbtn);
-subbtn.addEventListener('click',e=>selecting(e));
 
-function book(){
-    window.location='bookk.php';
-}
+// let b=document.getElementById('butt');
+// //console.log(subbtn);
+// b.addEventListener('click',e=>search(e));
+
+// function book(){
+//     window.location='bookk.php';
+// }
 
 // var submitButton = document.getElementById('submit');
 //   submitButton.addEventListener('click', function() {
@@ -404,15 +406,101 @@ function book(){
      });
         }
 
+        function search(e){
+            let ppid=0;
+
+          let s=document.getElementById("search");
+            let n=s.parentNode.childNodes[1].value;
+            console.log(n);
+
+    const tt =document.getElementById('testtable');
+    const ts =document.getElementById('testsearch');
+    tt.style.display = 'none';
+    ts.style.display = 'block';
+    //ts.style.transform= 'translate(-50%,-50%) scale(1)';
+
+
+            $.ajax({
+    
+    type: 'POST',
+    url: 'testsearch.php',
+   data: {tn:n},
+    success:function(data){
+
+        dataa=JSON.parse(data);
+        console.log(dataa[0].test_name);
+
+        if(data =='NE'){
+     alert('Not exists');
+     }
+     else {
+    
+    
+    for(let i=0; i<dataa.length;i++) {
+  
+    var label = document.createElement("label");
+
+     let tr=document.createElement('div');
+    tr.classList.add('table-row');  
+    
+    let tcell1=document.createElement('div');
+     tcell1.classList.add('table-cell','first-cell');
+
+     ppid=ppid +1;
+    let s='trrow'+ppid.toString();
+    tr.setAttribute('id',s);
+  
+     let tcell2=document.createElement('div');
+     tcell2.classList.add('table-cell','last-cell');
+
+    
+     let checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.name = "checkboxOption";
+    //checkbox.value = checkboxValues[i];
+
+    //rows and cols
+     let tbox1=document.getElementById('testsearch');
+    tbox1.appendChild(tr);
+
+
+    let n=dataa[i].test_name;
+
+    tr.appendChild(tcell1);
+  tcell1.append(checkbox,n);
+
+    tr.appendChild(tcell2);
+    tcell2.innerText=dataa[i].test_cost;
+   
+     }
+  
+    }
+
+}
+    });
+    
+
+        }
+
+        let subbtn=document.getElementById('submit');
+//console.log(subbtn);
+subbtn.addEventListener('click',e=>selecting(e));
+
 
         function selecting(e){
-          let tablebox=e.target.parentNode.childNodes[1].childNodes[3].childNodes;
+            
+    const tt =document.getElementById('testtable');
+    const ts =document.getElementById('testsearch');
+
+          //let tablebox=e.target.parentNode.childNodes[1].childNodes[3].childNodes;
+          let tablebox=e.target.parentNode.childNode;
+
           let tname=[];
           let cost=[];
-         // console.log(tablebox);
+         //console.log(tablebox);
             //7 to 25 range
         
-           // console.log(e.target.parentNode.childNodes[1].childNodes[3].childNodes[7].childNodes[0].childNodes[1]);//test name
+        console.log(e.target.parentNode.childNodes[1].childNodes[3].childNodes[7].childNodes[0].childNodes[1]);//test name
           //  console.log(e.target.parentNode.childNodes[1].childNodes[3].childNodes[7].childNodes[1].childNodes[0]);//test cost
  
 //         console.log(e.target.parentNode.childNodes[1].childNodes[3].childNodes);
@@ -465,7 +553,7 @@ function book(){
  //console.log(patname.value);
         }
     
-    })
+    });
     
 
         }

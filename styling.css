@@ -106,7 +106,7 @@ a:active{
    }
 .btn span{
     height: 30px;
-    /* border: 2px solid black; */
+    border: 2px solid black;
     /* margin-top: 50px; */
     padding:.1rem;
     border-radius: .5rem;
