@@ -109,6 +109,10 @@ search
                     <div class="table-cell">
                         <p>Test Cost</p>
                     </div>
+
+                    <div class="table-cell">
+                        <p>Test Pre-requisites</p>
+                    </div>
                 </div>
 <div id="testtable">
     <p id="tp"></p>
@@ -268,6 +272,29 @@ search
         <!-- </a>  -->
     </div>  
 
+    <div class="modal" id="modall">
+        <div class="modal-header">
+         <div class="tittle">Tests Pre-Requirements</div>
+         <button class="close" id="closse" onclick="closee();" ><span class="material-symbols-outlined">
+            cancel
+            </span></button>
+        </div>  
+        <div class="modal-body">
+            <!-- <p>HJFHKbdfj</p> -->
+            <form>
+                <div class="form-field">
+                    <!-- <p>Status:</p>
+                    <input type="text" placeholder=""  id="st" /> -->
+                    <textarea cols="67" rows="8">hghjhu</textarea>
+                </div>
+              
+                <!-- <div>
+                    <a href="#">
+                    <button class="edit" onclick="editbutton();">Save Changes</button></a></div> -->
+            </form>
+        </div>
+     </div>
+     <div id="overlay"></div>
     </body>
 </html>
 
@@ -320,7 +347,16 @@ search
     //   overlay.add();
     }
     
-    
+    function closee(){
+    const modal =document.getElementById('modall');
+    // const delmodal =document.getElementById('delmodall');
+    // const addmodal =document.getElementById('addmodall');
+const overlay =document.getElementById('overlay');
+modal.style.display = 'none';
+// delmodal.style.display = 'none';
+// addmodal.style.display='none';
+overlay.style.display = 'none';
+}
     function deleteb(){
         console.log('delete data');
         const delmodal =document.getElementById('delmodall');
@@ -369,17 +405,27 @@ search
      ppid=ppid +1;
      let s='trow'+ppid.toString();
     tr.setAttribute('id',s);
-  
 
 
      let tcell2=document.createElement('div');
-     tcell2.classList.add('table-cell','last-cell');
+     tcell2.classList.add('table-cell');
 
     
      let checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.name = "checkboxOption";
     //checkbox.value = checkboxValues[i];
+
+
+
+    let tcell3=document.createElement('div');
+     tcell3.classList.add('table-cell','last-cell');
+
+     let btn1= document.createElement('button');  //edit button
+    btn1.classList.add('btn-2');
+    let span= document.createElement('span');  //delete button
+    //span.classList.add('material-symbols-outlined');
+    span.innerHTML='Pre-requisites';
 
     //rows and cols
      let tbox1=document.getElementById('testtable');
@@ -396,7 +442,15 @@ search
     tr.appendChild(tcell2);
     tcell2.innerText=dataa[i].test_cost;
    
+
+    tr.appendChild(tcell3);
+    tcell3.appendChild(btn1);
+    btn1.appendChild(span);
+
+    
+    btn1.addEventListener('click',e=>openn(e));
      }
+
   
  
     

@@ -280,9 +280,9 @@
                     <div class="form-field">        
                     <p>Enter Email:</p>
                     <input type="text" name="pemail" id="pemail" required/></div>
-                    <div class="form-field">        
+                    <!-- <div class="form-field">        
                      <p>Enter Status:</p>
-                    <input type="text" name="amt" id="pstatus" required/></div>
+                    <input type="text" name="amt" id="pstatus" required/></div> -->
                     <div class="form-field">        
                     <p>Enter Collection Date:</p>
                     <input type="date" name="amt" id="tdate" required/></div>
@@ -394,13 +394,13 @@ function createsamples(){
   let pname=document.getElementById("pname");
 let pemail=document.getElementById("pemail");
 let tname=document.getElementById("testn");
-  let pstatus=  document.getElementById("pstatus");
+//   let pstatus=  document.getElementById("pstatus");
 let tdate=document.getElementById("tdate");
 $.ajax({
     
     type: 'POST',
     url: 'samdetails.php',
-    data: {pname:pname.value,status:pstatus.value,tn:tname.value,pemail:pemail.value,tdate:tdate.value},
+    data: {pname:pname.value,tn:tname.value,pemail:pemail.value,tdate:tdate.value},
     success:function(data){
 
 
@@ -494,7 +494,15 @@ $.ajax({
     btn2.classList.add('btn-3');
     
     
-    
+    let btn3= document.createElement('button');  //edit button
+    btn3.classList.add('btn-2');
+    btn3.disabled = false;
+    let spann= document.createElement('spann');  //delete button
+    //span.classList.add('material-symbols-outlined');
+     spann.innerHTML='not collected';
+
+
+
     //rows and cols
      let tbox1=document.getElementById('sampletbox');
     
@@ -512,7 +520,9 @@ $.ajax({
     
     
     tr.appendChild(tcell4);
-    tcell4.innerText=dataa[i].sample_status;
+    tcell4.appendChild(btn3);
+    btn3.appendChild(spann);
+    spann.innerHTML=dataa[i].sample_status;
     
     
     tr.appendChild(tcell5);
@@ -521,16 +531,44 @@ $.ajax({
     
     tr.appendChild(tcell6);
     tcell6.appendChild(p);
-    p.appendChild(btn1);
-    btn1.appendChild(span);
+    // p.appendChild(btn1);
+    // btn1.appendChild(span);
     p.appendChild(btn2);
     btn2.appendChild(span2);
     
     btn1.addEventListener('click',e=>openn(e));
     btn2.addEventListener('click',e=>deleteb(e));
+    btn3.addEventListener('click',e=>statusb(e));
+
+    function statusb(e){
+    let email=e.target.parentNode.parentNode.parentNode.childNodes[1].innerHTML;
+    console.log(email);
+     let s=e.target.parentNode.childNodes[0].childNodes[0];
+       //let result = JSON.stringify(s);
     
+    let ss=s;
+    console.log(ss);
+    if(ss=="collected"){
+        btn3.disabled=true;
+        alert('collected');
+    }
+    if(ss=="not collected"){
+        $.ajax({
+    
+    type: 'POST',
+    url: 'setsam.php',
+    data: {email:email.value},
+    success:function(data){
+        // console.log(data);
+        alert('updated');
      }
-    
+    });
+    btn3.disabled=true;
+    }
+
+    }
+}
+     
     }
     }
      });

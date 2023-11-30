@@ -56,11 +56,19 @@ session_start();
                             <span class="tittle"> Available Tests</span>
                         </a>
                         </li>
-
+                        <li>
+                            <a href="lab_pat.html">
+                            <span class="icon"><span class="material-symbols-outlined">
+                                groups
+                                </span></span>
+                            <span class="tittle"> Patients</span>
+                        </a>
+                        </li>
+                    <li>
                         
 
                         <li>
-                        <a href="appoint.html">
+                        <a href="appointt.php">
                         <span class="icon">  <span class="material-symbols-outlined">
                             heart_plus
                             </span></span>
@@ -328,9 +336,9 @@ session_start();
                 <div class="form-field">        
                 <p>Enter Email:</p>
                 <input type="text" name="pemail" id="pemail" required/></div>
-                <div class="form-field">        
+                <!-- <div class="form-field">        
                  <p>Enter Status:</p>
-                <input type="text" name="amt" id="pstatus" required/></div>
+                <input type="text" name="amt" id="pstatus" required/></div> -->
                 
                 <div class="form-field">        
                 <p>Enter Account Holder's Name:</p>
@@ -687,6 +695,12 @@ let dele=0;
     span2.classList.add('material-symbols-outlined');
     span2.innerHTML='delete';
     
+    let btn3= document.createElement('button');  //edit button
+    btn3.classList.add('btn-2');
+    btn3.disabled = false;
+    let spann= document.createElement('spann');  //delete button
+    //span.classList.add('material-symbols-outlined');
+     spann.innerHTML='unpaid';
     
     let p=document.createElement('p');  //paragraph
     p.setAttribute('id', 'sppayb');
@@ -711,19 +725,49 @@ let dele=0;
     tcell4.innerText=dataa[i].actrans_amt;
 
     tr.appendChild(tcell5);
-    tcell5.innerText=dataa[i].actrans_status;
+    tcell5.appendChild(btn3);
+    btn3.appendChild(spann);
+    spann.innerHTML=dataa[i].actrans_status;
 
 
     tr.appendChild(tcell6);
     tcell6.appendChild(p);
-    p.appendChild(btn1);
-    btn1.appendChild(span);
+    // p.appendChild(btn1);
+    // btn1.appendChild(span);
     p.appendChild(btn2);
     btn2.appendChild(span2);
     
     btn1.addEventListener('click',e=>openn(e));
     btn2.addEventListener('click',e=>deleteb(e));
+    btn3.addEventListener('click',e=>statusb(e));
     
+    function statusb(e){
+    let email=e.target.parentNode.parentNode.parentNode.childNodes[1].innerHTML;
+    console.log(email);
+     let s=e.target.parentNode.childNodes[0].childNodes[0];
+       //let result = JSON.stringify(s);
+       console.log(s);
+    let ss=s;
+    console.log(ss);
+    if(ss=="paid"){
+        btn3.disabled=true;
+        alert('paid');
+    }
+    if(ss=="unpaid"){
+        $.ajax({
+    
+    type: 'POST',
+    url: 'settrans.php',
+    data: {email:email.value},
+    success:function(data){
+        // console.log(data);
+        alert('updated');
+     }
+    });
+    btn3.disabled=true;
+    }
+
+    }
     }
     
 

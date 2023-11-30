@@ -259,7 +259,7 @@ form:after {
 }
 
 #eyebtn{
-	border: 2px solid black;
+	/* border: 2px solid black; */
 	position: absolute;
 	left: 81%;
 	top:48%;
@@ -267,6 +267,15 @@ form:after {
 	z-index:99;
 }
 
+.footer .boxcontainer .box a span{
+    padding-right: .5rem;
+    height: 10px;
+    /* color:rgb(111,211,244); */
+}
+
+.footer .boxcontainer .box a:hover span{
+    padding-right:2rem;
+}
 
 /* page css */
 

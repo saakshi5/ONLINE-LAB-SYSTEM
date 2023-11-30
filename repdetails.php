@@ -5,20 +5,20 @@ $username ="root";
 $password ="";
 $database ="labsystemdb1";
 $conn =mysqli_connect($servername,$username,$password,$database);
-$tdate=$_POST['tdate'];
-$testn=$_POST['tn'];
+// $tdate=$_POST['tdate'];
+// $testn=$_POST['tn'];
 $email=$_POST['pemail'];
 $patname=$_POST['pname'];
-//$status=$_POST['status'];
+$rep=$_POST['prep'];
 
 // $user=$_SESSION['user_name'];
 // $password=$_SESSION['password'];
-$sql=mysqli_query($conn,"SELECT * FROM samples");
+$sql=mysqli_query($conn,"SELECT * FROM reports");
 $count=mysqli_num_rows($sql);
 
 
 // if($count >0 || $count<0){
- mysqli_query($conn,"INSERT INTO `samples`(`sample_collection_date`, `sample_status`, `patient_name`, `test_name`, `patient_email`) VALUES ('$tdate','uncollected','$patname','$testn','$email')");
+ mysqli_query($conn,"UPDATE `reports` SET `report_img`='rep',`patient_email`='$email',`patient_name`='$patname' WHERE `patient_email`='$email'");
  echo 'Saved Successfully';
 //}
 
