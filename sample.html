@@ -53,6 +53,15 @@
                     </a>
                     </li>
                     <li>
+                        <a href="lab_pat.html">
+                        <span class="icon"><span class="material-symbols-outlined">
+                            groups
+                            </span></span>
+                        <span class="tittle"> Patients</span>
+                    </a>
+                    </li>
+                <li>
+                    <li>
                         <a href="appointt.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             heart_plus
@@ -122,12 +131,12 @@ search
                         <p>Patient Name</p>
                     </div>
                     <div class="table-cell">
-                        <p>Patient Email:</p>
+                        <p>Patient Email</p>
                     </div>
 
-                    <div class="table-cell">
+                    <!-- <div class="table-cell">
                         <p>Test Name</p>
-                    </div>
+                    </div> -->
                     
                     <div class="table-cell">
                         <p>Status</p>
@@ -248,9 +257,9 @@ search
                 <div class="form-field">        
                 <p>Enter Email:</p>
                 <input type="text" name="pemail" id="pemail" required/></div>
-                <div class="form-field">        
+                <!-- <div class="form-field">        
                  <p>Enter Status:</p>
-                <input type="text" name="amt" id="pstatus" required/></div>
+                <input type="text" name="amt" id="pstatus" required/></div> -->
                 <div class="form-field">        
                 <p>Enter Collection Date:</p>
                 <input type="date" name="amt" id="tdate" required/></div>
@@ -361,13 +370,13 @@ function createsamples(){
   let pname=document.getElementById("pname");
 let pemail=document.getElementById("pemail");
 let tname=document.getElementById("testn");
-  let pstatus=  document.getElementById("pstatus");
+//   let pstatus=  document.getElementById("pstatus");
 let tdate=document.getElementById("tdate");
 $.ajax({
     
     type: 'POST',
     url: 'samdetails.php',
-    data: {pname:pname.value,status:pstatus.value,tn:tname.value,pemail:pemail.value,tdate:tdate.value},
+    data: {pname:pname.value,tn:tname.value,pemail:pemail.value,tdate:tdate.value},
     success:function(data){
 
 
@@ -424,8 +433,8 @@ $.ajax({
     let tcell2=document.createElement('div');
     tcell2.classList.add('table-cell');
     
-    let tcell3=document.createElement('div');
-    tcell3.classList.add('table-cell');
+    // let tcell3=document.createElement('div');
+    // tcell3.classList.add('table-cell');
     
     let tcell4=document.createElement('div');
     tcell4.classList.add('table-cell');
@@ -455,6 +464,13 @@ $.ajax({
     span2.classList.add('material-symbols-outlined');
     span2.innerHTML='delete';
     
+    let btn3= document.createElement('button');  //edit button
+    btn3.classList.add('btn-2');
+    btn3.disabled = false;
+    let spann= document.createElement('spann');  //delete button
+    //span.classList.add('material-symbols-outlined');
+     spann.innerHTML='not collected';
+
     
     let p=document.createElement('p');  //paragraph
     p.setAttribute('id', 'sampleb');
@@ -472,26 +488,60 @@ $.ajax({
     
     
 
-    tr.appendChild(tcell3);
-    tcell3.innerText=dataa[i].test_name;
+    // tr.appendChild(tcell3);
+    // tcell3.innerText=dataa[i].test_name;
     
     
     tr.appendChild(tcell4);
-    tcell4.innerText=dataa[i].sample_status;
+    tcell4.appendChild(btn3);
+    btn3.appendChild(spann);
+    spann.innerHTML=dataa[i].sample_status;
     
     tr.appendChild(tcell5);
     tcell5.innerText=dataa[i].sample_collection_date;
 
     tr.appendChild(tcell6);
     tcell6.appendChild(p);
-    p.appendChild(btn1);
-    btn1.appendChild(span);
+    // p.appendChild(btn1);
+    // btn1.appendChild(span);
     p.appendChild(btn2);
     btn2.appendChild(span2);
     
     btn1.addEventListener('click',e=>openn(e));
     btn2.addEventListener('click',e=>deleteb(e));
+    btn3.addEventListener('click',e=>statusb(e));
+
+
+
+    function statusb(e){
+    let email=e.target.parentNode.parentNode.parentNode.childNodes[1].innerHTML;
+    console.log(email);
+     let s=e.target.parentNode.childNodes[0].childNodes[0];
+       //let result = JSON.stringify(s);
     
+    let ss=s;
+    console.log(ss);
+    if(ss=="collected"){
+        btn3.disabled=true;
+        alert('collected');
+    }
+    if(ss=="not collected"){
+        $.ajax({
+    
+    type: 'POST',
+    url: 'setsam.php',
+    data: {email:email.value},
+    success:function(data){
+        // console.log(data);
+        alert('updated');
+     }
+    });
+    btn3.disabled=true;
+    }
+
+    }
+
+
     }
     
     }

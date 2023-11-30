@@ -87,18 +87,27 @@ session_start();
         <section class="footer">
      
         <div class="boxcontainer">
+                <!-- <div class="box">
+                <h3>Quick Links</h3>
+                <a href="index.html"><span class="material-symbols-outlined"> chevron_right</span>HOME</a>
+            <a href="index.htmlt"><span class="material-symbols-outlined">chevron_right</span>ABOUT US</a>
+            <a href="index.html"><span class="material-symbols-outlined">chevron_right</span>CONTACT US</a>
+                
+                </div> -->
             <div class="box">
-            <h3>Quick Links</h3>
+            <h3>CONTACT</h3>
             <a href="#"><span class="material-symbols-outlined">
-                chevron_right
-                </span> </i>HOME</a>
+                call </span> +456783672</a>
+            <!-- <a href="#"><span class="material-symbols-outlined">
+                call
+                </span>+876584427</a> -->
             <a href="#"><span class="material-symbols-outlined">
-                chevron_right
-                </span>ABOUT US</a>
+                mail </span> healthcarepathlabs@gmail.com</a>
+            <!-- <a href="#"><span class="material-symbols-outlined">
+                mail
+                </span> healthcarepathlabs@yahoo.com</a> -->
             <a href="#"><span class="material-symbols-outlined">
-                chevron_right
-                </span>CONTACT US</a>
-            
+                location_on </span> Mumbai, -INDIA,400104</a>
             </div>
             
             <div class="box">

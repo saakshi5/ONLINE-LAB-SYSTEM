@@ -10,6 +10,7 @@ session_start();
         <script src="system.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <title>Log In</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <link rel="stylesheet" href="login.css">
         
@@ -62,24 +63,41 @@ session_start();
             </section>
         </div>
 
-<!-- 
+
 
 
         <section class="footer">
      
             <div class="boxcontainer">
-                <div class="box">
+                <!-- <div class="box">
                 <h3>Quick Links</h3>
-                <a href="#"><i class="fa fa-chevron-circle-right" aria-hidden="true"> </i>HOME</a>
-                <a href="#"><i class="fa fa-chevron-circle-right" aria-hidden="true"> </i>ABOUT US</a>
-                <a href="#"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i>CONTACT US</a>
+                <a href="index.html"><span class="material-symbols-outlined"> chevron_right</span>HOME</a>
+            <a href="index.htmlt"><span class="material-symbols-outlined">chevron_right</span>ABOUT US</a>
+            <a href="index.html"><span class="material-symbols-outlined">chevron_right</span>CONTACT US</a>
                 
-                </div>
-            
+                </div> -->
+                <div class="box">
+            <h3>CONTACT</h3>
+            <a href="#"><span class="material-symbols-outlined">
+                call
+                </span> +456783672</a>
+            <!-- <a href="#"><span class="material-symbols-outlined">
+                call
+                </span>+876584427</a> -->
+            <a href="#"><span class="material-symbols-outlined">
+                mail
+                </span> healthcarepathlabs@gmail.com</a>
+            <!-- <a href="#"><span class="material-symbols-outlined">
+                mail
+                </span> healthcarepathlabs@yahoo.com</a> -->
+            <a href="#"><span class="material-symbols-outlined">
+                location_on
+                </span> Mumbai, -INDIA,400104</a>
+            </div>
     
             <div class="box">
                 <h3>Follow Us:-</h3>
-                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i> Facebbok</a>
+                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a>
                 <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a>
                 <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>Instagram</a>
                 <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i>LinkedIn
@@ -88,7 +106,7 @@ session_start();
     
                 </div>
     
-        </section> -->
+        </section> 
         
     </body>
 </html>

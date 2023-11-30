@@ -389,6 +389,15 @@ a:active{
     padding-right:2rem;
 }
 
+.footer .boxcontainer .box a span{
+    padding-right: .5rem;
+    height: 10px;
+    /* color:rgb(111,211,244); */
+}
+
+.footer .boxcontainer .box a:hover span{
+    padding-right:2rem;
+}
 
 #menu-btn{
     position: absolute;

@@ -52,6 +52,15 @@
                     </a>
                     </li>
                     <li>
+                        <a href="lab_pat.html">
+                        <span class="icon"><span class="material-symbols-outlined">
+                            groups
+                            </span></span>
+                        <span class="tittle"> Patients</span>
+                    </a>
+                    </li>
+                <li>
+                    <li>
                         <a href="appointt.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             heart_plus
@@ -128,6 +137,10 @@
 
                     <div class="table-cell">
                         <p>Test Cost</p>
+                    </div>
+
+                    <div class="table-cell">
+                        <p>Pre-requisites</p>
                     </div>
 
                     <div class="table-cell">
@@ -243,6 +256,25 @@
           
 <div id="overlay"></div>
     </div>  
+//pre-requisites
+<div class="modal" id="modal3">
+    <div class="modal-header">
+     <div class="tittle">Tests Pre-Requirements</div>
+     <button class="close" id="close" onclick="closeee();" ><span class="material-symbols-outlined">
+        cancel
+        </span></button>
+    </div>  
+    <div class="modal-body">
+        <form>
+            <div class="form-field">
+                <!-- <p>Status:</p>
+                <input type="text" placeholder=""  id="st" /> -->
+                <textarea cols="67" rows="8">hghjhu</textarea>
+            </div>
+        </form>
+    </div>
+ </div>
+<div id="overlay"></div>
 
     </body>
 </html>
@@ -330,6 +362,31 @@ addmodal.style.transform= 'translate(-50%,-50%) scale(1)';
 //     window.alert('Deleted Successfully');
 
 // }
+//pre-requisites
+function opennn(){
+        console.log('hiii');
+    const modal =document.getElementById('modal3');
+    const overlay =document.getElementById('overlay');
+    modal.style.display = 'block';
+    overlay.style.display = 'block';
+    modal.style.transform= 'translate(-50%,-50%) scale(1)';
+    // modal.style.transform= 'translate scale(1)';
+    //   modal.add();
+    //   overlay.add();
+    }
+    
+    function closeee(){
+    const modal =document.getElementById('modal3');
+    // const delmodal =document.getElementById('delmodall');
+    // const addmodal =document.getElementById('addmodall');
+const overlay =document.getElementById('overlay');
+modal.style.display = 'none';
+// delmodal.style.display = 'none';
+// addmodal.style.display='none';
+overlay.style.display = 'none';
+}
+
+
 
 function generatetest(){
     $.ajax({
@@ -369,9 +426,10 @@ let tcell3=document.createElement('div');
 tcell3.classList.add('table-cell');
 
 let tcell4=document.createElement('div');
-tcell4.classList.add('table-cell','last-cell');
+tcell4.classList.add('table-cell');
 
-
+let tcell5=document.createElement('div');
+tcell5.classList.add('table-cell','last-cell');
 
 
 //create button
@@ -405,6 +463,12 @@ p.setAttribute('id', 'idptb');
 // b2.addEventListener('click',() =>deleteb);
 
 
+let btn3= document.createElement('button');  //edit button
+    btn3.classList.add('btn-2');
+    let spann= document.createElement('spann');  //delete button
+    //span.classList.add('material-symbols-outlined');
+    spann.innerHTML='Pre-requisites';
+
 //rows and cols
 let tbox1=document.getElementById('adptest');
 
@@ -419,8 +483,13 @@ tcell2.innerText=dataa[i].test_name;
 tr.appendChild(tcell3);
 tcell3.innerText=dataa[i].test_cost;
 
+
 tr.appendChild(tcell4);
-tcell4.appendChild(p);
+    tcell4.appendChild(btn3);
+    btn3.appendChild(spann);
+
+tr.appendChild(tcell5);
+tcell5.appendChild(p);
 p.appendChild(btn1);
 btn1.appendChild(span);
 p.appendChild(btn2);
@@ -428,7 +497,7 @@ btn2.appendChild(span2);
 
 btn1.addEventListener('click',e=>openn(e));
 btn2.addEventListener('click',e=>deleteb(e));
-
+btn3.addEventListener('click',e=>opennn(e));
 }
 
 }

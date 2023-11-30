@@ -54,6 +54,15 @@
                     </a>
                     </li>
                     <li>
+                            <a href="lab_pat.html">
+                            <span class="icon"><span class="material-symbols-outlined">
+                                groups
+                                </span></span>
+                            <span class="tittle"> Patients</span>
+                        </a>
+                        </li>
+                    <li>
+                    <li>
                         <a href="appointt.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             heart_plus

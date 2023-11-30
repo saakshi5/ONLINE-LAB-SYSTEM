@@ -54,7 +54,16 @@ session_start();
                     </a>
                     </li>
                     <li>
-                        <a href="appoint.html">
+                            <a href="lab_pat.html">
+                            <span class="icon"><span class="material-symbols-outlined">
+                                groups
+                                </span></span>
+                            <span class="tittle"> Patients</span>
+                        </a>
+                        </li>
+                    <li>
+                        
+                        <a href="appointt.php">
                         <span class="icon">  <span class="material-symbols-outlined">
                             heart_plus
                             </span></span>
@@ -139,6 +148,23 @@ session_start();
                         </a> 
                     </div>
                 </div>  
+                <div class="card">
+    
+    <div class="iconbox">
+        <a href="customer.html">
+            <span class="icon"><span class="material-symbols-outlined">
+                groups
+                </span> </a>
+    </div>
+    
+
+    <div>
+       <!-- <div class="numbers">Book</div>  -->
+       <a href="lab_pat.html">
+        <div class="cardname">Patients</div>
+        <div class="cardname">Details</div></a>
+    </div>
+</div>
 
                 <div class="card">
     
