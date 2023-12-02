@@ -12,7 +12,8 @@ $pass=$_POST['pass'];
 // echo "Sucessfully connected!";
 
 $_SESSION['user_name'] = $use;
-$_SESSION['password'] = $pass;
+// $_SESSION['password'] = $pass;
+
 
 $sql =mysqli_query($conn,"SELECT * FROM admin WHERE admin_username='$use'");
 $p=mysqli_query($conn,"SELECT * FROM patient WHERE patient_username='$use'");
@@ -38,13 +39,16 @@ if($count >0 || $countp >0 || $counts >0){
     //  echo 'CP'; //existing password
         if($patr >0){
       echo 'P';
+      $_SESSION['Is_login'] = $use;
         }
        elseif($staffr >0)
        {
       echo 'Staff';
+      $_SESSION['Is_login'] = $use;
         }
      else{
       echo 'A';
+      $_SESSION['Is_login'] = $use;
       }
 
    }   

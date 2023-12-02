@@ -119,7 +119,7 @@ else{
                     </li>
 
                     <li>
-                        <a href="report.php">
+                        <a href="report.html">
                         <span class="icon"> <span class="material-symbols-outlined">
                             list_alt
                             </span></span>
@@ -165,7 +165,7 @@ else{
                 <div class="card">
     
                     <div class="iconbox">
-                        <a href="labtest.php">
+                        <a href="labtest.html">
                             <span class="material-symbols-outlined">
                                 science
                                 </span></a>
@@ -250,14 +250,14 @@ else{
                         <div class="card">
     
                             <div class="iconbox">
-                                <a href="report.php">
+                                <a href="report.html">
                                     <span class="material-symbols-outlined">
                                         list_alt
                                         </span></a>
                             </div>
             
                             <div>
-                                <a href="report.php">
+                                <a href="report.html">
                                <div class="numbers">Analysis of</div> 
                                 <div class="cardname">Reports</div>
                                 </a>

@@ -1,5 +1,34 @@
 <?php
 session_start();
+$servername ="localhost";
+$username ="root";
+$password ="";
+$database ="labsystemdb1";
+
+
+$conn =mysqli_connect($servername,$username,$password,$database);
+// $use=$_SESSION['user_name'];
+// echo $use;
+if(isset($_SESSION['Is_login'])){
+    $use=$_SESSION['user_name'];
+    
+    $sql=mysqli_query($conn,"SELECT * FROM `admin` WHERE admin_username='$use'");
+    $count=mysqli_num_rows($sql);
+    echo ($count);
+    
+    if($count==1){
+        echo("Welcome");
+    }
+    else{
+        header('location:logout.php');
+        die("Some issue contact admin");
+    }
+   
+}
+else{
+    header('location:logout.php');
+    die("Some issue contact admin");
+}
 
 ?>
 <!DOCTYPE html>

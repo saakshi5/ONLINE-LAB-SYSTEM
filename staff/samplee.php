@@ -1,4 +1,36 @@
-<!DOCTYPE html>
+<?php
+session_start();
+$servername ="localhost";
+$username ="root";
+$password ="";
+$database ="labsystemdb1";
+
+
+$conn =mysqli_connect($servername,$username,$password,$database);
+// $use=$_SESSION['user_name'];
+// echo $use;
+if(isset($_SESSION['Is_login'])){
+    $use=$_SESSION['user_name'];
+    
+    $sql=mysqli_query($conn,"SELECT * FROM staff WHERE staff_username='$use'");
+    $count=mysqli_num_rows($sql);
+    echo ($count);
+    
+    if($count==1){
+        echo("Welcome");
+    }
+    else{
+        header('location:logout.php');
+        die("Some issue contact admin");
+    }
+   
+}
+else{
+    header('location:logout.php');
+    die("Some issue contact admin");
+}
+
+?><!DOCTYPE html>
 <html>
     <head>
         <!-- <script src="system.js"></script> -->
@@ -37,7 +69,7 @@
             <div class="navigation">
                 <ul>
                     <li>
-                        <a href="lab.html">
+                        <a href="lab.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             dashboard
                             </span></span>
@@ -45,7 +77,7 @@
                     </a>
                     </li>
                     <li>
-                        <a href="labtest.html">
+                        <a href="labtest.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             science
                             </span></span>
@@ -53,7 +85,7 @@
                     </a>
                     </li>
                     <li>
-                        <a href="lab_pat.html">
+                        <a href="lab_pat.php">
                         <span class="icon"><span class="material-symbols-outlined">
                             groups
                             </span></span>
@@ -70,7 +102,7 @@
                     </a>
                     </li>
                     <li>
-                        <a href="sample.html">
+                        <a href="sample.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             colorize
                             </span></span>
@@ -87,7 +119,7 @@
                     </li>
 
                     <li>
-                        <a href="report.html">
+                        <a href="report.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             list_alt
                             </span></span>

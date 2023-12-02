@@ -1,4 +1,36 @@
-<!DOCTYPE html>
+<?php
+session_start();
+$servername ="localhost";
+$username ="root";
+$password ="";
+$database ="labsystemdb1";
+
+
+$conn =mysqli_connect($servername,$username,$password,$database);
+// $use=$_SESSION['user_name'];
+// echo $use;
+if(isset($_SESSION['Is_login'])){
+    $use=$_SESSION['user_name'];
+    
+    $sql=mysqli_query($conn,"SELECT * FROM staff WHERE staff_username='$use'");
+    $count=mysqli_num_rows($sql);
+    echo ($count);
+    
+    if($count==1){
+        echo("Welcome");
+    }
+    else{
+        header('location:logout.php');
+        die("Some issue contact admin");
+    }
+   
+}
+else{
+    header('location:logout.php');
+    die("Some issue contact admin");
+}
+
+?><!DOCTYPE html>
 <html>
     <head>
        <!-- <script src="system.js"></script> -->
@@ -44,7 +76,7 @@
                     </li>
 
                     <li>
-                        <a href="labtest.html">
+                        <a href="labtest.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             science
                             </span></span>
@@ -52,7 +84,7 @@
                     </a>
                     </li>
                     <li>
-                        <a href="lab_pat.html">
+                        <a href="lab_pat.php">
                         <span class="icon"><span class="material-symbols-outlined">
                             groups
                             </span></span>
@@ -86,7 +118,7 @@
                     </a>
                     </li>
                     <li>
-                        <a href="report.html">
+                        <a href="report.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             list_alt
                             </span></span>
@@ -246,7 +278,9 @@
                 <div class="form-field">        
                 <p>Enter Test Amount:</p>
                 <input type="text" name="amt" id="tamt" required/></div>
-            
+                <div class="form-field">        
+                    <p>Enter Test Pre-requisites:</p>
+                    <input type="text" name="amt" id="treq" required/></div>
             <div>
                 <a href="#">
                 <button class="edit" onclick="editbutton();">Submit</button></a></div>
@@ -269,7 +303,7 @@
             <div class="form-field">
                 <!-- <p>Status:</p>
                 <input type="text" placeholder=""  id="st" /> -->
-                <textarea cols="67" rows="8">hghjhu</textarea>
+                <textarea cols="67" rows="8"></textarea>
             </div>
         </form>
     </div>
