@@ -1,5 +1,35 @@
 <?php
 session_start();
+$servername ="localhost";
+$username ="root";
+$password ="";
+$database ="labsystemdb1";
+
+
+$conn =mysqli_connect($servername,$username,$password,$database);
+// $use=$_SESSION['user_name'];
+// echo $use;
+if(isset($_SESSION['Is_login'])){
+    $use=$_SESSION['user_name'];
+    
+    $sql=mysqli_query($conn,"SELECT * FROM staff WHERE staff_username='$use'");
+    $count=mysqli_num_rows($sql);
+    echo ($count);
+    
+    if($count==1){
+        echo("Welcome");
+    }
+    else{
+        header('location:logout.php');
+        die("Some issue contact admin");
+    }
+   
+}
+else{
+    header('location:logout.php');
+    die("Some issue contact admin");
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,9 +49,9 @@ session_start();
                 <div><p id="heading">Healthcare Pathlabs</p> </div>
             <nav class="navbar">
                 <div>
-                    <a href="index.html">HOME</a>
-                    <a href="index.html">ABOUT US</a>
-                <a href="index.html">CONTACT </a>
+                    <a href="homepage.html">HOME</a>
+                    <a href="homepage.html">ABOUT US</a>
+                <a href="homepage.html">CONTACT </a>
                 <!-- </div>
                  <div class="user"> -->
                     <img src="images/user.png" style=" height: 50px; width:50px; margin-right: 1rem; margin-left:1.5rem; align-items:center; padding: 5px;" class="user">
@@ -46,7 +76,7 @@ session_start();
                     </a>
                     </li>
                     <li>
-                        <a href="labtest.html">
+                        <a href="labtest.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             science
                             </span></span>
@@ -54,7 +84,7 @@ session_start();
                     </a>
                     </li>
                     <li>
-                            <a href="lab_pat.html">
+                            <a href="lab_pat.php">
                             <span class="icon"><span class="material-symbols-outlined">
                                 groups
                                 </span></span>
@@ -71,7 +101,7 @@ session_start();
                     </a>
                     </li>
                     <li>
-                        <a href="sample.html">
+                        <a href="samplee.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             colorize
                             </span></span>
@@ -89,7 +119,7 @@ session_start();
                     </li>
 
                     <li>
-                        <a href="report.html">
+                        <a href="report.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             list_alt
                             </span></span>
@@ -97,7 +127,7 @@ session_start();
                     </a>
                     </li>
                     <li>
-                        <a href="index.html">
+                        <a href="logout.php">
                         <span class="icon"><span class="material-symbols-outlined">
                             logout
                             </span>
@@ -135,14 +165,14 @@ session_start();
                 <div class="card">
     
                     <div class="iconbox">
-                        <a href="labtest.html">
+                        <a href="labtest.php">
                             <span class="material-symbols-outlined">
                                 science
                                 </span></a>
                     </div>
     
                     <div>
-                        <a href="labtest.html">
+                        <a href="labtest.php">
                        <div class="numbers">Tests</div> 
                         <div class="cardname">Available</div>
                         </a> 
@@ -160,7 +190,7 @@ session_start();
 
     <div>
        <!-- <div class="numbers">Book</div>  -->
-       <a href="lab_pat.html">
+       <a href="lab_pat.php">
         <div class="cardname">Patients</div>
         <div class="cardname">Details</div></a>
     </div>
@@ -169,14 +199,14 @@ session_start();
                 <div class="card">
     
                     <div class="iconbox">
-                        <a href="appoint.html">
+                        <a href="appointt.php">
                             <span class="material-symbols-outlined">
                                 heart_plus
                                 </span></a>
                     </div>
     
                     <div>
-                        <a href="appoint.html">
+                        <a href="appoint.php">
                        <div class="numbers">10+ Pending</div> 
                         <div class="cardname">Appointments</div></a>
                     </div>
@@ -186,14 +216,14 @@ session_start();
                 <div class="card">
     
                     <div class="iconbox">
-                        <a href="sample.html">
+                        <a href="samplee.php">
                             <span class="material-symbols-outlined">
                                 colorize
                                 </span></a>
                     </div>
     
                     <div>
-                        <a href="sample.html">
+                        <a href="samplee.php">
                        <div class="numbers">Collection of</div> 
                         <div class="cardname">Samples</div>
                         </a>
@@ -203,14 +233,14 @@ session_start();
                 <div class="card">
     
                     <div class="iconbox">
-                        <a href="lab_pay.html">
+                        <a href="lab_pay.php">
                             <span class="icon"><span class="material-symbols-outlined">
                                 payments
                                 </span></a>
                     </div>
                       &nbsp;
                     <div>
-                        <a href="lab_pay.html">
+                        <a href="lab_pay.php">
                        <!-- <div class="numbers">Safe & Secure</div>  -->
                         <div class="cardname">Payment</div>
                         </a>
@@ -220,14 +250,14 @@ session_start();
                         <div class="card">
     
                             <div class="iconbox">
-                                <a href="report.html">
+                                <a href="report.php">
                                     <span class="material-symbols-outlined">
                                         list_alt
                                         </span></a>
                             </div>
             
                             <div>
-                                <a href="report.html">
+                                <a href="report.php">
                                <div class="numbers">Analysis of</div> 
                                 <div class="cardname">Reports</div>
                                 </a>

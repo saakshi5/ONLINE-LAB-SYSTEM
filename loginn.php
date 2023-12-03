@@ -167,6 +167,7 @@ url: 'login.php',
 data: {use:username.value,pass:password.value},
 success:function(data){
   console.log(data);
+//   alert(data);
 //   if(data=='CP'){
 // username="<?php //echo $_SESSION['user_name'] ?>";
 
@@ -186,6 +187,7 @@ success:function(data){
 console.log(username)
  window.location='customer.php';
   }
+
   else if(data =='Staff'){
     window.location='lab.php';
 

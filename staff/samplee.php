@@ -1,13 +1,46 @@
-<!DOCTYPE html>
+<?php
+session_start();
+$servername ="localhost";
+$username ="root";
+$password ="";
+$database ="labsystemdb1";
+
+
+$conn =mysqli_connect($servername,$username,$password,$database);
+// $use=$_SESSION['user_name'];
+// echo $use;
+if(isset($_SESSION['Is_login'])){
+    $use=$_SESSION['user_name'];
+    
+    $sql=mysqli_query($conn,"SELECT * FROM staff WHERE staff_username='$use'");
+    $count=mysqli_num_rows($sql);
+    echo ($count);
+    
+    if($count==1){
+        echo("Welcome");
+    }
+    else{
+        header('location:logout.php');
+        die("Some issue contact admin");
+    }
+   
+}
+else{
+    header('location:logout.php');
+    die("Some issue contact admin");
+}
+
+?><!DOCTYPE html>
 <html>
     <head>
-      <!-- <script src="system.js"></script> -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- <script src="system.js"></script> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="sample.css">
         <title>Samples</title>
+
     </head>
     <body onload="generatesample();">
 
@@ -29,83 +62,70 @@
            
         </header>
 
-   
 
+
+     
         <div class="container">
             <div class="navigation">
                 <ul>
                     <li>
-                        <a href="admin.html">
-                        <span class="icon"><span class="material-symbols-outlined">
+                        <a href="lab.php">
+                        <span class="icon"> <span class="material-symbols-outlined">
                             dashboard
                             </span></span>
                         <span class="tittle"> Dashboard</span>
                     </a>
                     </li>
                     <li>
-                            <a href="admin_test.html">
-                            <span class="icon"> <span class="material-symbols-outlined">
-                                science
-                                </span></span>
-                            <span class="tittle"> Available Tests</span>
-                        </a>
-                        </li>
-
-
-                        <li>
-                            <a href="patient.html">
-                            <span class="icon"><span class="material-symbols-outlined">
-                                groups
-                                </span></span>
-                            <span class="tittle"> Patients</span>
-                        </a>
-                        </li>
-                        
-
-                        <li>
-                        <a href="admin_appoint.html">
-                        <span class="icon">  <span class="material-symbols-outlined">
+                        <a href="labtest.php">
+                        <span class="icon"> <span class="material-symbols-outlined">
+                            science
+                            </span></span>
+                        <span class="tittle"> Available Tests</span>
+                    </a>
+                    </li>
+                    <li>
+                        <a href="lab_pat.php">
+                        <span class="icon"><span class="material-symbols-outlined">
+                            groups
+                            </span></span>
+                        <span class="tittle"> Patients</span>
+                    </a>
+                    </li>
+                <li>
+                    <li>
+                        <a href="appointt.php">
+                        <span class="icon"> <span class="material-symbols-outlined">
                             heart_plus
                             </span></span>
                         <span class="tittle"> Appointments</span>
                     </a>
                     </li>
                     <li>
-                        <a href="admin_sample.html">
+                        <a href="sample.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             colorize
                             </span></span>
                         <span class="tittle"> Samples</span>
                     </a>
                     </li>
-                   
                     <li>
-                        <a href="admin_report.html">
+                        <a href="lab_pay.php">
+                        <span class="icon"> <span class="material-symbols-outlined">
+                            payments
+                            </span></span>
+                        <span class="tittle"> Transaction</span>
+                    </a>
+                    </li>
+
+                    <li>
+                        <a href="report.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             list_alt
                             </span></span>
                         <span class="tittle"> Reports</span>
                     </a>
                     </li>
-                    <li>
-                        <a href="admin_payment.html">
-                        <span class="icon"> <span class="material-symbols-outlined">
-                            payments
-                            </span></span>
-                        <span class="tittle">Transaction</span>
-                    </a>
-                    </li>
-
-                    <li>
-                        <a href="staff.html">
-                        <span class="icon"><span class="material-symbols-outlined">
-                            badge
-                            </span></span>
-                        <span class="tittle"> Staff</span>
-                    </a>
-                    </li>
-
-                    
                     <li>
                         <a href="index.html">
                         <span class="icon"> <span class="material-symbols-outlined">
@@ -119,41 +139,36 @@
             </div>
         </div>
       
-     
-
       
         <div class="main">
             <h2 style="left:500px;">Samples</h2>
             <div class="search"><lable>
                 <input type="text" placeholder="Search here">
                 <div class="butt"><button class="btn-1">Go</button></div>
-
                 <div class="iconn">
-                    <span class="material-symbols-outlined">
-                        search
-                        </span>  </div>
+               <span class="material-symbols-outlined">
+search
+</span>   </div>
+            
             </lable>
             </div>
-            <a href="#" class="btn" onclick="addsampledetails();"><span class="material-symbols-outlined">
+            <a href="#" class="btn" onclick=" addsampledetails();"><span class="material-symbols-outlined">
                 add
-                </span> Add Sample</a>
- <div id="samplebox">             
+                </span>Add Sample</a>
+      <div id="samplebox">    
             <div class="table-box">
                 <div class="table-row table-head">
-                    <!-- <div class="table-cell">
-                        <p>Patient Id</p>
-                    </div> -->
-                    <div class="table-cell first-cell">
+                    
+                    <div class="table-cell first-cell ">
                         <p>Patient Name</p>
                     </div>
-                    
                     <div class="table-cell">
-                        <p>Patient Email:</p>
+                        <p>Patient Email</p>
                     </div>
 
-                    <div class="table-cell">
+                    <!-- <div class="table-cell">
                         <p>Test Name</p>
-                    </div>
+                    </div> -->
                     
                     <div class="table-cell">
                         <p>Status</p>
@@ -164,36 +179,36 @@
                         <p>Collection Date</p>
                     </div>
                     
-                    <div class="table-cell">
+                    <div class="table-cell last-cell">
                         <p>Action</p>
                     </div>
                     
 
                 </div>
-<div id="sampletbox">
+        <div id="sampletbox">
                 <!-- <div class="table-row">
                     <div class="table-cell first-cell">
-                        <p id="sampleid">12365</p>
+                        <p>12365</p>
                     </div>
                     <div class="table-cell">
-                        <p id="samplen">Faran</p>
+                        <p>Faran</p>
                     </div>
                
                     <div class="table-cell">
-                        <p id="sampletestn">CBC</p>
+                        <p>CBC</p>
                     </div>
                     
                     <div class="table-cell">
-                        <p id="samplestatus">collected</p>
+                        <p>Collected</p>
                     </div>
                     
 
                     <div class="table-cell">
-                        <p id="sampledate">6/5/2023</p>
+                        <p>6/5/2023</p>
                     </div>
                     
                     <div class="table-cell last-cell">
-                        <p id="sampleb"><button class="btn-2" onclick="openn();">
+                        <p><button class="btn-2" onclick="openn();">
                             <span class="material-symbols-outlined">
                                 edit
                                 </span>
@@ -204,16 +219,12 @@
                                 </span>
                          </button></p>
                     </div>
-                </div>  -->
+                    
 
-                </div>
-
-                <!-- <div class="table-row">
-                    <div class="table-cell first-cell">
-                  
                 </div> -->
-            </div>  
+            </div>        
             </div>
+        </div>    
             
             
     <!-- //modal -->
@@ -229,7 +240,7 @@
         <form>
             <div class="form-field">
                 <p>Status:</p>
-                <input type="text" placeholder="" id="st"/>
+                <input type="text" placeholder=""  id="st" />
             </div>
           
             <div>
@@ -256,51 +267,48 @@
             </div>
           
             <div>
-                <a href="index.html">
+                <a href="#">
                 <button class="edit" onclick="deletebutton();">Delete</button></a></div>
         </form>
     </div>
  </div>
 <div id="overlay"></div>
 
-<!-- 
-    add -->
-    <div class="addmodal" id="addmodall">
-        <div class="addmodal-header">
-         <div class="tittle">Add Sample</div>
-         <button class="close" id="closse" onclick="closee();"><span class="material-symbols-outlined">
-            cancel
-            </span></button>
-        </div>  
-        <div class="addmodal-body">
-            <form>
-                <div class="form-field">             
-                    <p>Enter Patient name:</p>
-                    <input type="text" name="pname" id="pname" required/></div>
-                    <div class="form-field">        
-                    <p>Enter Email:</p>
-                    <input type="text" name="pemail" id="pemail" required/></div>
-                    <!-- <div class="form-field">        
-                     <p>Enter Status:</p>
-                    <input type="text" name="amt" id="pstatus" required/></div> -->
-                    <div class="form-field">        
-                    <p>Enter Collection Date:</p>
-                    <input type="date" name="amt" id="tdate" required/></div>
-                    <div class="form-field">        
-                    <p>Enter Test name:</p>
-                    <input type="text" name="pname" id="testn" required/>
-                </div>
-    
-                
-                <div>
-                    <a href="#">
-                    <button class="edit" onclick="createsamples();">Submit</button></a></div>
-                </form>
-                </div>
-         </div>      
-              
-    <div id="overlay"></div>
+<div class="addmodal" id="addmodall">
+    <div class="addmodal-header">
+     <div class="tittle">Add Sample</div>
+     <button class="close" id="closse" onclick="closee();"><span class="material-symbols-outlined">
+        cancel
+        </span></button>
+    </div>  
+    <div class="addmodal-body">
+        <form>
+            <div class="form-field">             
+                <p>Enter Patient name:</p>
+                <input type="text" name="pname" id="pname" required/></div>
+                <div class="form-field">        
+                <p>Enter Email:</p>
+                <input type="text" name="pemail" id="pemail" required/></div>
+                <!-- <div class="form-field">        
+                 <p>Enter Status:</p>
+                <input type="text" name="amt" id="pstatus" required/></div> -->
+                <div class="form-field">        
+                <p>Enter Collection Date:</p>
+                <input type="date" name="amt" id="tdate" required/></div>
+                <div class="form-field">        
+                <p>Enter Test name:</p>
+                <input type="text" name="pname" id="testn" required/>
+            </div>
 
+            
+            <div>
+                <a href="#">
+                <button class="edit" onclick="createsamples();">Submit</button></a></div>
+            </form>
+            </div>
+     </div>      
+          
+<div id="overlay"></div>
     </div>  
 
     </body>
@@ -310,8 +318,9 @@
 
 
 
+
 <script>
-  
+      
 let mm1=document.getElementById('st');
 let acnum=document.createElement('p');
 acnum.setAttribute('id', 'acnum');
@@ -350,7 +359,6 @@ delmodal.style.display = 'none';
 addmodal.style.display='none';
 overlay.style.display = 'none';
 }
-
 function deleteb(e){
     name=e.target.parentNode.parentNode.parentNode.parentNode.childNodes[0].innerText;
     console.log(name);
@@ -415,7 +423,7 @@ $.ajax({
  }
         }
     
-    });
+    })
     
 
 }
@@ -423,67 +431,53 @@ $.ajax({
 
     
     
-    
-        function generatesample(){
-            $.ajax({
+    function generatesample(){
+        $.ajax({
     
     type: 'POST',
-    url: 'admin_sample.php',
-    data: {x:'Samples'},
+    url: 'sample.php',
+    data: {x:'Sample'},
     success:function(data){
-        // console.log(data);
+    // console.log(data);
+    dataa= JSON.parse(data);
+    console.log(dataa[0].test_name);
     
     //  if(data =='E')
     //  {
     
     //  }
     
-     if(data =='NE'){
-     alert('Not exists');
-     }
-     else {
+    if(data =='NE'){
+    alert('Not exists');
+    }
+    else {
     //  alert('Exists');
-    dataa= JSON.parse(data);
-        console.log(dataa[0].patient_name);
     
     
     for(let i=0; i<dataa.length;i++) {
     
-     let tr=document.createElement('div');
+    let tr=document.createElement('div');
     tr.classList.add('table-row');  
     
     let tcell1=document.createElement('div');
-     tcell1.classList.add('table-cell','first-cell');
+    tcell1.classList.add('table-cell','first-cell');
     
-     let tcell2=document.createElement('div');
-     tcell2.classList.add('table-cell');
+    let tcell2=document.createElement('div');
+    tcell2.classList.add('table-cell');
     
-     let tcell3=document.createElement('div');
-     tcell3.classList.add('table-cell');
+    // let tcell3=document.createElement('div');
+    // tcell3.classList.add('table-cell');
     
-     let tcell4=document.createElement('div');
-     tcell4.classList.add('table-cell');
+    let tcell4=document.createElement('div');
+    tcell4.classList.add('table-cell');
     
-     let tcell5=document.createElement('div');
-     tcell5.classList.add('table-cell');
-
-     let tcell6=document.createElement('div');
-     tcell6.classList.add('table-cell','last-cell');
-
+    let tcell5=document.createElement('div');
+    tcell5.classList.add('table-cell');
     
+    let tcell6=document.createElement('div');
+    tcell6.classList.add('table-cell','last-cell');
     
     
-    let span= document.createElement('span');  //delete button
-    span.classList.add('material-symbols-outlined');
-    span.innerHTML='edit';
-    
-    let span2= document.createElement('span');  //delete button
-    span2.classList.add('material-symbols-outlined');
-    span2.innerHTML='delete';
-    
-    
-    let p=document.createElement('p');  //paragraph
-    p.setAttribute('id', 'sampleb');
     
     
     //create button
@@ -494,6 +488,14 @@ $.ajax({
     btn2.classList.add('btn-3');
     
     
+    let span= document.createElement('span');  //delete button
+    span.classList.add('material-symbols-outlined');
+    span.innerHTML='edit';
+    
+    let span2= document.createElement('span');  //delete button
+    span2.classList.add('material-symbols-outlined');
+    span2.innerHTML='delete';
+    
     let btn3= document.createElement('button');  //edit button
     btn3.classList.add('btn-2');
     btn3.disabled = false;
@@ -501,22 +503,25 @@ $.ajax({
     //span.classList.add('material-symbols-outlined');
      spann.innerHTML='not collected';
 
-
-
+    
+    let p=document.createElement('p');  //paragraph
+    p.setAttribute('id', 'sampleb');
+    
+    
     //rows and cols
-     let tbox1=document.getElementById('sampletbox');
+    let tbox1=document.getElementById('sampletbox');
     
     tbox1.appendChild(tr);
     tr.appendChild(tcell1);
     tcell1.innerText=dataa[i].patient_name;
     
-
-        
     tr.appendChild(tcell2);
     tcell2.innerText=dataa[i].patient_email;
+    
+    
 
-    tr.appendChild(tcell3);
-    tcell3.innerText=dataa[i].test_name;
+    // tr.appendChild(tcell3);
+    // tcell3.innerText=dataa[i].test_name;
     
     
     tr.appendChild(tcell4);
@@ -524,11 +529,9 @@ $.ajax({
     btn3.appendChild(spann);
     spann.innerHTML=dataa[i].sample_status;
     
-    
     tr.appendChild(tcell5);
     tcell5.innerText=dataa[i].sample_collection_date;
 
-    
     tr.appendChild(tcell6);
     tcell6.appendChild(p);
     // p.appendChild(btn1);
@@ -539,6 +542,8 @@ $.ajax({
     btn1.addEventListener('click',e=>openn(e));
     btn2.addEventListener('click',e=>deleteb(e));
     btn3.addEventListener('click',e=>statusb(e));
+
+
 
     function statusb(e){
     let email=e.target.parentNode.parentNode.parentNode.childNodes[1].innerHTML;
@@ -567,16 +572,49 @@ $.ajax({
     }
 
     }
+
+
+    }
+    
+    }
+    }
+    });
+    }
+    
+
+
+    function createsamples(){
+  let pname=document.getElementById("pname");
+let pemail=document.getElementById("pemail");
+let tname=document.getElementById("testn");
+  let pstatus=  document.getElementById("pstatus");
+let tdate=document.getElementById("tdate");
+$.ajax({
+    
+    type: 'POST',
+    url: 'samdetails.php',
+    data: {pname:pname.value,status:pstatus.value,tn:tname.value,pemail:pemail.value,tdate:tdate.value},
+    success:function(data){
+
+
+        console.log(data);
+   //data= JSON.parse(data);
+   alert(data);
+//  if(data=='S'){
+//    alert('Saved successfully');
+// }
+
+//  else{
+//     alert('Some issue');
+//  }
+ }
+    
+    });
+
 }
-     
-    }
-    }
-     });
-        }
 
 
-
-        function editbutton(){
+    function editbutton(){
  
  // let mm2=document.getElementById('st');
  console.log(mm1.value);
@@ -621,7 +659,7 @@ $.ajax({
      data: {pn:patn,pe:patee},
      success:function(data){
  
-         alert(data);
+         //alert(data);
         // console.log(data);
     //data= JSON.parse(data);
     if(data=='S'){

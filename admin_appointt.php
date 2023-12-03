@@ -12,7 +12,7 @@ $conn =mysqli_connect($servername,$username,$password,$database);
 if(isset($_SESSION['Is_login'])){
     $use=$_SESSION['user_name'];
     
-    $sql=mysqli_query($conn,"SELECT * FROM staff WHERE staff_username='$use'");
+    $sql=mysqli_query($conn,"SELECT * FROM `admin` WHERE admin_username='$use'");
     $count=mysqli_num_rows($sql);
     echo ($count);
     
@@ -31,16 +31,18 @@ else{
 }
 
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
         <!-- <script src="system.js"></script> -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="appoint.css">
         <title>Appointments</title>
+
     </head>
     <body onload="generateappointment();">
 
@@ -50,9 +52,9 @@ else{
                 <div><p id="heading" style="left:8px;">Healthcare Pathlabs</p> </div>
             <nav class="navbar">
                 <div>
-                    <a href="index.html">HOME</a>
-                    <a href="index.html">ABOUT US</a>
-                <a href="index.html">CONTACT </a>
+                    <a href="homepage.html">HOME</a>
+                    <a href="homepage.html">ABOUT US</a>
+                <a href="homepage.html">CONTACT </a>
                 <!-- </div>
                  <div class="user"> -->
                     <img src="images/user.png" style=" height: 50px; width:50px; margin-right: 1rem; margin-left:1.5rem; align-items:center; padding: 5px;" class="user">
@@ -62,57 +64,65 @@ else{
            
         </header>
 
-
-
-     
-
-
+        
         <div class="container">
             <div class="navigation">
                 <ul>
                     <li>
-                        <a href="lab.php">
-                        <span class="icon"> <span class="material-symbols-outlined">
+                        <a href="admin.php">
+                        <span class="icon"><span class="material-symbols-outlined">
                             dashboard
                             </span></span>
                         <span class="tittle"> Dashboard</span>
                     </a>
                     </li>
                     <li>
-                        <a href="labtest.php">
-                        <span class="icon"> <span class="material-symbols-outlined">
-                            science
-                            </span></span>
-                        <span class="tittle"> Available Tests</span>
-                    </a>
-                    </li>
-                    <li>
-                            <a href="lab_pat.php">
+                            <a href="admin_testt.php">
+                            <span class="icon"> <span class="material-symbols-outlined">
+                                science
+                                </span></span>
+                            <span class="tittle"> Available Tests</span>
+                        </a>
+                        </li>
+
+
+                        <li>
+                            <a href="patientt.php">
                             <span class="icon"><span class="material-symbols-outlined">
                                 groups
                                 </span></span>
                             <span class="tittle"> Patients</span>
                         </a>
                         </li>
-                    <li>
-                    <li>
-                        <a href="appointt.php">
-                        <span class="icon"> <span class="material-symbols-outlined">
+                        
+
+                        <li>
+                        <a href="admin_appointt.php">
+                        <span class="icon">  <span class="material-symbols-outlined">
                             heart_plus
                             </span></span>
                         <span class="tittle"> Appointments</span>
                     </a>
                     </li>
                     <li>
-                        <a href="samplee.php">
+                        <a href="admin_samplee.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             colorize
                             </span></span>
                         <span class="tittle"> Samples</span>
                     </a>
                     </li>
+                   
                     <li>
-                        <a href="lab_pay.php">
+                        <a href="admin_reportt.php">
+                        <span class="icon"> <span class="material-symbols-outlined">
+                            list_alt
+                            </span></span>
+                        <span class="tittle"> Reports</span>
+                    </a>
+                    </li>
+                    <li>
+                        <a href="admin_paymentt.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             payments
                             </span></span>
@@ -121,15 +131,17 @@ else{
                     </li>
 
                     <li>
-                        <a href="report.php">
-                        <span class="icon"> <span class="material-symbols-outlined">
-                            list_alt
+                        <a href="staffs.php">
+                        <span class="icon"><span class="material-symbols-outlined">
+                            badge
                             </span></span>
-                        <span class="tittle"> Reports</span>
+                        <span class="tittle"> Staff</span>
                     </a>
                     </li>
+
+                    
                     <li>
-                        <a href="index.html">
+                        <a href="logout.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             logout
                             </span>
@@ -147,20 +159,24 @@ else{
             <div class="search"><lable>
                 <input type="text" placeholder="Search here">
                 <div class="butt"><button class="btn-1">Go</button></div>
+
                 <div class="iconn">
-               <span class="material-symbols-outlined">
-search
-</span>   </div>
-            
+                    <span class="material-symbols-outlined">
+                        search
+                        </span> </div>
             </lable>
             </div>
-            <a href="#" class="btn" onclick="addappointdetails();"><span class="material-symbols-outlined">
+            <a href="#" class="btn"  onclick="addappointdetails();"><span class="material-symbols-outlined">
                 add
-                </span>Add Appointment</a>
- <div id="adappointbox">             
+                </span> Add Appointment</a>
+
+<div id="adappointbox">
             <div class="table-box">
                 <div class="table-row table-head">
-                <div class="table-cell first-cell">
+                    <!-- <div class="table-cell">
+                        <p>Patient Id</p>
+                    </div> -->
+                    <div class="table-cell first-cell">
                         <p>Appointment Id</p>
                     </div>
                
@@ -175,6 +191,7 @@ search
                     <div class="table-cell">
                         <p>Date</p>
                     </div>
+                    
                     <div class="table-cell">
                         <p>Time</p>
                     </div>
@@ -188,33 +205,33 @@ search
                     </div>
 
                 </div>
-<div id="appointbox">
-                 <!-- <div class="table-row">
-                    <div class="table-cell">
-                        <p>12365</p>
+<div id="adappointbox">
+<!-- 
+                <div class="table-row">
+                    <div class="table-cell first-cell">
+                        <p id="adappid">12667</p>
                     </div>
                     <div class="table-cell">
-                        <p>Faran</p>
+                        <p id="adappn">Parag</p>
                     </div>
                
                     <div class="table-cell">
-                        <p>CBC</p>
+                        <p id="adapptestn">CBC</p>
                     </div>
                     
-
                     <div class="table-cell">
-                        <p>6/5/2023</p>
+                        <p  id="adappd">1/05/2023</p>
                     </div>
-                    
                     <div class="table-cell">
                         <p>7am-9am</p>
                     </div>
-                    <div class="table-cell">
-                        <p>1000</p>
-                    </div>
 
                     <div class="table-cell">
-                        <p><button class="btn-2" onclick="openn();">
+                        <p id="adappay">1000</p>
+                    </div>
+                    
+                    <div class="table-cell last-cell">
+                        <p id="adappb"><button class="btn-2" onclick="openn();">
                             <span class="material-symbols-outlined">
                                 edit
                                 </span>
@@ -225,30 +242,25 @@ search
                                 </span>
                          </button></p>
                     </div>
-                    
 
-                </div>  -->
+                </div> -->
+
+            </div>
                 <!-- <div class="table-row">
                     <div class="table-cell first-cell">
                         <p>Blood Sugar</p>
                     </div>
                
                     <div class="table-cell last-cell">
-                        <p>114</p>
-                    </div>
-                </div>
-
-           
-                    </div>
+                 
                 </div> -->
             </div>
             </div>
-        </div>                   
+            
             
     <!-- //modal -->
     
-  
-    <div class="modal" id="modall">
+   <div class="modal" id="modall">
     <div class="modal-header">
      <div class="tittle">Edit Details</div>
      <button class="close" id="closse" onclick="closee();" ><span class="material-symbols-outlined">
@@ -284,6 +296,7 @@ search
  </div>
 <div id="overlay"></div>
 
+
 <div class="delmodal" id="delmodall">
     <div class="delmodal-header">
      <div class="tittle"></div>
@@ -305,8 +318,7 @@ search
     </div>
  </div>
 <div id="overlay"></div>
-     
-    
+
 <div class="addmodal" id="addmodall">
     <div class="addmodal-header">
      <div class="tittle">Enter Details:</div>
@@ -316,7 +328,7 @@ search
     </div>  
     <div class="addmodal-body">
         <form>
-            <div class="form-field">             
+                <div class="form-field">             
                 <p>Enter Patient name:</p>
                 <input type="text" name="pname" id="pname" required/></div>
                 <div class="form-field">        
@@ -325,7 +337,7 @@ search
                 <div class="form-field">        
                  <p>Enter Age:</p>
                 <input type="text" name="amt" id="age" required/></div>
-            <div class="form-field">             
+                 <div class="form-field">             
                 <p>Enter Test name:</p>
                 <input type="text" name="pname" id="tname" required/></div>
                 <div class="form-field">        
@@ -347,6 +359,7 @@ search
      </div>      
           
 <div id="overlay"></div>
+
     </div>  
 
     </body>
@@ -354,60 +367,65 @@ search
 
 
 
+
+
+
+
 <script>
-      
+  
 let tn=document.getElementById('t');
     
-    let date=document.getElementById('tdate');
-    let time=document.getElementById('time');
-    let tc=document.getElementById('p');
-    let acnum=document.createElement('p');
-    acnum.setAttribute('id', 'acnum');
-    
-    let appi=document.createElement('p');
-appi.setAttribute('id', 'appi');
+let date=document.getElementById('tdate');
+let time=document.getElementById('time');
+let tc=document.getElementById('p');
+let acnum=document.createElement('p');
+acnum.setAttribute('id', 'acnum');
 
-      function openn(e){
-        console.log(e.target.parentNode.parentNode.parentNode.parentNode.childNodes);
-        eb=e.target.parentNode.parentNode.parentNode.parentNode.childNodes[2].innerText;//test name
-        console.log(eb);
-        d=e.target.parentNode.parentNode.parentNode.parentNode.childNodes[3].innerText;//test date
-        console.log(d);
-        t=e.target.parentNode.parentNode.parentNode.parentNode.childNodes[4].innerText;//test time
-        console.log(t);
-    
-        pay=e.target.parentNode.parentNode.parentNode.parentNode.childNodes[5].innerText;//test amt
-        console.log(pay);
-    
-        em=e.target.parentNode.parentNode.parentNode.parentNode.childNodes[0].innerText;//test amt
-        console.log(em);
-    
-    
+let appi=document.createElement('p');
+appi.setAttribute('id', 'appi');
+  function openn(e){
+    console.log(e.target.parentNode.parentNode.parentNode.parentNode.childNodes);
+    eb=e.target.parentNode.parentNode.parentNode.parentNode.childNodes[2].innerText;//test name
+    console.log(eb);
+    d=e.target.parentNode.parentNode.parentNode.parentNode.childNodes[3].innerText;//test date
+    console.log(d);
+    t=e.target.parentNode.parentNode.parentNode.parentNode.childNodes[4].innerText;//test time
+    console.log(t);
+
+    pay=e.target.parentNode.parentNode.parentNode.parentNode.childNodes[5].innerText;//test amt
+    console.log(pay);
+
+    em=e.target.parentNode.parentNode.parentNode.parentNode.childNodes[0].innerText;//test amt
+    console.log(em);
+
+
+const modal =document.getElementById('modall');
+const overlay =document.getElementById('overlay');
+modal.style.display = 'block';
+overlay.style.display = 'block';
+modal.style.transform= 'translate(-50%,-50%) scale(1)';
+tn.value=eb;
+date.value=d;
+time.value=t;
+tc.value=pay;
+acnum=em;
+// console.log('id=',em);
+}
+
+
+
+function closee(){
     const modal =document.getElementById('modall');
-    const overlay =document.getElementById('overlay');
-    modal.style.display = 'block';
-    overlay.style.display = 'block';
-    modal.style.transform= 'translate(-50%,-50%) scale(1)';
-    tn.value=eb;
-    date.value=d;
-    time.value=t;
-    tc.value=pay;
-    acnum=em;
-    // console.log('id=',em);
-    }
-    
-    
-    function closee(){
-        const modal =document.getElementById('modall');
-        const delmodal =document.getElementById('delmodall');
-        const addmodal =document.getElementById('addmodall');
-    const overlay =document.getElementById('overlay');
-    modal.style.display = 'none';
-    delmodal.style.display = 'none';
-    addmodal.style.display='none';
-    overlay.style.display = 'none';
-    }
-    function deleteb(e){
+    const delmodal =document.getElementById('delmodall');
+    const addmodal =document.getElementById('addmodall');
+const overlay =document.getElementById('overlay');
+modal.style.display = 'none';
+delmodal.style.display = 'none';
+addmodal.style.display='none';
+overlay.style.display = 'none';
+}
+
+function deleteb(e){
     
     em=e.target.parentNode.parentNode.parentNode.parentNode.childNodes[0].innerText;//app id
     console.log(em);
@@ -420,81 +438,75 @@ delmodal.style.transform= 'translate(-50%,-50%) scale(1)';
 appi=em;
 }
 
+
+function addappointdetails(){
+    console.log('add data');
+    const addmodal =document.getElementById('addmodall');
+const overlay =document.getElementById('overlay');
+addmodal.style.display = 'block';
+overlay.style.display = 'block';
+addmodal.style.transform= 'translate(-50%,-50%) scale(1)';
+}
+
+// function deletebutton(){
+//     // let delb=document.getElementById('deletebutton');
+//     window.alert('Deleted Successfully');
+
+// }
     
-    function addappointdetails(){
-        console.log('add data');
-        const addmodal =document.getElementById('addmodall');
-    const overlay =document.getElementById('overlay');
-    addmodal.style.display = 'block';
-    overlay.style.display = 'block';
-    addmodal.style.transform= 'translate(-50%,-50%) scale(1)';
-    }
     
-    // function deletebutton(){
-    //     // let delb=document.getElementById('deletebutton');
-    //     window.alert('Deleted Successfully');
     
-    // }
-        
-        
-    function generateappointment(){
-        $.ajax({
+        function generateappointment(){
+            $.ajax({
     
     type: 'POST',
-    url: 'appoint.php',
-    data: {x:'Appointment'},
+    url: 'admin_appoint.php',
+    data: {x:'Appoints'},
     success:function(data){
-    // console.log(data);
-    dataa= JSON.parse(data);
-    console.log(dataa[0].test_name);
+        // console.log(data);
     
     //  if(data =='E')
     //  {
     
     //  }
     
-    if(data =='NE'){
-    alert('Not exists');
-    }
-    else {
+     if(data =='NE'){
+     alert('Not exists');
+     }
+     else {
     //  alert('Exists');
+    dataa= JSON.parse(data);
+        console.log(dataa[0].appoint_time);
     
     
     for(let i=0; i<dataa.length;i++) {
     
-    let tr=document.createElement('div');
+     let tr=document.createElement('div');
     tr.classList.add('table-row');  
     
     let tcell1=document.createElement('div');
-    tcell1.classList.add('table-cell','first-cell');
+     tcell1.classList.add('table-cell','first-cell');
     
-    let tcell2=document.createElement('div');
-    tcell2.classList.add('table-cell');
+     let tcell2=document.createElement('div');
+     tcell2.classList.add('table-cell');
     
-    let tcell3=document.createElement('div');
-    tcell3.classList.add('table-cell');
+     let tcell3=document.createElement('div');
+     tcell3.classList.add('table-cell');
     
-    let tcell4=document.createElement('div');
-    tcell4.classList.add('table-cell');
+     let tcell4=document.createElement('div');
+    //  tcell4.type="time";
+     tcell4.classList.add('table-cell');
     
-    let tcell5=document.createElement('div');
-    tcell5.classList.add('table-cell');
+     let tcell5=document.createElement('div');
+     tcell5.classList.add('table-cell');
+     let tcell6=document.createElement('div');
+     tcell6.classList.add('table-cell');
     
-    let tcell6=document.createElement('div');
-    tcell6.classList.add('table-cell');
 
-    let tcell7=document.createElement('div');
-    tcell7.classList.add('table-cell','last-cell');
+     let tcell7=document.createElement('div');
+     tcell7.classList.add('table-cell','last-cell');
     
     
-    
-    
-    //create button
-    let btn1= document.createElement('button');  //edit button
-    btn1.classList.add('btn-2');
-    
-    let btn2= document.createElement('button');  //delete button
-    btn2.classList.add('btn-3');
     
     
     let span= document.createElement('span');  //delete button
@@ -510,14 +522,22 @@ appi=em;
     p.setAttribute('id', 'pbutton');
     
     
+    //create button
+    let btn1= document.createElement('button');  //edit button
+    btn1.classList.add('btn-2');
+    
+    let btn2= document.createElement('button');  //delete button
+    btn2.classList.add('btn-3');
+    
+    
+    
     //rows and cols
-    let tbox1=document.getElementById('appointbox');
+     let tbox1=document.getElementById('adappointbox');
     
     tbox1.appendChild(tr);
     tr.appendChild(tcell1);
     tcell1.innerText=dataa[i].appoint_id;
     
-
 
     tr.appendChild(tcell2);
     tcell2.innerText=dataa[i].patient_name;
@@ -529,12 +549,14 @@ appi=em;
     tr.appendChild(tcell4);
     tcell4.innerText=dataa[i].appoint_date;
     
+    
     tr.appendChild(tcell5);
     tcell5.innerText=dataa[i].appoint_time;
- 
+
+        
     tr.appendChild(tcell6);
     tcell6.innerText=dataa[i].total_cost;
-
+    
     tr.appendChild(tcell7);
     tcell7.appendChild(p);
     p.appendChild(btn1);
@@ -545,16 +567,16 @@ appi=em;
     btn1.addEventListener('click',e=>openn(e));
     btn2.addEventListener('click',e=>deleteb(e));
     
-    }
+     }
     
     }
     }
-    });
-    }
+     });
+        }
+
     
 
-
-    function editbutton(){
+        function editbutton(){
  
  $.ajax({
      
@@ -607,7 +629,7 @@ $.ajax({
     })
 
   }
-
+  
   function deletebutton(){
    // console.log("hi");
 

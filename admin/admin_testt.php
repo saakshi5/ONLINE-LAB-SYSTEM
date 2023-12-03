@@ -1,13 +1,47 @@
+<?php
+session_start();
+$servername ="localhost";
+$username ="root";
+$password ="";
+$database ="labsystemdb1";
+
+
+$conn =mysqli_connect($servername,$username,$password,$database);
+// $use=$_SESSION['user_name'];
+// echo $use;
+if(isset($_SESSION['Is_login'])){
+    $use=$_SESSION['user_name'];
+    
+    $sql=mysqli_query($conn,"SELECT * FROM `admin` WHERE admin_username='$use'");
+    $count=mysqli_num_rows($sql);
+    echo ($count);
+    
+    if($count==1){
+        echo("Welcome");
+    }
+    else{
+        header('location:logout.php');
+        die("Some issue contact admin");
+    }
+   
+}
+else{
+    header('location:logout.php');
+    die("Some issue contact admin");
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
        <!-- <script src="system.js"></script> -->
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="test.css">
-        <title>Tests</title>
+        <title>Admin-Tests</title>
     </head>
     <body onload="generatetest();">
 
@@ -17,9 +51,9 @@
                 <div><p id="heading" style="left:8px;">Healthcare Pathlabs</p> </div>
             <nav class="navbar">
                 <div>
-                    <a href="index.html">HOME</a>
-                    <a href="index.html">ABOUT US</a>
-                <a href="index.html">CONTACT </a>
+                    <a href="homepage.html">HOME</a>
+                    <a href="homepage.html">ABOUT US</a>
+                <a href="homepage.html">CONTACT </a>
                 <!-- </div>
                  <div class="user"> -->
                     <img src="images/user.png" style=" height: 50px; width:50px; margin-right: 1rem; margin-left:1.5rem; align-items:center; padding: 5px;" class="user">
@@ -31,45 +65,48 @@
 
 
 
+
         <div class="container">
             <div class="navigation">
                 <ul>
                     <li>
-                        <a href="lab.php">
-                        <span class="icon"> <span class="material-symbols-outlined">
+                        <a href="admin.php">
+                        <span class="icon"><span class="material-symbols-outlined">
                             dashboard
                             </span></span>
                         <span class="tittle"> Dashboard</span>
                     </a>
                     </li>
+                    <li>
+                            <a href="admin_testt.php">
+                            <span class="icon"> <span class="material-symbols-outlined">
+                                science
+                                </span></span>
+                            <span class="tittle"> Available Tests</span>
+                        </a>
+                        </li>
 
-                    <li>
-                        <a href="labtest.html">
-                        <span class="icon"> <span class="material-symbols-outlined">
-                            science
-                            </span></span>
-                        <span class="tittle"> Available Tests</span>
-                    </a>
-                    </li>
-                    <li>
-                        <a href="lab_pat.html">
-                        <span class="icon"><span class="material-symbols-outlined">
-                            groups
-                            </span></span>
-                        <span class="tittle"> Patients</span>
-                    </a>
-                    </li>
-                <li>
-                    <li>
-                        <a href="appointt.php">
-                        <span class="icon"> <span class="material-symbols-outlined">
+
+                        <li>
+                            <a href="patientt.php">
+                            <span class="icon"><span class="material-symbols-outlined">
+                                groups
+                                </span></span>
+                            <span class="tittle"> Patients</span>
+                        </a>
+                        </li>
+                        
+
+                        <li>
+                        <a href="admin_appointt.php">
+                        <span class="icon">  <span class="material-symbols-outlined">
                             heart_plus
                             </span></span>
                         <span class="tittle"> Appointments</span>
                     </a>
                     </li>
                     <li>
-                        <a href="sample.html">
+                        <a href="admin_samplee.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             colorize
                             </span></span>
@@ -78,15 +115,7 @@
                     </li>
                    
                     <li>
-                        <a href="lab_pay.html">
-                        <span class="icon"> <span class="material-symbols-outlined">
-                            list_alt
-                            </span></span>
-                        <span class="tittle">Transaction</span>
-                    </a>
-                    </li>
-                    <li>
-                        <a href="report.html">
+                        <a href="admin_reportt.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             list_alt
                             </span></span>
@@ -94,7 +123,26 @@
                     </a>
                     </li>
                     <li>
-                        <a href="index.html">
+                        <a href="admin_paymentt.php">
+                        <span class="icon"> <span class="material-symbols-outlined">
+                            payments
+                            </span></span>
+                        <span class="tittle">Transaction</span>
+                    </a>
+                    </li>
+
+                    <li>
+                        <a href="staffs.php">
+                        <span class="icon"><span class="material-symbols-outlined">
+                            badge
+                            </span></span>
+                        <span class="tittle"> Staff</span>
+                    </a>
+                    </li>
+
+                    
+                    <li>
+                        <a href="logout.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             logout
                             </span>
@@ -106,8 +154,6 @@
             </div>
         </div>
       
-      
-     
       
         <div class="main">
             <h2 style="left:500px;">Tests Available</h2>
@@ -140,10 +186,6 @@
                     </div>
 
                     <div class="table-cell">
-                        <p>Pre-requisites</p>
-                    </div>
-
-                    <div class="table-cell">
                         <p>Action</p>
                     </div>
                 </div>
@@ -170,38 +212,51 @@
                                 delete
                                 </span>
                          </button></p>
-                    </div>
-                </div> -->
+                    </div> -->
+                </div>
             </div> 
-</div>     
-            
+</div>              
+                <!-- <div class="table-row">
+                  
+               
+                
+                </div>  -->
+
+            </div>
+
+
             
     <!-- //modal -->
-    <div class="modal" id="modall">
-        <div class="modal-header">
-         <div class="tittle">Edit Details</div>
-         <button class="close" id="closse" onclick="closee();" ><span class="material-symbols-outlined">
-            cancel
-            </span></button>
-        </div>  
-        <div class="modal-body">
-            <form>
-                <div class="form-field">
-                    <p>Test Cost:</p>
-                    <input type="text" placeholder="" id="st">
-                </div>
-                
-                <div class="form-field">
-                    <p>Test Name:</p>
-                    <input type="text" placeholder="" id="tn">
-                </div>
-                <div>
-                    <a href="#">
-                    <button class="edit" onclick="createtests();">Save Changes</button></a></div>
-            </form>
-        </div>
-     </div>
-    <div id="overlay"></div>
+    
+   <div class="modal" id="modall">
+    <div class="modal-header">
+     <div class="tittle">Edit Details</div>
+     <button class="close" id="closse" onclick="closee();" ><span class="material-symbols-outlined">
+        cancel
+        </span></button>
+    </div>  
+    <div class="modal-body">
+        <form>
+            <div class="form-field">
+                <p>Test Cost:</p>
+                <input type="text" placeholder="" id="st">
+            </div>
+            
+            <div class="form-field">
+                <p>Test Name:</p>
+                <input type="text" placeholder="" id="tn">
+            </div>
+            <div class="form-field">
+                <p>Test Pre-requisites:</p>
+                <input type="text" placeholder="" id="treq">
+            </div>
+            <div>
+                <a href="#">
+                <button class="edit" onclick="createtests();">Save Changes</button></a></div>
+        </form>
+    </div>
+ </div>
+<div id="overlay"></div>
 
 
 <div class="delmodal" id="delmodall">
@@ -226,7 +281,7 @@
  </div>
 <div id="overlay"></div>
 
- 
+
 
 <div class="addmodal" id="addmodall">
     <div class="addmodal-header">
@@ -246,7 +301,9 @@
                 <div class="form-field">        
                 <p>Enter Test Amount:</p>
                 <input type="text" name="amt" id="tamt" required/></div>
-            
+                <div class="form-field">        
+                    <p>Enter Pre-requisites:</p>
+                    <input type="text" name="req" id="treq" required/></div>
             <div>
                 <a href="#">
                 <button class="edit" onclick="editbutton();">Submit</button></a></div>
@@ -255,48 +312,71 @@
      </div>      
           
 <div id="overlay"></div>
-    </div>  
-//pre-requisites
-<div class="modal" id="modal3">
-    <div class="modal-header">
-     <div class="tittle">Tests Pre-Requirements</div>
-     <button class="close" id="close" onclick="closeee();" ><span class="material-symbols-outlined">
-        cancel
-        </span></button>
-    </div>  
-    <div class="modal-body">
-        <form>
-            <div class="form-field">
-                <!-- <p>Status:</p>
-                <input type="text" placeholder=""  id="st" /> -->
-                <textarea cols="67" rows="8">hghjhu</textarea>
-            </div>
-        </form>
-    </div>
- </div>
-<div id="overlay"></div>
 
+    </div>  
+    //pre-requisites
+    <div class="modal" id="modal3">
+        <div class="modal-header">
+         <div class="tittle">Tests Pre-Requirements</div>
+         <button class="close" id="close" onclick="closeee();" ><span class="material-symbols-outlined">
+            cancel
+            </span></button>
+        </div>  
+        <div class="modal-body">
+            <form>
+                <div class="form-field">
+                    <!-- <p>Status:</p>
+                    <input type="text" placeholder=""  id="st" /> -->
+                    <textarea id="tre" cols="67" rows="8"></textarea>
+                </div>
+            </form>
+        </div>
+     </div>
+    <div id="overlay"></div>
+    
     </body>
 </html>
 
-
 <script>
-    
- 
+    let tre=document.getElementById('tre');
+
+
+let treq=document.getElementById('treq');
 let mm1=document.getElementById('st');
 let testn=document.getElementById('tn');
 let acnum=document.createElement('p');
 acnum.setAttribute('id', 'acnum');//cost
 
+let mo=document.getElementById("modal3");
+
 let adtname=document.createElement('p');
 adtname.setAttribute('id', 'adtname');
 
+let tid=document.createElement('p');
+tid.setAttribute('id', 'atid');
 
 let adtid=document.createElement('p');
 adtid.setAttribute('id', 'adtid');
 
-let tid=document.createElement('p');
-tid.setAttribute('id', 'atid');
+let tree=document.createElement('p');
+tree.setAttribute('id', 'tree');
+
+let adtreq=document.createElement('p');
+adtreq.setAttribute('id', 'adtreq');
+
+function opennn(e){
+        console.log('hiii');
+    const modal =document.getElementById('modal3');
+    const overlay =document.getElementById('overlay');
+    modal.style.display = 'block';
+    overlay.style.display = 'block';
+    modal.style.transform= 'translate(-50%,-50%) scale(1)';
+    // modal.style.transform= 'translate scale(1)';
+    //   modal.add();
+    //   overlay.add();
+ 
+    }
+
   function openn(e){
     // console.log(e.target.parentNode.parentNode.parentNode.parentNode.childNodes);
     eb=e.target.parentNode.parentNode.parentNode.parentNode.childNodes[2].innerText;//test cost
@@ -305,6 +385,8 @@ tid.setAttribute('id', 'atid');
     // console.log(ttn);
     ti=e.target.parentNode.parentNode.parentNode.parentNode.childNodes[0].innerText;//test id
     // console.log(ti);
+    tree=mo.children[1].childNodes[1].childNodes[1].childNodes[3].innerHTML;//test req
+    console.log(tree);
 
 const modal =document.getElementById('modall');
 const overlay =document.getElementById('overlay');
@@ -313,12 +395,16 @@ overlay.style.display = 'block';
 modal.style.transform= 'translate(-50%,-50%) scale(1)';
 mm1.value=eb;
 testn.value=ttn;
+treq.value=tree;
+
+console.log(treq);
 // acnum=eb;//cost
 // // console.log(acnum);
 // adtname=ttn; // name
 // // console.log(adtname);
 adtid=ti; // id
 // console.log(adtid);
+adtreq=treq;
 
 }
 
@@ -348,6 +434,7 @@ overlay.style.display = 'block';
 delmodal.style.transform= 'translate(-50%,-50%) scale(1)';
 }
 
+
 function editbutton1(){
     console.log('add data');
     const addmodal =document.getElementById('addmodall');
@@ -362,18 +449,14 @@ addmodal.style.transform= 'translate(-50%,-50%) scale(1)';
 //     window.alert('Deleted Successfully');
 
 // }
-//pre-requisites
-function opennn(){
-        console.log('hiii');
-    const modal =document.getElementById('modal3');
-    const overlay =document.getElementById('overlay');
-    modal.style.display = 'block';
-    overlay.style.display = 'block';
-    modal.style.transform= 'translate(-50%,-50%) scale(1)';
-    // modal.style.transform= 'translate scale(1)';
-    //   modal.add();
-    //   overlay.add();
-    }
+
+// function editbutton1(){
+//     // let delb=document.getElementById('deletebutton');
+//     window.alert('Edited Successfully');
+
+// }
+
+
     
     function closeee(){
     const modal =document.getElementById('modal3');
@@ -387,49 +470,57 @@ overlay.style.display = 'none';
 }
 
 
+          
 
-function generatetest(){
-    $.ajax({
+    
+
+
+
+    function generatetest(){
+        $.ajax({
 
 type: 'POST',
 url: 'admin_test.php',
 data: {x:'Tests'},
 success:function(data){
-// console.log(data);
-dataa= JSON.parse(data);
-console.log(dataa[0].test_name);
+    // console.log(data);
+    dataa= JSON.parse(data);
+    console.log(dataa[0].test_name);
 
 //  if(data =='E')
 //  {
 
 //  }
 
-if(data =='NE'){
-alert('Not exists');
-}
-else {
+ if(data =='NE'){
+ alert('Not exists');
+ }
+ else {
 //  alert('Exists');
 
 
 for(let i=0; i<dataa.length;i++) {
 
-let tr=document.createElement('div');
+ let tr=document.createElement('div');
 tr.classList.add('table-row');  
 
 let tcell1=document.createElement('div');
-tcell1.classList.add('table-cell','first-cell');
+ tcell1.classList.add('table-cell','first-cell');
 
-let tcell2=document.createElement('div');
-tcell2.classList.add('table-cell');
+ let tcell2=document.createElement('div');
+ tcell2.classList.add('table-cell');
 
-let tcell3=document.createElement('div');
-tcell3.classList.add('table-cell');
+ let tcell3=document.createElement('div');
+ tcell3.classList.add('table-cell');
 
-let tcell4=document.createElement('div');
-tcell4.classList.add('table-cell');
+ let tcell4=document.createElement('div');
+ tcell4.classList.add('table-cell');
 
-let tcell5=document.createElement('div');
-tcell5.classList.add('table-cell','last-cell');
+
+ let tcell5=document.createElement('div');
+ tcell5.classList.add('table-cell','last-cell');
+
+
 
 
 //create button
@@ -453,6 +544,43 @@ let p=document.createElement('p');  //paragraph
 p.setAttribute('id', 'idptb');
 
 
+
+let btn3= document.createElement('button');  //edit button
+    btn3.classList.add('btn-2');
+    let spann= document.createElement('spann');  //delete button
+    //span.classList.add('material-symbols-outlined');
+    spann.innerHTML='Pre-requisites';
+    btn3.onclick=function(){
+
+        $.ajax({
+
+type: 'POST',
+url: 'admin_test.php',
+data: {x:'Tests'},
+success:function(data){
+    // console.log(data);
+    dataa= JSON.parse(data);
+    
+    for(let i=0; i<dataa.length;i++){
+ console.log(dataa[i].prereq);
+
+//  if(data =='E')
+//  {
+
+//  }
+tre.defaultValue = dataa.prereq;
+}
+ if(data =='NE'){
+ alert('Not exists');
+ }
+ else {
+alert("some issue");
+    }
+}
+});
+} 
+
+
 // let b1=document.createElement('button');
 // b1.addEventListener('click',function openn(){
 //     console.log('open');
@@ -462,15 +590,10 @@ p.setAttribute('id', 'idptb');
 // let b2=document.createElement('button');
 // b2.addEventListener('click',() =>deleteb);
 
-
-let btn3= document.createElement('button');  //edit button
-    btn3.classList.add('btn-2');
-    let spann= document.createElement('spann');  //delete button
-    //span.classList.add('material-symbols-outlined');
-    spann.innerHTML='Pre-requisites';
+// console.log(data);
 
 //rows and cols
-let tbox1=document.getElementById('adptest');
+ let tbox1=document.getElementById('adptest');
 
 tbox1.appendChild(tr);
 tr.appendChild(tcell1);
@@ -483,10 +606,11 @@ tcell2.innerText=dataa[i].test_name;
 tr.appendChild(tcell3);
 tcell3.innerText=dataa[i].test_cost;
 
-
 tr.appendChild(tcell4);
     tcell4.appendChild(btn3);
     btn3.appendChild(spann);
+    // tre.defaultValue=dataa[i].prereq;
+// console.log(tre.defaultValue);
 
 tr.appendChild(tcell5);
 tcell5.appendChild(p);
@@ -498,12 +622,15 @@ btn2.appendChild(span2);
 btn1.addEventListener('click',e=>openn(e));
 btn2.addEventListener('click',e=>deleteb(e));
 btn3.addEventListener('click',e=>opennn(e));
-}
+ }
+
 
 }
 }
-});
-}
+ });
+    }
+
+    
 
 
 function createtests(){
@@ -511,26 +638,28 @@ function createtests(){
 console.log(adtid);
 console.log(adtname);
 console.log(acnum);
+console.log(adtreq);
+
 $.ajax({
     
     type: 'POST',
     url: 'adtest.php',
-    data: {tname:testn.value,tid:adtid,ta:mm1.value},
+    data: {tname:testn.value,tid:adtid,ta:mm1.value,treq:adtreq.value},
     success:function(data){
 
 
         console.log(data);
    //data= JSON.parse(data);
-//  if(data=='S'){
-//    alert('Saved successfully');
-// }
+ if(data=='S'){
+   alert('Saved successfully');
+}
 
-//  else{
-//     alert('Some issue');
-//  }
+ else{
+    alert('Some issue');
+ }
         }
     
-    })
+    });
     
 
 }
@@ -542,12 +671,13 @@ function editbutton(){
 let tname=document.getElementById("tname");
 let tid=document.getElementById("tid");
 let tamt=document.getElementById("tamt");
- //console.log(acnum);
+let treq=document.getElementById("treq");
+ console.log(treq);
  $.ajax({
      
      type: 'POST',
      url: 'adtest1.php',
-     data: {tn:tname.value, tid:tid.value, tamt:tamt.value},
+     data: {tn:tname.value, tid:tid.value, tamt:tamt.value,treq:treq.value},
      success:function(data){
  
          alert(data);
@@ -569,7 +699,7 @@ let tamt=document.getElementById("tamt");
  
     
   }
-  
+
   function deletebutton(){
    // console.log("hi");
 
@@ -602,3 +732,19 @@ let tamt=document.getElementById("tamt");
     
   }
 </script>
+
+
+
+
+<!-- 
+
+<p id="adptb"><button class="btn-2" onclick="openn();">
+    <span class="material-symbols-outlined">
+        edit
+        </span>
+ </button>
+ <button class="btn-3" onclick="deleteb();">
+    <span class="material-symbols-outlined">
+        delete
+        </span>
+ </button></p> -->
