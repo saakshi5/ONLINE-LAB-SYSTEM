@@ -48,9 +48,9 @@ else{
                 <div><p id="heading">Healthcare Pathlabs</p> </div>
             <nav class="navbar">
                 <div>
-                    <a href="index.html">HOME</a>
-                    <a href="index.html">ABOUT US</a>
-                <a href="index.html">CONTACT </a>
+                    <a href="homepage.html">HOME</a>
+                    <a href="homepage.html">ABOUT US</a>
+                <a href="homepage.html">CONTACT </a>
                 <!-- </div>
                  <div class="user"> -->
                     <img src="images/user.png" style=" height: 50px; width:50px; margin-right: 1rem; margin-left:1.5rem; align-items:center; padding: 5px;" class="user">
@@ -73,7 +73,7 @@ else{
                     </a>
                     </li>
                     <li>
-                            <a href="admin_test.html">
+                            <a href="admin_testt.php">
                             <span class="icon"> <span class="material-symbols-outlined">
                                 science
                                 </span></span>
@@ -83,7 +83,7 @@ else{
 
 
                         <li>
-                            <a href="patient.html">
+                            <a href="patientt.php">
                             <span class="icon"><span class="material-symbols-outlined">
                                 groups
                                 </span></span>
@@ -93,7 +93,7 @@ else{
                         
 
                         <li>
-                        <a href="admin_appoint.html">
+                        <a href="admin_appointt.php">
                         <span class="icon">  <span class="material-symbols-outlined">
                             heart_plus
                             </span></span>
@@ -101,7 +101,7 @@ else{
                     </a>
                     </li>
                     <li>
-                        <a href="admin_sample.html">
+                        <a href="admin_samplee.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             colorize
                             </span></span>
@@ -110,7 +110,7 @@ else{
                     </li>
                    
                     <li>
-                        <a href="admin_report.html">
+                        <a href="admin_reportt.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             list_alt
                             </span></span>
@@ -118,7 +118,7 @@ else{
                     </a>
                     </li>
                     <li>
-                        <a href="admin_payment.html">
+                        <a href="admin_paymentt.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             payments
                             </span></span>
@@ -127,7 +127,7 @@ else{
                     </li>
 
                     <li>
-                        <a href="staff.html">
+                        <a href="staffs.php">
                         <span class="icon"><span class="material-symbols-outlined">
                             badge
                             </span></span>
@@ -137,7 +137,7 @@ else{
 
                     
                     <li>
-                        <a href="index.html">
+                        <a href="logout.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             logout
                             </span>
@@ -157,14 +157,14 @@ else{
                 <div class="card">
     
                     <div class="iconbox">
-                        <a href="test.html">
+                        <a href="admin_testt.php">
                             <span class="material-symbols-outlined">
                                 science
                                 </span></a>
                     </div>
     
                     <div>
-                        <a href="test.html">
+                        <a href="admin_testt.php">
                        <div class="numbers">Tests</div> 
                         <!-- <div class="cardname">Available</div> -->
                         </a> 
@@ -174,7 +174,7 @@ else{
                 <div class="card">
     
                     <div class="iconbox">
-                        <a href="customer.html">
+                        <a href="customer.php">
                             <span class="icon"><span class="material-symbols-outlined">
                                 groups
                                 </span> </a>
@@ -183,7 +183,7 @@ else{
     
                     <div>
                        <!-- <div class="numbers">Book</div>  -->
-                       <a href="patient.html">
+                       <a href="patientt.php">
                         <div class="cardname">Patients</div>
                         <div class="cardname">Details</div></a>
                     </div>
@@ -193,14 +193,14 @@ else{
                 <div class="card">
     
                     <div class="iconbox">
-                        <a href="admin_appoint.html">
+                        <a href="admin_appointt.php">
                             <span class="icon">  <span class="material-symbols-outlined">
                                 heart_plus
                                 </span></a>
                     </div>
     
                     <div>
-                        <a href="admin_appoint.html">
+                        <a href="admin_appointt.php">
                        <!-- <div class="numbers">Schedule Your</div>  -->
                         <div class="cardname">Appointment</div>
                         </a>
@@ -211,14 +211,14 @@ else{
                 <div class="card">
     
                     <div class="iconbox">
-                        <a href="admin_sample.html">
+                        <a href="admin_samplee.php">
                             <span class="material-symbols-outlined">
                                 colorize
                                 </span></a>
                     </div>
     
                     <div>
-                        <a href="admin_sample.html">
+                        <a href="admin_samplee.php">
                        <!-- <div class="numbers"></div>  -->
                         <div class="cardname">Samples</div>
                         </a>
@@ -228,14 +228,14 @@ else{
                 <div class="card">
     
                     <div class="iconbox">
-                        <a href="admin_report.html">
+                        <a href="admin_reportt.php">
                             <span class="icon"> <span class="material-symbols-outlined">
                                 list_alt
                                 </span></a>
                     </div>
     
                     <div>
-                        <a href="admin_report.html">
+                        <a href="admin_reportt.php">
                        <!-- <div class="numbers">Analysis of</div>  -->
                         <div class="cardname">Reports</div>
                         </a>
@@ -246,14 +246,14 @@ else{
                         <div class="card">
     
                             <div class="iconbox">
-                                <a href="admin_payment.html">
+                                <a href="admin_paymentt.php">
                                     <span class="icon"> <span class="material-symbols-outlined">
                                         payments
                                         </span></a>
                             </div>
                               &nbsp;
                             <div>
-                                <a href="admin_payment.html">
+                                <a href="admin_paymentt.php">
                                <!-- <div class="numbers">Safe & Secure</div>  -->
                                 <div class="cardname">Payment</div>
                                 </a>
@@ -264,14 +264,14 @@ else{
                         <div class="card">
     
                             <div class="iconbox">
-                                <a href="staff.html">
+                                <a href="staffs.php">
                                     <span class="icon"><span class="material-symbols-outlined">
                                         badge
                                         </span></a>
                             </div>
             
                             <div>
-                                <a href="staff.html">
+                                <a href="staffs.php">
                                <!-- <div class="numbers">Safe & Secure</div>  -->
                                 <div class="cardname">Staff</div>
                                 </a>

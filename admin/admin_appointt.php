@@ -1,3 +1,37 @@
+<?php
+session_start();
+$servername ="localhost";
+$username ="root";
+$password ="";
+$database ="labsystemdb1";
+
+
+$conn =mysqli_connect($servername,$username,$password,$database);
+// $use=$_SESSION['user_name'];
+// echo $use;
+if(isset($_SESSION['Is_login'])){
+    $use=$_SESSION['user_name'];
+    
+    $sql=mysqli_query($conn,"SELECT * FROM `admin` WHERE admin_username='$use'");
+    $count=mysqli_num_rows($sql);
+    echo ($count);
+    
+    if($count==1){
+        echo("Welcome");
+    }
+    else{
+        header('location:logout.php');
+        die("Some issue contact admin");
+    }
+   
+}
+else{
+    header('location:logout.php');
+    die("Some issue contact admin");
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,9 +52,9 @@
                 <div><p id="heading" style="left:8px;">Healthcare Pathlabs</p> </div>
             <nav class="navbar">
                 <div>
-                    <a href="index.html">HOME</a>
-                    <a href="index.html">ABOUT US</a>
-                <a href="index.html">CONTACT </a>
+                    <a href="homepage.html">HOME</a>
+                    <a href="homepage.html">ABOUT US</a>
+                <a href="homepage.html">CONTACT </a>
                 <!-- </div>
                  <div class="user"> -->
                     <img src="images/user.png" style=" height: 50px; width:50px; margin-right: 1rem; margin-left:1.5rem; align-items:center; padding: 5px;" class="user">
@@ -35,7 +69,7 @@
             <div class="navigation">
                 <ul>
                     <li>
-                        <a href="admin.html">
+                        <a href="admin.php">
                         <span class="icon"><span class="material-symbols-outlined">
                             dashboard
                             </span></span>
@@ -43,7 +77,7 @@
                     </a>
                     </li>
                     <li>
-                            <a href="admin_test.html">
+                            <a href="admin_testt.php">
                             <span class="icon"> <span class="material-symbols-outlined">
                                 science
                                 </span></span>
@@ -53,7 +87,7 @@
 
 
                         <li>
-                            <a href="patient.html">
+                            <a href="patientt.php">
                             <span class="icon"><span class="material-symbols-outlined">
                                 groups
                                 </span></span>
@@ -63,7 +97,7 @@
                         
 
                         <li>
-                        <a href="admin_appoint.html">
+                        <a href="admin_appointt.php">
                         <span class="icon">  <span class="material-symbols-outlined">
                             heart_plus
                             </span></span>
@@ -71,7 +105,7 @@
                     </a>
                     </li>
                     <li>
-                        <a href="admin_sample.html">
+                        <a href="admin_samplee.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             colorize
                             </span></span>
@@ -80,7 +114,7 @@
                     </li>
                    
                     <li>
-                        <a href="admin_report.html">
+                        <a href="admin_reportt.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             list_alt
                             </span></span>
@@ -88,7 +122,7 @@
                     </a>
                     </li>
                     <li>
-                        <a href="admin_payment.html">
+                        <a href="admin_paymentt.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             payments
                             </span></span>
@@ -97,7 +131,7 @@
                     </li>
 
                     <li>
-                        <a href="staff.html">
+                        <a href="staffs.php">
                         <span class="icon"><span class="material-symbols-outlined">
                             badge
                             </span></span>
@@ -107,7 +141,7 @@
 
                     
                     <li>
-                        <a href="index.html">
+                        <a href="logout.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             logout
                             </span>
