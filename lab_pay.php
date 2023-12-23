@@ -106,7 +106,7 @@ else{
                     </a>
                     </li>
                     <li>
-                        <a href="sample.html">
+                        <a href="samplee.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             colorize
                             </span></span>
@@ -403,6 +403,31 @@ else{
 <div id="overlay"></div>
 
 </div>
+<div class="modal" id="emodall">
+    <div class="modal-header">
+     <div class="tittle">Edit Details</div>
+     <button class="close" id="closse" onclick="closee();" ><span class="material-symbols-outlined">
+        cancel
+        </span></button>
+    </div>  
+    <div class="modal-body">
+        <form>
+            <div class="eform-field">
+                <p> Do you want to send the appointment confirmation email to patient? </p>
+                <!-- <input type="text" placeholder="" id="se"/> -->
+            </div>
+            <br/>
+            <div>
+                <a href="#">
+                <button class="edit" onclick="sendemail();">Yes</button></a>
+            <a href="#">
+             <button class="edit" onclick="notsendemail();">No</button></a></div>
+        </form>
+    </div>
+ </div>
+<div id="overlay"></div>
+
+    </div>  
     </body>
 </html>
 
@@ -556,6 +581,16 @@ patnn.setAttribute('id', 'patnn');
 let pate=document.createElement('p');
 pate.setAttribute('id', 'pate');
 
+function notsendemail(){
+
+header('location:admin_paymentt.php');
+}
+
+function sendemail(){
+console.log("sendemail");
+}
+
+
   function openn(e){
     console.log(e.target.parentNode.parentNode.parentNode.parentNode.childNodes);
     eb=e.target.parentNode.parentNode.parentNode.parentNode.childNodes[4].innerText;
@@ -613,6 +648,21 @@ overlay.style.display = 'block';
 addmodal.style.transform= 'translate(-50%,-50%) scale(1)';
 }
 
+function emailconf(e){
+    console.log('confirm data');
+//     n=e.target.parentNode.parentNode.parentNode.parentNode.childNodes[1].innerText;
+//   console.log(n);
+//     e=e.target.parentNode.parentNode.parentNode.parentNode.childNodes[2].innerText;
+//    console.log(e);
+    const emodal =document.getElementById('emodall');
+const overlay =document.getElementById('overlay');
+emodal.style.display = 'block';
+overlay.style.display = 'block';
+emodal.style.transform= 'translate(-50%,-50%) scale(1)';
+// patnn=n;
+// pate=e;
+//console.log(patnn);
+}
 // function deletebutton(){
 //     // let delb=document.getElementById('deletebutton');
 //     window.alert('Deleted Successfully');
@@ -772,28 +822,32 @@ let dele=0;
     btn3.addEventListener('click',e=>statusb(e));
     
     function statusb(e){
-    let email=e.target.parentNode.parentNode.parentNode.childNodes[1].innerHTML;
+    let email=e.target.parentNode.parentNode.parentNode.childNodes[2].innerHTML;
     console.log(email);
      let s=e.target.parentNode.childNodes[0].childNodes[0];
        //let result = JSON.stringify(s);
-       console.log(s);
-    let ss=s;
+      // console.log(s);
+    let ss=s.textContent;
     console.log(ss);
     if(ss=="paid"){
         btn3.disabled=true;
-        alert('paid');
+        //alert('paid');
     }
     if(ss=="unpaid"){
+        emailconf(e);
         $.ajax({
     
     type: 'POST',
     url: 'settrans.php',
-    data: {email:email.value},
+    data: {email:email},
     success:function(data){
-        // console.log(data);
-        alert('updated');
+        console.log(data);
+        console.log("updated");
+        //alert('updated');
+       
      }
     });
+    // btn3.addEventListener('click',e=>emailconf(e));
     btn3.disabled=true;
     }
 

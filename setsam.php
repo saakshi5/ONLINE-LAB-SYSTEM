@@ -16,7 +16,7 @@ $email=$_POST['email'];
 $sql=mysqli_query($conn,"SELECT * FROM `samples` ");
 $count=mysqli_num_rows($sql);
 
-
+echo($email);
 // if($count >0 || $count<0){
  mysqli_query($conn,"UPDATE `samples` SET `sample_status`='collected' WHERE `patient_email`='$email'");
  echo 'Saved Successfully';

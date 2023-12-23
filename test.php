@@ -50,9 +50,9 @@ else{
                 <div><p id="heading" style="left:8px;">Healthcare Pathlabs</p> </div>
             <nav class="navbar">
                 <div>
-                    <a href="index.html">HOME</a>
-                    <a href="index.html">ABOUT US</a>
-                <a href="index.html">CONTACT </a>
+                    <a href="homepage.html">HOME</a>
+                    <a href="homepage.html">ABOUT US</a>
+                <a href="homepage.html">CONTACT </a>
                 <!-- </div>
                  <div class="user"> -->
                     <img src="images/user.png" style=" height: 50px; width:50px; margin-right: 1rem; margin-left:1.5rem; align-items:center; padding: 5px;" class="user">
@@ -76,7 +76,7 @@ else{
                     </a>
                     </li>
                     <li>
-                        <a href="test.html">
+                        <a href="test.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             science
                             </span></span>
@@ -100,7 +100,7 @@ else{
                     </a>
                     </li>
                     <li>
-                        <a href="profile.html">
+                        <a href="profilee.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             person
                             </span></span>
@@ -108,7 +108,7 @@ else{
                     </a>
                     </li>
                     <li>
-                        <a href="index.html">
+                        <a href="logout.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             logout
                             </span>
@@ -124,16 +124,14 @@ else{
             <h2 style="left:500px;">Tests Available</h2>
             <div class="search"><lable>
                 <input type="text" placeholder="Search here" id="search">
-                <div class="butt" id="butt" onclick="search();"><button class="btn-1">Go</button></div>
+                <div class="butt" id="butt"><button class="btn-1">Go</button></div>
                 <div class="iconn">
-               <span class="material-symbols-outlined">
-search
-</span>   </div>
+               <span class="material-symbols-outlined">search</span>   </div>
             
             </lable>
             </div>
             <div id="ttable">
-                            <div class="table-box">
+                    <div class="table-box">
                  <div class="table-row table-head">
                     <div class="table-cell last-cell">
                         <p>Test Name</p>
@@ -150,162 +148,15 @@ search
 <div id="testtable">
     <p id="tp"></p>
 
-             <!--   <div class="table-row">
-                   
-               
-                
-                </div>
-
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p><input type="checkbox" name="choose" value="t5">
-                            Insulin</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>747</p>
-                    </div>
-                </div>
-
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p><input type="checkbox" name="choose" value="t6">
-                            Malaria</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>212</p>
-                    </div>
-                </div>
-
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p><input type="checkbox" name="choose" value="t7">
-                            Thyroid</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>527</p>
-                    </div>
-                </div>
-                
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p><input type="checkbox" name="choose" value="t8">Urine</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>110</p>
-                    </div>
-                </div>
-
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p><input type="checkbox" name="choose" value="t9">Vitamin D</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>600</p>
-                    </div>
-                </div>
-               
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p><input type="checkbox" name="choose" value="t10">Vitamin A</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>1400</p>
-                    </div>
-                </div>
-                  
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p><input type="checkbox" name="choose" value="t11">Vitamin B12</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>400</p>
-                    </div>
-                </div>
-                
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p><input type="checkbox" name="choose" value="t12">Vitamin C</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>1000</p>
-                    </div>
-                </div>
-                
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p><input type="checkbox" name="choose" value="t13">Vitamin E</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>1400</p>
-                    </div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p><input type="checkbox" name="choose" value="t15">Uric Acid</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>145</p>
-                    </div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p><input type="checkbox" name="choose" value="t16">Hepitatis</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>600</p>
-                    </div>
-                </div>
-
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p><input type="checkbox" name="choose" value="t17">Glucose</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>329</p>
-                    </div>
-                </div>
-
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p><input type="checkbox" name="choose" value="t18">Cholesterol</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>165</p>
-                    </div>
-                </div>
-
-                <div class="table-row">
-                    <div class="table-cell first-cell">
-                        <p><input type="checkbox" name="choose" value="t19">Allergy</p>
-                    </div>
-               
-                    <div class="table-cell last-cell">
-                        <p>600</p>
-                    </div>
-                </div> -->
-<!-- </div> -->
 </div>
 <div id="testsearch"></div>
-            </div>
+        </div>
              <!-- <a href="bookk.php">  -->
-            <button class="btnn" id="submit" onclick="book();">Book</button>
+            <button class="btnn" id="submit">Book</button>
         <!-- </a>  -->
     </div>  
 
-    <div class="modal" id="modall">
+    <div class="modal" id="modal3">
         <div class="modal-header">
          <div class="tittle">Tests Pre-Requirements</div>
          <button class="close" id="closse" onclick="closee();" ><span class="material-symbols-outlined">
@@ -318,7 +169,7 @@ search
                 <div class="form-field">
                     <!-- <p>Status:</p>
                     <input type="text" placeholder=""  id="st" /> -->
-                    <textarea cols="67" rows="8">hghjhu</textarea>
+                    <textarea cols="67" rows="8" id="tre"></textarea>
                 </div>
               
                 <!-- <div>
@@ -335,7 +186,10 @@ search
 
 
 <script>
+    let searchb=document.getElementById("butt");
+    searchb.addEventListener('click',e=>search(e));
 
+let tre=document.getElementById('tre');
 // let b=document.getElementById('butt');
 // //console.log(subbtn);
 // b.addEventListener('click',e=>search(e));
@@ -367,7 +221,20 @@ search
 
     // const openbutton =document.getElementById('btnn');
     // const closebutton =document.getElementById('closse');
-    
+    function opennn(e){
+        console.log('hiii');
+    const modal =document.getElementById('modal3');
+    const overlay =document.getElementById('overlay');
+    modal.style.display = 'block';
+    overlay.style.display = 'block';
+    modal.style.transform= 'translate(-50%,-50%) scale(1)';
+    // modal.style.transform= 'translate scale(1)';
+    //   modal.add();
+    //   overlay.add();
+ 
+    }
+
+
     function openn(){
         console.log('hiii');
     const modal =document.getElementById('modall');
@@ -381,7 +248,7 @@ search
     }
     
     function closee(){
-    const modal =document.getElementById('modall');
+    const modal =document.getElementById('modal3');
     // const delmodal =document.getElementById('delmodall');
     // const addmodal =document.getElementById('addmodall');
 const overlay =document.getElementById('overlay');
@@ -400,6 +267,25 @@ overlay.style.display = 'none';
     }
    
     
+    function prefetch(e,data){
+ //console.log(data);
+prename=e.target.parentNode.parentNode.parentNode.childNodes[0].innerText;
+console.log(prename);
+
+// console.log("data",data[0].test_id);
+
+for(let i=0; i<data.length; i++){
+
+
+    
+         //console.log("data",data[i].test_name);
+        if(data[i].test_name==prename){
+            console.log("prerq",data[i].prereq);
+            tre.defaultValue=dataa[i].prereq;
+        }
+}
+
+}
         function generatetest(){
 
             let ppid=0;
@@ -456,9 +342,13 @@ overlay.style.display = 'none';
 
      let btn1= document.createElement('button');  //edit button
     btn1.classList.add('btn-2');
-    let span= document.createElement('span');  //delete button
+
+    // let btn3= document.createElement('button');  //edit button
+    // btn3.classList.add('btn-2');
+    let spann= document.createElement('spann');  //delete button
     //span.classList.add('material-symbols-outlined');
-    span.innerHTML='Pre-requisites';
+    spann.innerHTML='Pre-requisites';
+    btn1.addEventListener('click',e=>prefetch(e,dataa));
 
     //rows and cols
      let tbox1=document.getElementById('testtable');
@@ -478,10 +368,12 @@ overlay.style.display = 'none';
 
     tr.appendChild(tcell3);
     tcell3.appendChild(btn1);
-    btn1.appendChild(span);
+    btn1.appendChild(spann);
 
     
-    btn1.addEventListener('click',e=>openn(e));
+    // btn1.addEventListener('click',e=>openn(e));
+    // btn2.addEventListener('click',e=>deleteb(e));
+btn1.addEventListener('click',e=>opennn(e));
      }
 
   
@@ -499,13 +391,14 @@ overlay.style.display = 'none';
           let s=document.getElementById("search");
             let n=s.parentNode.childNodes[1].value;
             console.log(n);
-
+            n=n.toLowerCase();
     const tt =document.getElementById('testtable');
     const ts =document.getElementById('testsearch');
     tt.style.display = 'none';
     ts.style.display = 'block';
     //ts.style.transform= 'translate(-50%,-50%) scale(1)';
 
+    console.log(ts.parentNode);
 
             $.ajax({
     
@@ -515,16 +408,44 @@ overlay.style.display = 'none';
     success:function(data){
 
         dataa=JSON.parse(data);
-        console.log(dataa[0].test_name);
-
-        if(data =='NE'){
+        // console.log(dataa[0].test_name);
+        console.log(dataa.length);
+        if(data=="NE"){
      alert('Not exists');
      }
      else {
     
-    
+    // let r=document.querySelectorAll('#testsearch'); //table id
+    // //console.log(r);
+
+    // if(r!=null){
+    //     r[0].remove();
+    // }
+
+    //const tabh=document.querySelector('.table-head');
+
+
+    //CHANGES 4 SENTENCES
+    // let tbox=document.createElement('div');
+    // tbox.setAttribute('id',"testsearch");
+
+    //let tab=document.querySelectorAll(".table-box");
+    //tabh.after(tbox);
+
+
+
     for(let i=0; i<dataa.length;i++) {
-  
+        
+        let btn1= document.createElement('button');  //edit button
+    btn1.classList.add('btn-2');
+
+
+    let spann= document.createElement('spann');  //delete button
+    //span.classList.add('material-symbols-outlined');
+
+    spann.innerHTML='Pre-requisites';
+
+    btn1.addEventListener('click',e=>prefetch(e,dataa));
     var label = document.createElement("label");
 
      let tr=document.createElement('div');
@@ -540,16 +461,20 @@ overlay.style.display = 'none';
      let tcell2=document.createElement('div');
      tcell2.classList.add('table-cell','last-cell');
 
-    
+     let tcell3=document.createElement('div');
+     tcell3.classList.add('table-cell','last-cell');
+     
      let checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.name = "checkboxOption";
     //checkbox.value = checkboxValues[i];
 
     //rows and cols
-     let tbox1=document.getElementById('testsearch');
-    tbox1.appendChild(tr);
-
+    //  let tbox1=document.getElementById('#testsearch');
+    // tbox1.appendchild(tr);
+    //changes keep this only
+    // tbox.appendChild(tr);
+ts.appendChild(tr);
 
     let n=dataa[i].test_name;
 
@@ -558,7 +483,12 @@ overlay.style.display = 'none';
 
     tr.appendChild(tcell2);
     tcell2.innerText=dataa[i].test_cost;
-   
+
+    tr.appendChild(tcell3);
+    tcell3.appendChild(btn1);
+    btn1.appendChild(spann);
+
+    btn1.addEventListener('click',e=>opennn(e));
      }
   
     }
@@ -570,24 +500,46 @@ overlay.style.display = 'none';
         }
 
         let subbtn=document.getElementById('submit');
+        subbtn.addEventListener('click',e=>selecting(e));
+        //subbtn.addEventListener('click',e=>book(e));
 //console.log(subbtn);
-subbtn.addEventListener('click',e=>selecting(e));
+// function book(e){
+
+//     let tablebox=e.target.parentNode.childNodes;
+//    // console.log(tablebox);
+//     for(let z=7; z <tablebox.length;z++) {
+//     let checkboxx=e.target.parentNode.childNodes[1].childNodes[3].childNodes[z].childNodes[0].childNodes[0];
+//     console.log(checkboxx)
+//     }
+// if (checkboxx.checked){
+//     subbtn.addEventListener('click',e=>selecting(e));
+// }
+// else{
+//     alert("Select test");
+// }
+// }
 
 
-        function selecting(e){
+function selecting(e){
             
     const tt =document.getElementById('testtable');
     const ts =document.getElementById('testsearch');
 
-          //let tablebox=e.target.parentNode.childNodes[1].childNodes[3].childNodes;
-          let tablebox=e.target.parentNode.childNode;
 
+            //serach table
+          let table=e.target.parentNode.childNodes[1].childNodes[5].childNodes;
+        //console.log("tablee",table); //0 to table.length  for loop condition
+
+
+
+          let tablebox=e.target.parentNode.childNodes[1].childNodes[3].childNodes;
+          //console.log(tablebox);
           let tname=[];
           let cost=[];
-         //console.log(tablebox);
+        //  console.log(tablebox);
             //7 to 25 range
         
-        console.log(e.target.parentNode.childNodes[1].childNodes[3].childNodes[7].childNodes[0].childNodes[1]);//test name
+       // console.log(e.target.parentNode.childNodes[1].childNodes[3].childNodes[7].childNodes[0].childNodes[1]);//test name
           //  console.log(e.target.parentNode.childNodes[1].childNodes[3].childNodes[7].childNodes[1].childNodes[0]);//test cost
  
 //         console.log(e.target.parentNode.childNodes[1].childNodes[3].childNodes);
@@ -597,26 +549,73 @@ subbtn.addEventListener('click',e=>selecting(e));
 //   }
 
 //console.log('hello');
-            for(let z=7; z <tablebox.length;z++) {
+            for(let z=3; z <tablebox.length;z++) {
  let chbox=e.target.parentNode.childNodes[1].childNodes[3].childNodes[z].childNodes[0].childNodes[0];
            if (chbox.checked){
             console.log('checked');
             let testname=e.target.parentNode.childNodes[1].childNodes[3].childNodes[z].childNodes[0].childNodes[1];
             tname.push(testname.data);
-          // console.log(testname);
+        console.log(testname);
 
             let testcost=e.target.parentNode.childNodes[1].childNodes[3].childNodes[z].childNodes[1].childNodes[0];
             cost.push(testcost.data);
           console.log(testcost);
-
+          
            }
            else{
             console.log('unchecked');
            }
             }
 
+
+console.log("2nd loop stsrts");
+            for(let z=0; z <table.length;z++) {
+ let chbox=e.target.parentNode.childNodes[1].childNodes[5].childNodes[z].childNodes[0].childNodes[0];
+//let chbox=e.target.parentNode.childNodes[z].childNodes;
+ //console.log("phaltu");
+ //console.log(chbox);
+           if (chbox.checked){
+            //console.log('checked');
+            let testname=e.target.parentNode.childNodes[1].childNodes[5].childNodes[z].childNodes[0].childNodes[1];
+            console.log(testname);
+            //if tname.find(testname)
+
+            
+
+// Input array contain some elements.
+//let array = [-10, -0.20, 0.30, -40, -50];
+ 
+ // Method (return element > 0).
+    var found = tname.find(function (element) {
+        return element == testname.data;
+    });
+    console.log(found, testname);
+    if (found != testname.data){
+        console.log("iffffff");
+        tname.push(testname.data);
+        let testcost=e.target.parentNode.childNodes[1].childNodes[5].childNodes[z].childNodes[1].childNodes[0];
+        cost.push(testcost.data);
+        console.log(testcost); 
+            
+    }
+    else{
+        console.log(found);
+    }
+ //console.log(found);
+            //tname.push(testname.data);
+        // console.log(testname);
+           }
+
+           else{
+            console.log('unchecked');
+           }
+
+            }
+
+
+
           // console.log(tname);
-         console.log(cost);
+         //console.log(cost);
      // let ntest=tname.join();
       //console.log(ntest);
           //cost.toString()
@@ -636,7 +635,7 @@ subbtn.addEventListener('click',e=>selecting(e));
         console.log(data);
     //dataa= JSON.parse(data);
     
-
+ window.location='bookk.php';
  //console.log(patname.value);
         }
     

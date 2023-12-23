@@ -49,9 +49,9 @@ else{
                 <div><p id="heading" style="left:8px;">Healthcare Pathlabs</p> </div>
             <nav class="navbar">
                 <div>
-                    <a href="index.html">HOME</a>
-                    <a href="index.html">ABOUT US</a>
-                <a href="index.html">CONTACT </a>
+                    <a href="homepage.html">HOME</a>
+                    <a href="homepage.html">ABOUT US</a>
+                <a href="homepage.html">CONTACT </a>
                 <!-- </div>
                  <div class="user"> -->
                     <img src="images/user.png" style=" height: 50px; width:50px; margin-right: 1rem; margin-left:1.5rem; align-items:center; padding: 5px;" class="user">
@@ -101,7 +101,7 @@ else{
                     </a>
                     </li>
                     <li>
-                        <a href="sample.html">
+                        <a href="samplee.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             colorize
                             </span></span>
@@ -126,7 +126,7 @@ else{
                     </a>
                     </li>
                     <li>
-                        <a href="index.html">
+                        <a href="logout.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             logout
                             </span>
@@ -144,8 +144,8 @@ else{
         <div class="main">
             <h2 style="left:500px;">Tests Available</h2>
             <div class="search"><lable>
-                <input type="text" placeholder="Search here">
-                <div class="butt"><button class="btn-1">Go</button></div>
+                <input type="text" placeholder="Search here"id="search">
+                <div class="butt" id="butt"><button class="btn-1">Go</button></div>
 
                 <div class="iconn">
                     <span class="material-symbols-outlined">
@@ -205,6 +205,7 @@ else{
                     </div>
                 </div> -->
             </div> 
+            <div id="testsearch"></div>
 </div>     
             
             
@@ -227,6 +228,10 @@ else{
                     <p>Test Name:</p>
                     <input type="text" placeholder="" id="tn">
                 </div>
+                <div class="form-field">
+                <p>Test Pre-requisites:</p>
+                <input type="text" placeholder="" id="treq">
+            </div>
                 <div>
                     <a href="#">
                     <button class="edit" onclick="createtests();">Save Changes</button></a></div>
@@ -279,8 +284,8 @@ else{
                 <p>Enter Test Amount:</p>
                 <input type="text" name="amt" id="tamt" required/></div>
                 <div class="form-field">        
-                    <p>Enter Test Pre-requisites:</p>
-                    <input type="text" name="amt" id="treq" required/></div>
+                <p>Enter Test Pre-requisites:</p>
+                <input type="text" name="treq" id="treq" required/></div>
             <div>
                 <a href="#">
                 <button class="edit" onclick="editbutton();">Submit</button></a></div>
@@ -290,7 +295,7 @@ else{
           
 <div id="overlay"></div>
     </div>  
-//pre-requisites
+<!-- pre-requisites -->
 <div class="modal" id="modal3">
     <div class="modal-header">
      <div class="tittle">Tests Pre-Requirements</div>
@@ -303,7 +308,7 @@ else{
             <div class="form-field">
                 <!-- <p>Status:</p>
                 <input type="text" placeholder=""  id="st" /> -->
-                <textarea cols="67" rows="8"></textarea>
+                <textarea cols="67" id="tre" rows="8"></textarea>
             </div>
         </form>
     </div>
@@ -315,22 +320,33 @@ else{
 
 
 <script>
-    
- 
+     let searchb=document.getElementById("butt");
+    searchb.addEventListener('click',e=>search(e));
+
+    var treq=document.getElementById('treq');
+
 let mm1=document.getElementById('st');
-let testn=document.getElementById('tn');
+
+var testn=document.getElementById('tn');
+
 let acnum=document.createElement('p');
 acnum.setAttribute('id', 'acnum');//cost
 
 let adtname=document.createElement('p');
 adtname.setAttribute('id', 'adtname');
 
+let adtreq=document.createElement('p');
+adtreq.setAttribute('id', 'adtreq');
 
-let adtid=document.createElement('p');
+let mo=document.getElementById("modal3");
+
+var adtid=document.createElement('p');
 adtid.setAttribute('id', 'adtid');
 
 let tid=document.createElement('p');
 tid.setAttribute('id', 'atid');
+
+
   function openn(e){
     // console.log(e.target.parentNode.parentNode.parentNode.parentNode.childNodes);
     eb=e.target.parentNode.parentNode.parentNode.parentNode.childNodes[2].innerText;//test cost
@@ -339,21 +355,25 @@ tid.setAttribute('id', 'atid');
     // console.log(ttn);
     ti=e.target.parentNode.parentNode.parentNode.parentNode.childNodes[0].innerText;//test id
     // console.log(ti);
+    tree=mo.children[1].childNodes[1].childNodes[1].childNodes[3].innerHTML;//test req
+    console.log(tree);
 
 const modal =document.getElementById('modall');
 const overlay =document.getElementById('overlay');
 modal.style.display = 'block';
 overlay.style.display = 'block';
 modal.style.transform= 'translate(-50%,-50%) scale(1)';
+
 mm1.value=eb;
 testn.value=ttn;
-// acnum=eb;//cost
+treq.value=tree;
+acnum=eb;//cost
 // // console.log(acnum);
-// adtname=ttn; // name
+adtname=ttn; // name
 // // console.log(adtname);
 adtid=ti; // id
 // console.log(adtid);
-
+adtreq=treq;
 }
 
 
@@ -420,7 +440,25 @@ modal.style.display = 'none';
 overlay.style.display = 'none';
 }
 
+function prefetch(e,data){
+ //console.log(e,data);
+preid=e.target.parentNode.parentNode.parentNode.childNodes[0].innerText;
+console.log(tre);
 
+// console.log("data",data[0].test_id);
+
+for(let i=0; i<data.length; i++){
+
+
+    
+        // console.log("data",data[i].test_id);
+        if(data[i].test_id==preid){
+            console.log("prerq",data[i].prereq);
+            tre.defaultValue=dataa[i].prereq;
+        }
+}
+
+}
 
 function generatetest(){
     $.ajax({
@@ -502,6 +540,8 @@ let btn3= document.createElement('button');  //edit button
     let spann= document.createElement('spann');  //delete button
     //span.classList.add('material-symbols-outlined');
     spann.innerHTML='Pre-requisites';
+    btn3.addEventListener('click',e=>prefetch(e,dataa));
+
 
 //rows and cols
 let tbox1=document.getElementById('adptest');
@@ -539,29 +579,176 @@ btn3.addEventListener('click',e=>opennn(e));
 });
 }
 
+function search(e){
+            let ppid=0;
+
+          let s=document.getElementById("search");
+            let n=s.parentNode.childNodes[1].value;
+            console.log(n);
+            n=n.toLowerCase();
+    const tt =document.getElementById('adptest');
+    const ts =document.getElementById('testsearch');
+    tt.style.display = 'none';
+    ts.style.display = 'block';
+    //ts.style.transform= 'translate(-50%,-50%) scale(1)';
+
+    //console.log(ts.parentNode);
+
+            $.ajax({
+    
+    type: 'POST',
+    url: 'testsearch.php',
+   data: {tn:n},
+    success:function(data){
+
+        dataa=JSON.parse(data);
+        // console.log(dataa[0].test_name);
+        console.log(dataa.length);
+        if(data=="NE"){
+     alert('Not exists');
+     }
+     else {
+    
+    // let r=document.querySelectorAll('#testsearch'); //table id
+    // //console.log(r);
+
+    // if(r!=null){
+    //     r[0].remove();
+    // }
+
+    //const tabh=document.querySelector('.table-head');
+
+
+    //CHANGES 4 SENTENCES
+    // let tbox=document.createElement('div');
+    // tbox.setAttribute('id',"testsearch");
+
+    //let tab=document.querySelectorAll(".table-box");
+    //tabh.after(tbox);
+
+
+
+    for(let i=0; i<dataa.length;i++) {
+        
+        let tr=document.createElement('div');
+tr.classList.add('table-row');  
+
+let tcell1=document.createElement('div');
+tcell1.classList.add('table-cell','first-cell');
+
+let tcell2=document.createElement('div');
+tcell2.classList.add('table-cell');
+
+let tcell3=document.createElement('div');
+tcell3.classList.add('table-cell');
+
+let tcell4=document.createElement('div');
+tcell4.classList.add('table-cell');
+
+let tcell5=document.createElement('div');
+tcell5.classList.add('table-cell','last-cell');
+
+
+//create button
+let btn1= document.createElement('button');  //edit button
+btn1.classList.add('btn-2');
+
+let btn2= document.createElement('button');  //delete button
+btn2.classList.add('btn-3');
+
+
+let span= document.createElement('span');  //delete button
+span.classList.add('material-symbols-outlined');
+span.innerHTML='edit';
+
+let span2= document.createElement('span');  //delete button
+span2.classList.add('material-symbols-outlined');
+span2.innerHTML='delete';
+
+
+let p=document.createElement('p');  //paragraph
+p.setAttribute('id', 'idptb');
+
+ts.appendChild(tr);
+
+
+let btn3= document.createElement('button');  //edit button
+    btn3.classList.add('btn-2');
+    let spann= document.createElement('spann');  //delete button
+    //span.classList.add('material-symbols-outlined');
+    spann.innerHTML='Pre-requisites';
+    btn3.addEventListener('click',e=>prefetch(e,dataa));
+
+
+//rows and cols
+//let tbox1=document.getElementById('adptest');
+
+//tbox1.appendChild(tr);
+tr.appendChild(tcell1);
+tcell1.innerText=dataa[i].test_id;
+
+tr.appendChild(tcell2);
+tcell2.innerText=dataa[i].test_name;
+
+
+tr.appendChild(tcell3);
+tcell3.innerText=dataa[i].test_cost;
+
+
+tr.appendChild(tcell4);
+    tcell4.appendChild(btn3);
+    btn3.appendChild(spann);
+
+tr.appendChild(tcell5);
+tcell5.appendChild(p);
+p.appendChild(btn1);
+btn1.appendChild(span);
+p.appendChild(btn2);
+btn2.appendChild(span2);
+
+btn1.addEventListener('click',e=>openn(e));
+btn2.addEventListener('click',e=>deleteb(e));
+btn3.addEventListener('click',e=>opennn(e));
+     }
+  
+    }
+
+}
+    });
+    
+
+        }
+
 
 function createtests(){
 
-console.log(adtid);
-console.log(adtname);
-console.log(acnum);
+console.log("id",adtid);
+// console.log(adtname.innerText);
+// console.log(acnum.innerText);
+// console.log(adtreq.innerText);
+
+
+console.log(mm1.value);
+console.log(treq.value);
+console.log(testn.value);
+
 $.ajax({
     
     type: 'POST',
     url: 'adtest.php',
-    data: {tname:testn.value,tid:adtid,ta:mm1.value},
+    data: {tname:testn.value,tid:adtid,ta:mm1.value,treq:adtreq.value},
     success:function(data){
 
 
         console.log(data);
    //data= JSON.parse(data);
-//  if(data=='S'){
-//    alert('Saved successfully');
-// }
+ if(data=="S"){
+   alert('Saved successfully');
+}
 
-//  else{
-//     alert('Some issue');
-//  }
+ else{
+    alert('Some issue');
+ }
         }
     
     })
@@ -576,12 +763,13 @@ function editbutton(){
 let tname=document.getElementById("tname");
 let tid=document.getElementById("tid");
 let tamt=document.getElementById("tamt");
+let treq=document.getElementById("treq");
  //console.log(acnum);
  $.ajax({
      
      type: 'POST',
      url: 'adtest1.php',
-     data: {tn:tname.value, tid:tid.value, tamt:tamt.value},
+     data: {tn:tname.value, tid:tid.value, tamt:tamt.value,treq:treq.value},
      success:function(data){
  
          alert(data);

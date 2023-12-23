@@ -18,13 +18,13 @@ session_start();
 
         <header class="title">
             <div>
-                <img src="logo.png" alt="logo png" class="logo"></div>
+                <img src="images/logo.png" alt="logo png" class="logo"></div>
                 <div><p id="heading">Healthcare Pathlabs</p> </div>
             <nav class="navbar">
                 <div>
-                    <a href="homepage.html">HOME</a>
-                    <a href="homepage.html">ABOUT US</a>
-                <a href="homepage.html">CONTACT </a>
+                    <a href="index.html">HOME</a>
+                    <a href="index.html">ABOUT US</a>
+                <a href="index.html">CONTACT </a>
                 </div>
                 
                 <div id="menu-btn" >
@@ -56,10 +56,10 @@ session_start();
                     <input type="text" placeholder="Enter your phone" required="" id="phone" maxlength="10">
                 </div>
                 <div>
-                    <input type="text" placeholder="Enter your address" required="" id="address" maxlength="300">
+                    <input type="text" placeholder="Enter your address" required="" id="address">
                 </div>
                 <div>
-                    <input type="password" placeholder="Enter Password" required="" id="password" maxlength="15"/>
+                    <input type="password" placeholder="Enter Password" required="" id="password" maxlength="8"/>
                     <button id="eyebtn" onclick="visible();">
                         <span class="material-symbols-outlined">
                         visibility
@@ -67,7 +67,7 @@ session_start();
                     
                 </div> 
                 <div>
-                    <input type="password" placeholder="Confirm Password" required="" id="cpassword" maxlength="15"/>
+                    <input type="password" placeholder="Confirm Password" required="" id="cpassword" maxlength="8"/>
                     <button id="eyebtn-2" onclick="visible();">
                         <span class="material-symbols-outlined">
                         visibility
@@ -89,9 +89,9 @@ session_start();
         <div class="boxcontainer">
                 <!-- <div class="box">
                 <h3>Quick Links</h3>
-                <a href="homepage.html"><span class="material-symbols-outlined"> chevron_right</span>HOME</a>
-            <a href="homepage.htmlt"><span class="material-symbols-outlined">chevron_right</span>ABOUT US</a>
-            <a href="homepage.html"><span class="material-symbols-outlined">chevron_right</span>CONTACT US</a>
+                <a href="index.html"><span class="material-symbols-outlined"> chevron_right</span>HOME</a>
+            <a href="index.htmlt"><span class="material-symbols-outlined">chevron_right</span>ABOUT US</a>
+            <a href="index.html"><span class="material-symbols-outlined">chevron_right</span>CONTACT US</a>
                 
                 </div> -->
             <div class="box">
@@ -168,18 +168,106 @@ let validate1=true; let validate2=false;
 console.log('register');
     
 if(pass.value == cpass.value){
-var regexpas=/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/;
-var regexuse=/^(?=.*[0-9])[a-zA-Z0-9]{6,16}$/;
-var regexem=/^\S+@\S+\.\S+$/;
-if(email.value.length!=0 && regexem.test(email.value))
-{
-if(username.value.length!=0 && regexuse.test(username.value))
-{
-if(phone.value.length!=0 && phone.value.length==10 )
-{
-if(pass.value.length!=0 && regexpas.test(pass.value))
-{
 
+if(username.length>20)
+  {
+    alert("Username length must not exceed 20 characters");
+     validate1=false;
+  }
+  else if(username.length<10)
+  {
+    alert("Username length must not be less than 10 characters");
+     validate1=false;
+  }
+  else{
+let s=username;let counta=0;let countn=0;
+let countc=0;let invalid=0;validate1=true;
+    for(let i=0;i<username.length;i++)
+    {
+let str=s.charAt(i);
+if((/[a-zA-Z]/).test(str))
+{
+  counta+=1;
+}
+else if(str=='_')
+{
+  countc+=1;
+}
+else if(str=='0' ||str=='1' ||str=='2' ||str=='3' ||str=='4' ||str=='5' ||str=='6' ||str=='7' ||str=='8' ||str=='9')
+{
+  countn+=1;
+}
+else{
+  invalid=1;
+  break;
+}
+    }
+    if(invalid==1)
+    {
+      alert("In username, No space or special character allowed, except underscore(_)");
+      validate1=false;
+    }
+    else if(counta==0)
+    {
+      alert("In username, Minimum one alphabet required");
+       validate1=false;
+    }
+    else if(countn==0)
+    {
+      alert("In username, Minimum one number required");
+       validate1=false;
+    }
+  }
+  if(pass.length<8)
+  {
+    alert("Password should not be less than 8 characters");
+  }
+  else{
+let s=pass;let counta=0;let countn=0;
+let countc=0;let invalid2=0;validate2=false;
+    for(let i=0;i<pass.length;i++)
+    {
+let str=s.charAt(i);
+if((/[a-zA-Z]/).test(str))
+{
+  counta+=1;
+}
+else if(str==' ')
+{
+  invalid2=1;
+}
+else if(str=='0' ||str=='1' ||str=='2' ||str=='3' ||str=='4' ||str=='5' ||str=='6' ||str=='7' ||str=='8' ||str=='9')
+{
+  countn+=1;
+}
+else{
+  countc+=1;
+}
+}
+    if(invalid2==1){
+      alert("In password, No space character allowed");
+    }
+    else if(counta==0)
+    {
+      alert("In password, Minimum one alpahbet required");
+    }
+    else if(countn==0)
+    {
+      alert("In password, Minimum one number required");
+    }
+    else if(countc==0)
+    {
+      alert("In password, Minimum one special character required");
+    }
+    else{
+      validate2=true;
+    }
+  }
+if(validate1==true && validate2==true)
+{
+    if(username!=="")
+      {
+       if(pass!==""){
         $.ajax({
     type:'POST',
     url:'register.php',
@@ -201,34 +289,27 @@ if(pass.value.length!=0 && regexpas.test(pass.value))
         })
 
 }
+       else{
+        alert("Please enter password");
+       }
+      }
+      else
+      {
+      alert("Please enter username");
+      }
+
+    }
+  }
+ let valid=false;
+
+}
+
 
 else{
-    alert("Invalid password.The password must be of minimum 8 characters and should contain a digit, an alphabet and a special character.");
-}
-
-}
-else{
-    alert("Invalid contact number.The contact must contain 10 digits.");
-}
-}
-else{
-    alert("Invalid username.The username should contain atleast 8 characters including alphabet and digit ");
-}
-}
-else{
-    alert("Invalid email.Please include ‘@’ in the email address");
-}
-}  
-//  let valid=false;
- else{
  alert('Both passwords are not same.');
 }
+
 }
-
-
-
-
-
 </script>
 
 

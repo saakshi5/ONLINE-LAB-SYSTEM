@@ -50,9 +50,9 @@ else{
                 <div><p id="heading" style="left:8px;">Healthcare Pathlabs</p> </div>
             <nav class="navbar">
                 <div>
-                    <a href="index.html">HOME</a>
-                    <a href="index.html">ABOUT US</a>
-                <a href="index.html">CONTACT </a>
+                    <a href="homepage.html">HOME</a>
+                    <a href="homepage.html">ABOUT US</a>
+                <a href="homepage.html">CONTACT </a>
                 <!-- </div>
                  <div class="user"> -->
                     <img src="images/user.png" style=" height: 50px; width:50px; margin-right: 1rem; margin-left:1.5rem; align-items:center; padding: 5px;" class="user">
@@ -102,7 +102,7 @@ else{
                     </a>
                     </li>
                     <li>
-                        <a href="sample.php">
+                        <a href="samplee.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             colorize
                             </span></span>
@@ -127,7 +127,7 @@ else{
                     </a>
                     </li>
                     <li>
-                        <a href="index.html">
+                        <a href="logout.php">
                         <span class="icon"> <span class="material-symbols-outlined">
                             logout
                             </span>
@@ -551,8 +551,10 @@ $.ajax({
      let s=e.target.parentNode.childNodes[0].childNodes[0];
        //let result = JSON.stringify(s);
     
-    let ss=s;
-    console.log(ss);
+    let ss=s.textContent;
+    console.log("a",ss,"b");
+    //console.log("\"collected\"");
+
     if(ss=="collected"){
         btn3.disabled=true;
         alert('collected');
@@ -562,17 +564,16 @@ $.ajax({
     
     type: 'POST',
     url: 'setsam.php',
-    data: {email:email.value},
+    data: {email:email},
     success:function(data){
-        // console.log(data);
-        alert('updated');
+       console.log(data);
+        //alert('updated');
      }
     });
     btn3.disabled=true;
     }
 
     }
-
 
     }
     

@@ -12,6 +12,8 @@ $conn =mysqli_connect($servername,$username,$password,$database);
 unset($_SESSION['Is_login']);
 // unset($_SESSION['password']);
 unset($_SESSION['user_name']);
-header('location:index.html');
+unset($_SESSION['test_name']);
+unset($_SESSION['test_cost']);
+header('location:homepage.html');
 die();
 ?>
