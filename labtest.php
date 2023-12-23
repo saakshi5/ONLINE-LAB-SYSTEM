@@ -323,23 +323,30 @@ else{
      let searchb=document.getElementById("butt");
     searchb.addEventListener('click',e=>search(e));
 
-    let treq=document.getElementById('treq');
+    var treq=document.getElementById('treq');
+
 let mm1=document.getElementById('st');
-let testn=document.getElementById('tn');
+
+var testn=document.getElementById('tn');
+
 let acnum=document.createElement('p');
 acnum.setAttribute('id', 'acnum');//cost
 
 let adtname=document.createElement('p');
 adtname.setAttribute('id', 'adtname');
 
+let adtreq=document.createElement('p');
+adtreq.setAttribute('id', 'adtreq');
 
 let mo=document.getElementById("modal3");
 
-let adtid=document.createElement('p');
+var adtid=document.createElement('p');
 adtid.setAttribute('id', 'adtid');
 
 let tid=document.createElement('p');
 tid.setAttribute('id', 'atid');
+
+
   function openn(e){
     // console.log(e.target.parentNode.parentNode.parentNode.parentNode.childNodes);
     eb=e.target.parentNode.parentNode.parentNode.parentNode.childNodes[2].innerText;//test cost
@@ -356,12 +363,13 @@ const overlay =document.getElementById('overlay');
 modal.style.display = 'block';
 overlay.style.display = 'block';
 modal.style.transform= 'translate(-50%,-50%) scale(1)';
+
 mm1.value=eb;
 testn.value=ttn;
 treq.value=tree;
-// acnum=eb;//cost
+acnum=eb;//cost
 // // console.log(acnum);
-// adtname=ttn; // name
+adtname=ttn; // name
 // // console.log(adtname);
 adtid=ti; // id
 // console.log(adtid);
@@ -584,7 +592,7 @@ function search(e){
     ts.style.display = 'block';
     //ts.style.transform= 'translate(-50%,-50%) scale(1)';
 
-    console.log(ts.parentNode);
+    //console.log(ts.parentNode);
 
             $.ajax({
     
@@ -714,10 +722,16 @@ btn3.addEventListener('click',e=>opennn(e));
 
 function createtests(){
 
-console.log(adtid);
-console.log(adtname);
-console.log(acnum);
-console.log(adtreq);
+console.log("id",adtid);
+// console.log(adtname.innerText);
+// console.log(acnum.innerText);
+// console.log(adtreq.innerText);
+
+
+console.log(mm1.value);
+console.log(treq.value);
+console.log(testn.value);
+
 $.ajax({
     
     type: 'POST',
@@ -728,7 +742,7 @@ $.ajax({
 
         console.log(data);
    //data= JSON.parse(data);
- if(data=='S'){
+ if(data=="S"){
    alert('Saved successfully');
 }
 

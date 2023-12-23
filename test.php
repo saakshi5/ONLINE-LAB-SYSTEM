@@ -524,9 +524,12 @@ function selecting(e){
             
     const tt =document.getElementById('testtable');
     const ts =document.getElementById('testsearch');
+
+
             //serach table
           let table=e.target.parentNode.childNodes[1].childNodes[5].childNodes;
-          console.log(table); //0 to table.length  for loop condition
+        //console.log("tablee",table); //0 to table.length  for loop condition
+
 
 
           let tablebox=e.target.parentNode.childNodes[1].childNodes[3].childNodes;
@@ -563,6 +566,53 @@ function selecting(e){
             console.log('unchecked');
            }
             }
+
+
+console.log("2nd loop stsrts");
+            for(let z=0; z <table.length;z++) {
+ let chbox=e.target.parentNode.childNodes[1].childNodes[5].childNodes[z].childNodes[0].childNodes[0];
+//let chbox=e.target.parentNode.childNodes[z].childNodes;
+ //console.log("phaltu");
+ //console.log(chbox);
+           if (chbox.checked){
+            //console.log('checked');
+            let testname=e.target.parentNode.childNodes[1].childNodes[5].childNodes[z].childNodes[0].childNodes[1];
+            console.log(testname);
+            //if tname.find(testname)
+
+            
+
+// Input array contain some elements.
+//let array = [-10, -0.20, 0.30, -40, -50];
+ 
+ // Method (return element > 0).
+    var found = tname.find(function (element) {
+        return element == testname.data;
+    });
+    console.log(found, testname);
+    if (found != testname.data){
+        console.log("iffffff");
+        tname.push(testname.data);
+        let testcost=e.target.parentNode.childNodes[1].childNodes[5].childNodes[z].childNodes[1].childNodes[0];
+        cost.push(testcost.data);
+        console.log(testcost); 
+            
+    }
+    else{
+        console.log(found);
+    }
+ //console.log(found);
+            //tname.push(testname.data);
+        // console.log(testname);
+           }
+
+           else{
+            console.log('unchecked');
+           }
+
+            }
+
+
 
           // console.log(tname);
          //console.log(cost);

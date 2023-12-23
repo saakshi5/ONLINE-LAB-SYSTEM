@@ -17,8 +17,12 @@ $count=mysqli_num_rows($sql);
 
 if ($count >0)
 {
- mysqli_query($conn,"UPDATE test SET test_id='$id', test_name='$name',test_cost='$cost',prereq=`$treq` WHERE test_id='$id'");
-echo 'S';
+ //mysqli_query($conn,"UPDATE test SET test_id='$id', test_name='$name',test_cost='$cost',prereq=`$treq` WHERE test_id='$id'");
+  mysqli_query($conn,"UPDATE `test` SET `test_id`='$id',`test_name`='$name',`test_cost`='$cost',`prereq`='$treq' WHERE test_id='$id'");                 
+echo "S";
+}
+else{
+    echo "N";
 }
 ?>
 
