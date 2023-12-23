@@ -36,7 +36,7 @@ else{
     <head>
         <!-- <script src="system.js"></script> -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="admin_payment.css">
@@ -435,6 +435,31 @@ else{
           
 <div id="overlay"></div>
 
+<!-- 
+<div class="modal" id="emodall">
+    <div class="modal-header">
+     <div class="tittle">Edit Details</div>
+     <button class="close" id="closse" onclick="closee();" ><span class="material-symbols-outlined">
+        cancel
+        </span></button>
+    </div>  
+    <div class="modal-body">
+        <form>
+            <div class="eform-field">
+                <p> Do you want to send the appointment confirmation email to patient? </p>
+                <input type="text" placeholder="" id="se"/> 
+            </div>
+            <br/>
+            <div>
+                <a href="#">
+                <button class="edit" onclick="sendemail(e);">Yes</button></a>
+            <a href="#">
+             <button class="edit" onclick="notsendemail();">No</button></a></div>
+        </form>
+    </div>
+ </div>
+<div id="overlay"></div> -->
+
     </div>  
 
     </body>
@@ -456,6 +481,58 @@ patnn.setAttribute('id', 'patnn');
 
 let pate=document.createElement('p');
 pate.setAttribute('id', 'pate');
+
+function notsendemail(){
+
+    header('location:admin_paymentt.php');
+}
+
+function sendemail(email){
+   
+   //console.log("sendemail");
+    //console.log("sendemail");
+   console.log(email);
+//alert("helloo");
+
+    Email.send({
+    SecureToken : "12c87d66-814b-4244-8ae9-4d036f1d7790",
+    //76044bd9-ec82-4a13-ba1e-232ab2ac399d
+    //Host : "smtp.elasticemail.com",
+    // Username : "healthcarepathlabs2024@gmail.com",
+    // Password : "2ABAFF005BE9CAEB639C50A36A2806B45EA3",
+    //Password:"bqdewfamhteafsso",
+    To : "sakshisataye2003@gmail.com",
+    From :"healthcarepathlabs2023@gmail.com",
+    Subject : "Pathalogy test Appointment Confirmation",
+    Body : "Your transaction is verified and your appointment is confirmed as per the given schedule."
+}).then(
+  message => alert(message+"success")
+  //alert('otp sent to mail. Please check spam.')
+
+);
+}
+
+
+
+
+
+
+
+
+
+
+function emailconf(email){
+    console.log("email confirmation");
+
+    console.log(email);
+    const modal =document.getElementById('emodall');
+const overlay =document.getElementById('overlay');
+modal.style.display = 'block';
+overlay.style.display = 'block';
+modal.style.transform= 'translate(-50%,-50%) scale(1)';
+}
+
+
 
   function openn(e){
     console.log(e.target.parentNode.parentNode.parentNode.parentNode.childNodes);
@@ -479,10 +556,12 @@ function closee(){
     const modal =document.getElementById('modall');
     const delmodal =document.getElementById('delmodall');
     const addmodal =document.getElementById('addmodall');
+    const emodall =document.getElementById('emodall');
 const overlay =document.getElementById('overlay');
 modal.style.display = 'none';
 delmodal.style.display = 'none';
 addmodal.style.display='none';
+emodall.style.display='none';
 overlay.style.display = 'none';
 }
 
@@ -630,30 +709,40 @@ addmodal.style.transform= 'translate(-50%,-50%) scale(1)';
     btn2.addEventListener('click',e=>deleteb(e));
     btn3.addEventListener('click',e=>statusb(e));
     
+
     function statusb(e){
-    let email=e.target.parentNode.parentNode.parentNode.childNodes[1].innerHTML;
+    let email=e.target.parentNode.parentNode.parentNode.childNodes[2].innerHTML;
     console.log(email);
      let s=e.target.parentNode.childNodes[0].childNodes[0];
        //let result = JSON.stringify(s);
-       console.log(s);
-    let ss=s;
+      // console.log(s);
+    let ss=s.textContent;
     console.log(ss);
     if(ss=="paid"){
         btn3.disabled=true;
-        alert('paid');
+        //alert('paid');
     }
     if(ss=="unpaid"){
-        $.ajax({
+        if(confirm(" Do you want to send the appointment confirmation email to patient?")){
+            
+        sendemail(email);
+    //     $.ajax({
     
-    type: 'POST',
-    url: 'settrans.php',
-    data: {email:email.value},
-    success:function(data){
-        // console.log(data);
-        alert('updated');
-     }
-    });
-    btn3.disabled=true;
+    // type: 'POST',
+    // url: 'settrans.php',
+    // data: {email:email},
+    // success:function(data){
+    //     console.log(data);
+    //     console.log("updated");
+    //     //alert('updated');
+       
+    //  }
+    // });
+    // btn3.addEventListener('click',e=>emailconf(e));
+    //btn3.disabled=true;
+
+        }
+
     }
 
     }

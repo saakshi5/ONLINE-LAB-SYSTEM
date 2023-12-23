@@ -20,13 +20,13 @@ session_start();
 
         <header class="title">
             <div>
-                <img src="images/logo.png" alt="logo png" class="logo"></div>
+                <img src="logo.png" alt="logo png" class="logo"></div>
                 <div><p id="heading">Healthcare Pathlabs</p> </div>
             <nav class="navbar">
                 <div>
-                    <a href="index.html">HOME</a>
-                    <a href="index.html">ABOUT US</a>
-                <a href="index.html">CONTACT </a>
+                    <a href="homepage.html">HOME</a>
+                    <a href="homepage.html">ABOUT US</a>
+                <a href="homepage.html">CONTACT </a>
                 </div>
                 
                 <div id="menu-btn">
@@ -71,9 +71,9 @@ session_start();
             <div class="boxcontainer">
                 <!-- <div class="box">
                 <h3>Quick Links</h3>
-                <a href="index.html"><span class="material-symbols-outlined"> chevron_right</span>HOME</a>
-            <a href="index.htmlt"><span class="material-symbols-outlined">chevron_right</span>ABOUT US</a>
-            <a href="index.html"><span class="material-symbols-outlined">chevron_right</span>CONTACT US</a>
+                <a href="homepage.html"><span class="material-symbols-outlined"> chevron_right</span>HOME</a>
+            <a href="homepage.htmlt"><span class="material-symbols-outlined">chevron_right</span>ABOUT US</a>
+            <a href="homepage.html"><span class="material-symbols-outlined">chevron_right</span>CONTACT US</a>
                 
                 </div> -->
                 <div class="box">
@@ -175,6 +175,7 @@ success:function(data){
   if(data =='A'){
 // $_SESSION['user_name'] = $username;
 // $_SESSION['password'] = $password;
+alert("Correct credentials");
     window.location='admin.php';
 
   }
@@ -185,20 +186,22 @@ success:function(data){
 
 //password=$_SESSION['password'];
 console.log(username)
+alert("Correct credentials");
  window.location='customer.php';
   }
 
   else if(data =='Staff'){
+      alert("Correct credentials");
     window.location='lab.php';
 
   }
  
   else if(data=='ICP'){
-    alert('correct username and wrong password');
+    alert('correct username and Incorrect password');
   }
 
   else if(data=='Incorrect'){
-    alert('Wrong username');
+    alert('Incorrect username');
   }
   
   else{

@@ -580,8 +580,10 @@ $.ajax({
      let s=e.target.parentNode.childNodes[0].childNodes[0];
        //let result = JSON.stringify(s);
     
-    let ss=s;
-    console.log(ss);
+    let ss=s.textContent;
+    console.log("a",ss,"b");
+    //console.log("\"collected\"");
+
     if(ss=="collected"){
         btn3.disabled=true;
         alert('collected');
@@ -591,10 +593,10 @@ $.ajax({
     
     type: 'POST',
     url: 'setsam.php',
-    data: {email:email.value},
+    data: {email:email},
     success:function(data){
-        // console.log(data);
-        alert('updated');
+       console.log(data);
+        //alert('updated');
      }
     });
     btn3.disabled=true;

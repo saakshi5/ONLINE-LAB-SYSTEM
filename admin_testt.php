@@ -471,7 +471,25 @@ overlay.style.display = 'none';
 
 
           
+function prefetch(e,data){
+ //console.log(e,data);
+preid=e.target.parentNode.parentNode.parentNode.childNodes[0].innerText;
+console.log(tre);
 
+// console.log("data",data[0].test_id);
+
+for(let i=0; i<data.length; i++){
+
+
+    
+        // console.log("data",data[i].test_id);
+        if(data[i].test_id==preid){
+            console.log("prerq",data[i].prereq);
+            tre.defaultValue=dataa[i].prereq;
+        }
+}
+
+}
     
 
 
@@ -544,41 +562,44 @@ let p=document.createElement('p');  //paragraph
 p.setAttribute('id', 'idptb');
 
 
+//console.log(dataa);
 
 let btn3= document.createElement('button');  //edit button
     btn3.classList.add('btn-2');
     let spann= document.createElement('spann');  //delete button
     //span.classList.add('material-symbols-outlined');
     spann.innerHTML='Pre-requisites';
-    btn3.onclick=function(){
+    btn3.addEventListener('click',e=>prefetch(e,dataa));
 
-        $.ajax({
-
-type: 'POST',
-url: 'admin_test.php',
-data: {x:'Tests'},
-success:function(data){
-    // console.log(data);
-    dataa= JSON.parse(data);
     
-    for(let i=0; i<dataa.length;i++){
- console.log(dataa[i].prereq);
 
-//  if(data =='E')
-//  {
+//         $.ajax({
 
+// type: 'POST',
+// url: 'admin_test.php',
+// data: {x:'Tests'},
+// success:function(data){
+//     // console.log(data);
+//     dataa= JSON.parse(data);
+    
+//     for(let i=0; i<dataa.length;i++){
+//  console.log(dataa[i].prereq);
+
+// //  if(data =='E')
+// //  {
+
+// //  }
+// tre.defaultValue = dataa.prereq;
+// }
+//  if(data =='NE'){
+//  alert('Not exists');
 //  }
-tre.defaultValue = dataa.prereq;
-}
- if(data =='NE'){
- alert('Not exists');
- }
- else {
-alert("some issue");
-    }
-}
-});
-} 
+//  else {
+// alert("some issue");
+//     }
+// }
+// });
+
 
 
 // let b1=document.createElement('button');

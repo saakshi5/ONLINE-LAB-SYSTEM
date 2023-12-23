@@ -15,12 +15,10 @@ $sql=mysqli_query($conn,"SELECT * FROM test WHERE test_id='$id'");
 $count=mysqli_num_rows($sql);
 
 
-//if($count >0 || $count <0){
- mysqli_query($conn,"UPDATE `test` SET `test_name`='$name',`test_cost`='$cost',`prereq`=`$treq` WHERE test_id='$id'");
-echo 'Saved Successfully';
-// }
-// else{
-//     echo 'N';
-// }
+if ($count >0)
+{
+ mysqli_query($conn,"UPDATE test SET test_id='$id', test_name='$name',test_cost='$cost',prereq=`$treq` WHERE test_id='$id'");
+echo 'S';
+}
 ?>
 

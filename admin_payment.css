@@ -456,6 +456,14 @@ form label{
     justify-content:space-between;
     width:100%;
 }
+
+.eform-field{
+    display: flex;
+   font-size:14px;
+    justify-content:space-between;
+    width:80%;
+}
+
 /* .form-field1{
     display: flex;
    font-size:14px;

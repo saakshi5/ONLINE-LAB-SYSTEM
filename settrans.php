@@ -16,10 +16,10 @@ $email=$_POST['email'];
 $sql=mysqli_query($conn,"SELECT * FROM `patient_payment`");
 $count=mysqli_num_rows($sql);
 
-
+// echo ($email);
 // if($count >0 || $count<0){
- mysqli_query($conn,"UPDATE `patient_payment` SET `actrans_status`='paid' WHERE `patient_email`='$email'");
- echo 'Saved Successfully';
+ $det=mysqli_query($conn,"UPDATE `patient_payment` SET `actrans_status`='paid' WHERE `patient_email`='$email'");
+ echo ($det);
 //}
 
 ?>

@@ -12,7 +12,7 @@ $pass=$_POST['pass'];
 // echo "Sucessfully connected!";
 
 $_SESSION['user_name'] = $use;
-// $_SESSION['password'] = $pass;
+ $_SESSION['password'] = $pass;
 
 
 $sql =mysqli_query($conn,"SELECT * FROM admin WHERE admin_username='$use'");
