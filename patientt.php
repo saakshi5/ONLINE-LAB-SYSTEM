@@ -159,8 +159,8 @@ else{
         <div class="main">
            <h2 style="left:500px;">Patient Details</h2>
            <div class="search"><lable>
-            <input type="text" placeholder="Search here">
-            <div class="butt"><button class="btn-1">Go</button></div>
+            <input type="text" placeholder="Search here" id="search">
+            <div class="butt" id="butt"><button class="btn-1">Go</button></div>
 
             <div class="iconn">
                 <span class="material-symbols-outlined">
@@ -270,8 +270,9 @@ else{
                         <p>600</p>
                     </div>
                 </div> -->
-</div>
             </div>
+            <div id="patsearch"></div> 
+    </div>
 
 
             
@@ -399,6 +400,9 @@ else{
 
 
 <script>
+        let searchb=document.getElementById("butt");
+    searchb.addEventListener('click',e=>search(e));
+
        function visible(){
         let pass=document.getElementById("pass");
         if(pass.type=="password")
@@ -527,6 +531,173 @@ addmodal.style.transform= 'translate(-50%,-50%) scale(1)';
 //     window.alert('Deleted Successfully');
 
 // }
+function prefetch(e,data){
+ //console.log(e,data);
+preid=e.target.parentNode.parentNode.parentNode.childNodes[0].innerText;
+console.log(tre);
+
+// console.log("data",data[0].test_id);
+
+for(let i=0; i<data.length; i++){
+
+
+    
+        // console.log("data",data[i].test_id);
+        if(data[i].test_id==preid){
+            console.log("prerq",data[i].prereq);
+            tre.defaultValue=dataa[i].prereq;
+        }
+}
+
+}
+    
+function search(e){
+            let ppid=0;
+
+          let s=document.getElementById("search");
+            let n=s.parentNode.childNodes[1].value;
+            console.log(n);
+            n=n.toLowerCase();
+    const tt =document.getElementById('onlypatientbox');
+    const ts =document.getElementById('patsearch');
+    tt.style.display = 'none';
+    ts.style.display = 'block';
+    //ts.style.transform= 'translate(-50%,-50%) scale(1)';
+
+    //console.log(ts.parentNode);
+
+            $.ajax({
+    
+    type: 'POST',
+    url: 'patsearch.php',
+   data: {tn:n},
+    success:function(data){
+//console.log(data);
+        dataa=JSON.parse(data);
+    console.log(dataa[0].patient_name);
+        console.log(dataa.length);
+        if(data=='N'){
+     alert('Patient does not exists');
+     }
+     else {
+    
+    // let r=document.querySelectorAll('#testsearch'); //table id
+    // //console.log(r);
+
+    // if(r!=null){
+    //     r[0].remove();
+    // }
+
+    //const tabh=document.querySelector('.table-head');
+
+
+    //CHANGES 4 SENTENCES
+    // let tbox=document.createElement('div');
+    // tbox.setAttribute('id',"testsearch");
+
+    //let tab=document.querySelectorAll(".table-box");
+    //tabh.after(tbox);
+
+
+
+    for(let i=0; i<dataa.length;i++) {
+        
+        let tr=document.createElement('div');
+tr.classList.add('table-row');  
+
+let tcell1=document.createElement('div');
+tcell1.classList.add('table-cell','first-cell');
+
+let tcell2=document.createElement('div');
+tcell2.classList.add('table-cell');
+
+let tcell3=document.createElement('div');
+tcell3.classList.add('table-cell');
+
+let tcell4=document.createElement('div');
+tcell4.classList.add('table-cell');
+
+let tcell5=document.createElement('div');
+tcell5.classList.add('table-cell','last-cell');
+
+
+//create button
+let btn1= document.createElement('button');  //edit button
+btn1.classList.add('btn-2');
+
+let btn2= document.createElement('button');  //delete button
+btn2.classList.add('btn-3');
+
+
+let span= document.createElement('span');  //delete button
+span.classList.add('material-symbols-outlined');
+span.innerHTML='edit';
+
+let span2= document.createElement('span');  //delete button
+span2.classList.add('material-symbols-outlined');
+span2.innerHTML='delete';
+
+
+let p=document.createElement('p');  //paragraph
+p.setAttribute('id', 'idptb');
+
+ts.appendChild(tr);
+
+
+let btn3= document.createElement('button');  //edit button
+    btn3.classList.add('btn-2');
+    let spann= document.createElement('spann');  //delete button
+    //span.classList.add('material-symbols-outlined');
+    spann.innerHTML='Pre-requisites';
+    btn3.addEventListener('click',e=>prefetch(e,dataa));
+
+
+//rows and cols
+//let tbox1=document.getElementById('adptest');
+
+//tbox1.appendChild(tr);
+tr.appendChild(tcell1);
+tcell1.innerText=dataa[i].patient_name;
+
+tr.appendChild(tcell2);
+tcell2.innerText=dataa[i].patient_email;
+
+
+tr.appendChild(tcell3);
+tcell3.innerText=dataa[i].patient_address;
+
+
+tr.appendChild(tcell4);
+tcell4.innerText=dataa[i].patient_contact;
+    // tcell4.appendChild(btn3);
+    // btn3.appendChild(spann);
+
+tr.appendChild(tcell5);
+tcell5.appendChild(p);
+p.appendChild(btn1);
+btn1.appendChild(span);
+p.appendChild(btn2);
+btn2.appendChild(span2);
+
+btn1.addEventListener('click',e=>openn(e));
+btn2.addEventListener('click',e=>deleteb(e));
+btn3.addEventListener('click',e=>opennn(e));
+     }
+  
+    }
+
+}
+    });
+    
+
+        }
+
+
+
+
+
+
+
 
     function generatepatient(){
         $.ajax({

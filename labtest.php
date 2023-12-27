@@ -742,10 +742,12 @@ $.ajax({
 
         console.log(data);
    //data= JSON.parse(data);
- if(data=="S"){
+ if(data=='S'){
    alert('Saved successfully');
 }
-
+else if(data=='N'){
+        alert('Not deleted successfully');
+     }
  else{
     alert('Some issue');
  }
