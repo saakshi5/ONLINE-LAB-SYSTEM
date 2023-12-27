@@ -20,7 +20,7 @@ session_start();
 
         <header class="title">
             <div>
-                <img src="logo.png" alt="logo png" class="logo"></div>
+                <img src="images/logo.png" alt="logo png" class="logo"></div>
                 <div><p id="heading">Healthcare Pathlabs</p> </div>
             <nav class="navbar">
                 <div>
