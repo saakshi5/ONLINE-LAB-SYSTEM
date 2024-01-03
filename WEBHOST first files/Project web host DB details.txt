@@ -1,0 +1,4 @@
+Project web host DB details
+Name:hcpl_db
+Username:root
+password:Healthcare@2024
